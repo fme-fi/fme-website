@@ -1,3 +1,4 @@
+.env*
 src/components/assets
 # Logs
 logs
