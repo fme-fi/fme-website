@@ -1,35 +1,50 @@
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { Component } from 'react'
+import Slider from 'react-slick';
+import forEach from 'lodash/forEach';
+import 'slick-carousel/slick/slick-theme.scss';
+import 'slick-carousel/slick/slick.css';
+import SliderImage1 from './assets/slider/slider_1.jpg';
+import SliderImage2 from './assets/slider/slider_2.jpg';
+import SliderImage3 from './assets/slider/slider_3.jpg';
+import SliderImage4 from './assets/slider/slider_4.jpg';
 
-const Header = ({ siteTitle }) => (
-  <div
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </div>
-)
+const sliderConfig = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1
+};
+
+const sliderImages = [
+  SliderImage1, SliderImage2, SliderImage3, SliderImage4
+];
+
+class Header extends Component {
+  render() {    
+    return(
+      <div>
+        <Slider className="heroSlider" {...sliderConfig}>
+          {
+            sliderImages.map((currentSliderImage, i) =>
+              <div
+              className="slideBackground"                   
+              key={i}>                
+                <div style={{backgroundImage: `url(${currentSliderImage})`,
+                height: `110vh`,
+                backgroundSize: `cover`,
+                backgroundPosition: `50% 50%`                
+                }}></div>
+              </div>
+            )
+          }
+        </Slider>
+      </div>
+    )
+  }
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

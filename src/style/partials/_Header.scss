@@ -1,0 +1,14 @@
+.mainHeader {
+    background-color: #ff0000;    
+}
+
+.slideBackground {
+    &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: calc(100% - 5px);
+        background-color: #444;
+        opacity: .2;
+    }
+}

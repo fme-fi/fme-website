@@ -9,6 +9,7 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    `gatsby-plugin-sass`,    
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -32,7 +33,7 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-wordpress",
+      resolve: "@madetech/gatsby-source-wordpress",
       options: {
         /*
         * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
@@ -102,14 +103,8 @@ module.exports = {
         // all routes that begin with `yoast` from fetch.
         // Whitelisted routes using glob patterns
         includedRoutes: [
-          "**/*/*/categories",
-          "**/*/*/posts",
-          "**/*/*/pages",
-          "**/*/*/media",
-          "**/*/*/tags",
-          "**/*/*/taxonomies",
-          "**/*/*/users",
-          "/wp/v2/*/*"
+          "**/posts",     
+          "**/users"
         ],
         // Blacklisted routes using glob patterns
         excludedRoutes: ["**/*/*/posts/1456"],
