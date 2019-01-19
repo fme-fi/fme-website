@@ -1,0 +1,33 @@
+.boxContainer {
+    display: flex;    
+    justify-content: center;
+    position: absolute;
+    z-index: 9;
+    margin: 0 auto;
+    width: 100%;
+    bottom: -250px;
+    .box {
+        width: 250px;
+        height: 250px;
+        padding: 30px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        h1 {
+            color: #fff;
+            font-size: 1.4em;
+        }
+        &.yellow {
+            background-color: #F7C580;
+        }
+        &.yellow-2 {
+            background-color: #F3A66D;
+        }
+        &.red {
+            background-color: #E8806E;
+        }
+        &.red-2 {
+            background-color: #BF5858;
+        }
+    }
+}

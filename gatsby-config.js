@@ -104,7 +104,8 @@ module.exports = {
         // Whitelisted routes using glob patterns
         includedRoutes: [
           "**/posts",     
-          "**/users"
+          "**/users",
+          "**/pages",          
         ],
         // Blacklisted routes using glob patterns
         excludedRoutes: ["**/*/*/posts/1456"],

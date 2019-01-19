@@ -1,6 +1,4 @@
-.mainHeader {
-    background-color: #ff0000;    
-}
+@import './../mixins/hungarianColors';
 
 .slideBackground {
     &:before {
@@ -10,5 +8,30 @@
         height: calc(100% - 5px);
         background-color: #444;
         opacity: .2;
+    }
+}
+
+.welcome {
+    position: absolute;
+    z-index: 99;
+    top: 40%;
+    left: 10%;
+    h1, h2 {
+        font-weight: bold;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+    }
+    h1 {
+        font-size: 45px;
+    }
+    h2 {
+        font-size: 30px;
+        position: relative;
+        &:after {
+            content: '';
+            @include hungarianColors;
+            bottom: -10px;
+        }
     }
 }

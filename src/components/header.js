@@ -5,17 +5,21 @@ import Slider from 'react-slick';
 import forEach from 'lodash/forEach';
 import 'slick-carousel/slick/slick-theme.scss';
 import 'slick-carousel/slick/slick.css';
-import SliderImage1 from './assets/slider/slider_1.jpg';
+import SliderImage3 from './assets/slider/slider_1.jpg';
 import SliderImage2 from './assets/slider/slider_2.jpg';
-import SliderImage3 from './assets/slider/slider_3.jpg';
+import SliderImage1 from './assets/slider/slider_3.jpg';
 import SliderImage4 from './assets/slider/slider_4.jpg';
+import WelcomeText from './WelcomeText';
+import TopMenuBar from './common/TopMenuBar';
+import Box from './common/Box';
 
 const sliderConfig = {
-  dots: true,
+  dots: false,
   infinite: true,
   speed: 500,
   slidesToShow: 1,
-  slidesToScroll: 1
+  slidesToScroll: 1,
+  arrows: true
 };
 
 const sliderImages = [
@@ -26,6 +30,8 @@ class Header extends Component {
   render() {    
     return(
       <div>
+        <TopMenuBar />        
+        <WelcomeText />
         <Slider className="heroSlider" {...sliderConfig}>
           {
             sliderImages.map((currentSliderImage, i) =>
@@ -35,12 +41,13 @@ class Header extends Component {
                 <div style={{backgroundImage: `url(${currentSliderImage})`,
                 height: `110vh`,
                 backgroundSize: `cover`,
-                backgroundPosition: `50% 50%`                
+                backgroundPosition: `50% 50%`
                 }}></div>
               </div>
             )
-          }
+          }          
         </Slider>
+        <Box />
       </div>
     )
   }

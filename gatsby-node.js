@@ -60,5 +60,48 @@ exports.createPages = ({
       resolve();
     });
     // ==== END POSTS ====
+
+    // ==== PAGES ====
+    graphql(
+      `
+      {
+        allWordpressPage {
+          edges {
+            node {
+              id
+              title
+              content
+              excerpt
+              date
+              modified
+              slug
+              status        
+            }
+          }
+        }
+      }
+          `,
+    ).then((result) => {
+      if (result.errors) {
+        console.log(result.errors);
+        reject(result.errors);
+      }
+      const pageTemplate = path.resolve('./src/templates/page.js');
+      // We want to create a detailed page for each
+      // post node. We'll just use the Wordpress Slug for the slug.
+      // The Post ID is prefixed with 'POST_'
+      _.each(result.data.allWordpressPage.edges, (edge) => {
+        createPage({
+          path: `/${edge.node.slug}`,
+          component: slash(pageTemplate),
+          context: {
+            id: edge.node.id,
+          },
+        });
+      });
+      resolve();
+    });
+    // ==== END PAGES ====
+
   });
 };
