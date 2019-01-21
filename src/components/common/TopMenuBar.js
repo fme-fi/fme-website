@@ -4,8 +4,19 @@ import striptags from 'striptags';
 import Instagram from './../assets/social/instagram.svg';
 import Facebook from './../assets/social/facebook.svg';
 import styled from 'styled-components';
+import FmeLogo from './../assets/others/logo.svg';
 
 const SocialImage = styled.img``;
+
+const FmeLogoImage = styled.img`
+    max-width: 100px;
+    display: flex;
+    align-self: center;
+    &:hover {
+        pointer: none;
+        border: none;        
+    }
+`;
 
 class TopMenuBar extends Component {
     render() {
@@ -35,6 +46,9 @@ class TopMenuBar extends Component {
                 <div className="topMenuContainer">
                     <div className="topMenuBar">
                         <ul>
+                        <li>
+                            <FmeLogoImage src={FmeLogo} />
+                        </li>
                         {
                             data.allWordpressPage.edges.map(({node}) => (
                                 

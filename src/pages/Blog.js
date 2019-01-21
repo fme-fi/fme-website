@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Img from 'gatsby-image';
 import { StaticQuery, graphql, Link } from 'gatsby';
-import Layout from '../components/layout';
 
 const Blog = () => (
   <StaticQuery
@@ -22,9 +21,9 @@ const Blog = () => (
       }
     }
   `}
-    render={data => (        
-      <Layout>
-        <Link to="/">Go Back</Link>
+    render={data => (              
+        <div>
+          <Link to="/">Go Back</Link>
         <div className="container">
           <div className="row">
             <div className="col col-xs-12">
@@ -60,7 +59,8 @@ const Blog = () => (
             </div>
           </div>
         </div>
-      </Layout>)      
+        </div>
+      )      
 }
   />
 );

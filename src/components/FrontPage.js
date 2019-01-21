@@ -12,6 +12,30 @@ import SliderImage4 from './assets/slider/slider_4.jpg';
 import WelcomeText from './WelcomeText';
 import TopMenuBar from './common/TopMenuBar';
 import Box from './common/Box';
+import styled from 'styled-components';
+import Marhak from './assets/others/marhabg.png';
+import Testimonials from './common/Testimonials';
+import LatestPosts from './common/LatestPosts';
+import { Parallax, Background } from 'react-parallax';
+
+const TestimonialSectionContainer = styled.div`
+  display: flex;
+  height: 790px;
+  background-size: cover;
+  margin-top: -10px;
+  position: relative;  
+  align-items: center;
+  &:before {
+    background-color: rgba(27, 27, 27, 0.8);
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 100%;
+  }
+`;
 
 const sliderConfig = {
   dots: false,
@@ -35,7 +59,15 @@ class Header extends Component {
         <Slider className="heroSlider" {...sliderConfig}>
           {
             sliderImages.map((currentSliderImage, i) =>
-              <div
+            <Parallax
+            blur={0}
+            bgImage={currentSliderImage}            
+            strength={600} 
+            bgClassName="parallax"     
+            contentClassName="parallaxContent"      
+            key={i}
+            >            
+            <div
               className="slideBackground"                   
               key={i}>                
                 <div style={{backgroundImage: `url(${currentSliderImage})`,
@@ -44,10 +76,19 @@ class Header extends Component {
                 backgroundPosition: `50% 50%`
                 }}></div>
               </div>
+            </Parallax>              
             )
           }          
         </Slider>
         <Box />
+        <TestimonialSectionContainer style={{backgroundImage: `url(${Marhak})`}}>
+            <div className="contentWrapper">
+              <Testimonials />
+              <div className="posts">
+                <LatestPosts />                
+              </div>
+            </div>
+        </TestimonialSectionContainer>
       </div>
     )
   }

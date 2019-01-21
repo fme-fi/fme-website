@@ -4,8 +4,6 @@ import Helmet from 'react-helmet';
 import Img from 'gatsby-image';
 import { graphql, Link } from 'gatsby';
 
-import Layout from '../components/layout';
-
 // const stripHtml = (html) => {
 //   if (typeof window !== 'undefined') {
 //     const doc = new DOMParser().parseFromString(html, 'text/html');
@@ -16,8 +14,9 @@ import Layout from '../components/layout';
 const PostTemplate = (props) => {
   const { data: { wordpressPost: post } } = props;
   return (
-    <Layout>
-      <Helmet
+    
+      <div>
+        <Helmet
         title={post.title}
         meta={[
           { name: 'description', content: post.excerpt },
@@ -87,7 +86,8 @@ Published:
           </section>
         </section>
       </article>
-    </Layout>
+      </div>
+    
   );
 };
 PostTemplate.propTypes = {
