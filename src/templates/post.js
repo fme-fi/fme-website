@@ -10,6 +10,7 @@ import BlogHeader from './../components/common/BlogHeader';
 
 const PostTemplate = (props) => {
   const { data: { wordpressPost: post } } = props;
+  console.log(post);
   return (
     
       <div>
@@ -21,7 +22,7 @@ const PostTemplate = (props) => {
       />      
       <article>
         <header>
-          <BlogHeader blogTitle={striptags(post.title).replace('&nbsp;', ' ')} featuredImage={post.jetpack_featured_media_url} />
+          <BlogHeader postDate={post.date} author={post.author.name} blogTitle={striptags(post.title).replace('&nbsp;', ' ')} featuredImage={post.jetpack_featured_media_url} />
         </header>
           <BlogContainer content={post.content} />                    
       </article>
@@ -43,6 +44,9 @@ export const pageQuery = graphql`
         date(formatString: "DD, MMM YYYY")                        
         slug
         jetpack_featured_media_url
+        author {
+          name
+        }
     }
   }
 `;

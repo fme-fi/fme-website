@@ -14,15 +14,29 @@ class Footer extends Component {
     render() {
         
         return (
-            <VelocityComponent runOnMount={false} animation={{backgroundPositionX: "10000%"}} easing="linear" duration={45e5}>
-                <div style={{
-                    backgroundImage: `url(${backgroundImage})`,
-                    
-                }} className="footerContainer">
-                    <BackgroundImageContainer />                
-                    <img className="deer" src={Deer} />
+            <div>
+                <div className="footerLinkContainer">
+                    <div>
+                        <h1>
+                            lofasz
+                        </h1>
+                    </div>
+                    <div>
+                        <h1>
+                            lofasz
+                        </h1>
+                    </div>
                 </div>
-            </VelocityComponent>
+                <VelocityComponent runOnMount={false} animation={{backgroundPositionX: "10000%"}} easing="linear" duration={45e5}>
+                    <div style={{
+                        backgroundImage: `url(${backgroundImage})`,
+                        
+                    }} className="footerContainer">
+                        <BackgroundImageContainer />                
+                        <img className="deer" src={Deer} />
+                    </div>
+                </VelocityComponent>
+            </div>            
         )
     }
 }

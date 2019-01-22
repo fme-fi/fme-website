@@ -1,0 +1,10 @@
+@mixin lightLeak {
+    @keyframes lightleak {
+        15%   { opacity: 0.5; }
+        30%   { opacity: 0.4; }
+        45%   { opacity: 0.6; }
+        60%   { opacity: 1; }
+        75%   { opacity: 0.5; }
+        100%  { opacity: 0.8; }
+    }
+}

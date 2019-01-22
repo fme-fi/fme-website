@@ -1,3 +1,5 @@
+@import './../mixins/dropShadow';
+
 .boxContainer {
     display: flex;    
     justify-content: center;
@@ -5,8 +7,15 @@
     z-index: 9;
     margin: 0 auto;
     width: 100%;
-    bottom: -250px;
+    bottom: -250px;    
     .box {
+        &:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+            transition: all .4s ease;
+        }
+        transition: all .4s ease;
+        @include dropShadow;
         width: 250px;
         height: 250px;
         padding: 30px;
@@ -15,6 +24,7 @@
         align-items: flex-start;
         display: flex;
         margin: 20px;
+        border-radius: 15px;
         h1 {
             color: #fff;
             font-size: 1.4em;

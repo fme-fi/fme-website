@@ -19,10 +19,17 @@ import Marhak from './assets/others/marhabg.png';
 import Testimonials from './common/Testimonials';
 import LatestPosts from './common/LatestPosts';
 import { Parallax, Background } from 'react-parallax';
+import Management from './common/Management';
+
+import EffectLayer1 from './assets/others/fog.png';
+
+const EffectLayer = styled.div`
+  background-image: url(${EffectLayer1});
+`;
 
 const TestimonialSectionContainer = styled.div`
   display: flex;
-  height: 790px;
+  height: 890px;
   background-size: cover;
   margin-top: -10px;
   position: relative;  
@@ -57,8 +64,9 @@ class Header extends Component {
     return(
       <div>
         <TopMenuBar />        
-        <WelcomeText />
-        <Slider className="heroSlider" {...sliderConfig}>
+        <WelcomeText />       
+        
+        <Slider className="heroSlider" {...sliderConfig}>        
           {
             sliderImages.map((currentSliderImage, i) =>
             <Parallax
@@ -79,8 +87,8 @@ class Header extends Component {
                 }}></div>
               </div>
             </Parallax>              
-            )
-          }          
+            )            
+          }                           
         </Slider>
         <Box />
         <TestimonialSectionContainer style={{backgroundImage: `url(${Marhak})`}}>
@@ -91,6 +99,7 @@ class Header extends Component {
               </div>
             </div>
         </TestimonialSectionContainer>
+        <Management />
       </div>
     )
   }

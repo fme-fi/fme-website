@@ -1,0 +1,28 @@
+.facesContainer {
+    display: grid;
+    width: 900px;
+    margin: 0 auto;
+    grid-template-columns: repeat(4, 220px);
+    row-gap: 40px;
+    .face {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        img {
+            max-width: 100px;
+            border-radius: 100%;
+        }
+        h2, h3 {
+            margin: 0;
+            padding: 0;
+            color: $mainTextColor;
+        }
+        h2 {
+            font-size: 18px;
+        }
+        h3 {
+            font-size: 14px;
+        }
+    }
+}

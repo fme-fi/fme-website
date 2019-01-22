@@ -41,7 +41,6 @@ class Testimonials extends Component {
                     }
                 `}
                 render={data => (
-                    console.log(data),
                     <TestionialWrapper className="testimonialWrapper">
                         <h1>
                             Tagjaink mondták

@@ -12,3 +12,16 @@
         }
     }
 }
+
+.footerLinkContainer {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    margin: 50px;
+    div {
+        display: flex;
+        justify-content: center;
+        h1 {
+         color: $mainTextColor;
+        }
+    }
+}

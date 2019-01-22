@@ -46,8 +46,13 @@ class LatestPosts extends Component {
                                 </Link>
                                 <p>
                                     {
-                                        striptags(node.excerpt).substring(0, 200)
+                                        striptags(node.excerpt).substring(0, 200) + "..."
                                     }
+                                    <a href="#">
+                                        <span>
+                                            tovább olvasom
+                                        </span>
+                                    </a>
                                 </p>
                             </LatestPostsContainer>
                         ))

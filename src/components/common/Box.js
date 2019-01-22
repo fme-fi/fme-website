@@ -15,25 +15,25 @@ class Box extends Component {
                 <div className="box yellow">
                 <BoxImage src={Finland} />
                 <h1>
-                    Finn hagyományápolás   
+                    Finnországi életünk   
                 </h1>
                 </div>
                 <div className="box yellow-2">
                     <BoxImage src={Hungary} />
                     <h1>
-                        Finn hagyományápolás   
+                        Magyar hagyományápolás   
                     </h1>
                 </div>
                 <div className="box red">
                     <BoxImage src={Theather} />
                     <h1>
-                        Finn hagyományápolás   
+                        Kultúrális rendezvények   
                     </h1>
                 </div>
                 <div className="box red-2">
                     <BoxImage src={Fun} />
                     <h1>
-                        Finn hagyományápolás   
+                        Gyermek programok
                     </h1>
                 </div>
             </BoxContainer>
