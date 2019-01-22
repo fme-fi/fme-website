@@ -1,0 +1,14 @@
+.footerContainer {
+    background-size: cover;
+    height: 300px;
+    position: relative;
+    background-position-y: 80% !important;
+    background-repeat: repeat-x !important;
+    img {
+        &.deer {
+            position: absolute;
+            max-width: 100px;
+            bottom: 0;
+        }
+    }
+}

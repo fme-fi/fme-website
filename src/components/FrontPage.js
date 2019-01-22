@@ -9,6 +9,8 @@ import SliderImage3 from './assets/slider/slider_1.jpg';
 import SliderImage2 from './assets/slider/slider_2.jpg';
 import SliderImage1 from './assets/slider/slider_3.jpg';
 import SliderImage4 from './assets/slider/slider_4.jpg';
+import SliderImage5 from './assets/slider/slider_5.jpg';
+import SliderImage6 from './assets/slider/slider_6.jpg';
 import WelcomeText from './WelcomeText';
 import TopMenuBar from './common/TopMenuBar';
 import Box from './common/Box';
@@ -47,7 +49,7 @@ const sliderConfig = {
 };
 
 const sliderImages = [
-  SliderImage1, SliderImage2, SliderImage3, SliderImage4
+  SliderImage5, SliderImage6
 ];
 
 class Header extends Component {
