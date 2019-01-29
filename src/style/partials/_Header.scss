@@ -1,13 +1,17 @@
 @import './../mixins/hungarianColors';
 
-.slideBackground {
+.videoBackground {
+    height: 100vh;
+    video {
+        width: 100%;
+    }
     &:before {
         content: '';
         position: absolute;
         width: 100%;
         height: calc(100% - 5px);
-        background-color: #444;
-        opacity: .2;
+        background: linear-gradient(0deg, transparent 9%, #000000 100%);
+        opacity: .8;
     }
 }
 

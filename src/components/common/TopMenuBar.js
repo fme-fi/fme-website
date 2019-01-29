@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
 import striptags from 'striptags';
-import Instagram from './../assets/social/instagram.svg';
-import Facebook from './../assets/social/facebook.svg';
 import styled from 'styled-components';
 import FmeLogo from './../assets/others/logo.svg';
+import { FaInstagram, FaFacebookF } from 'react-icons/fa/'
 
 const SocialImage = styled.img``;
 
@@ -18,8 +17,46 @@ const FmeLogoImage = styled.img`
     }
 `;
 
+let lastScrollY = 0;
+let ticking = false;
+
 class TopMenuBar extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            isMenuBarFixed: false,            
+        }
+        this.handleScroll = this.handleScroll.bind(this);
+    }
+
+    componentDidMount() {
+        window.addEventListener('scroll', this.handleScroll);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll);
+    }
+
+    handleScroll = () => {
+        lastScrollY = window.scrollY;
+        if (!ticking) {
+        window.requestAnimationFrame(() => {
+            if (lastScrollY > 180) {
+                this.setState({
+                    isMenuBarFixed: true
+                })
+            } else {
+                this.setState({
+                    isMenuBarFixed: false
+                })
+            }
+            ticking = false;
+            });
+            ticking = true;
+        }
+    }
     render() {
+        let fixMenuBar = this.state.isMenuBarFixed ? 'fixed' : '';
         return (
             <StaticQuery
                 query={graphql`
@@ -44,7 +81,7 @@ class TopMenuBar extends Component {
                 render={data => (
                     console.log(data),
                 <div className="topMenuContainer">
-                    <div className="topMenuBar">
+                    <div className={`topMenuBar ${fixMenuBar}`}>
                         <ul>
                         <li>
                             <FmeLogoImage src={FmeLogo} />
@@ -70,10 +107,10 @@ class TopMenuBar extends Component {
                                 Közösségi média
                             </li>
                             <li>
-                                <SocialImage src={Instagram} />
+                                <FaInstagram size="1.1em" />
                             </li>
                             <li>
-                                <SocialImage src={Facebook} />
+                                <FaFacebookF size="1.1em" />
                             </li>
                         </ul>
                     </div>          

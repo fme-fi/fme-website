@@ -44,7 +44,7 @@ class Management extends Component {
                         <div className="facesContainer">                                                
                         {
                             data.allWordpressPage.edges.map(({node}) => (                            
-                                <div className="face">
+                                <div key={node.id} className="face">
                                     <ProfilePicture style={{backgroundImage: `url(${node.featured_media.source_url})`}} />
                                     <h2>
                                         {node.title}

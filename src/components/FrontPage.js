@@ -20,12 +20,7 @@ import Testimonials from './common/Testimonials';
 import LatestPosts from './common/LatestPosts';
 import { Parallax, Background } from 'react-parallax';
 import Management from './common/Management';
-
-import EffectLayer1 from './assets/others/fog.png';
-
-const EffectLayer = styled.div`
-  background-image: url(${EffectLayer1});
-`;
+import finlandVideo from './assets/others/suomi.mp4';
 
 const TestimonialSectionContainer = styled.div`
   display: flex;
@@ -64,32 +59,12 @@ class Header extends Component {
     return(
       <div>
         <TopMenuBar />        
-        <WelcomeText />       
-        
-        <Slider className="heroSlider" {...sliderConfig}>        
-          {
-            sliderImages.map((currentSliderImage, i) =>
-            <Parallax
-            blur={0}
-            bgImage={currentSliderImage}            
-            strength={600} 
-            bgClassName="parallax"     
-            contentClassName="parallaxContent"      
-            key={i}
-            >            
-            <div
-              className="slideBackground"                   
-              key={i}>                
-                <div style={{backgroundImage: `url(${currentSliderImage})`,
-                height: `110vh`,
-                backgroundSize: `cover`,
-                backgroundPosition: `50% 50%`
-                }}></div>
-              </div>
-            </Parallax>              
-            )            
-          }                           
-        </Slider>
+        <WelcomeText />               
+        <div className="videoBackground">
+          <video autoPlay>
+            <source src={finlandVideo} type="video/mp4" />
+          </video>
+        </div>
         <Box />
         <TestimonialSectionContainer style={{backgroundImage: `url(${Marhak})`}}>
             <div className="contentWrapper">

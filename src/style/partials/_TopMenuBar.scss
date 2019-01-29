@@ -1,106 +1,127 @@
 @import './../mixins/dropShadow';
 
-.topMenuBar {
-    @include dropShadow;
-    max-width: 1100px;
-    height: auto;
-    background-color: #fff;
-    width: 1100px;
-    z-index: 9;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    top: 30px;
-    ul {
-        &:first-of-type {
-            &:after {
-                content: '';
-                width: 100%;
-                border-bottom: 2px solid $mainTextColor;
-                position: absolute;
-                width: calc(100% - 100px);
-                bottom: 0;
-                opacity: .1;
-            }
-            display: flex;
-            list-style-type: none;
-            justify-content: center;
-            padding: 0;
-            padding-bottom: 20px;
-            margin-top: 20px;
-            position: relative;
-            li {
-                color: $mainTextColor;
-                padding: 10px 30px;
-                position: relative;
-                &:first-of-type {
-                    &:hover {
-                        &:after {
-                            border-bottom: none;
-                            opacity: .1;
-                        }
-                    }
-                }
-                &:hover {                    
-                    &:after {
-                        cursor: pointer;
-                        border-bottom: 2px solid $mainTextColor;
-                        transition: all .4s ease;
-                        width: 100%;
-                        opacity: 1;
-                    }
-                }
-                &:after {
+.topMenuContainer {
+    .topMenuBar {
+        max-width: 1100px;
+        height: auto;        
+        width: 1100px;
+        z-index: 9;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        top: 30px;
+        transition: width .4s ease;
+        ul {
+            &:first-of-type {
+                &::after {
                     content: '';
-                    display: block;
-                    border-right: 2px solid $mainTextColor;
-                    width: 2px;
-                    height: 100%;
+                    width: 100%;
+                    border-bottom: 2px solid #fff;
                     position: absolute;
-                    top: 0;                
-                    right: 0;
+                    width: calc(100% - 100px);
+                    bottom: 0;
                     opacity: .1;
                 }
-                a {
-                    font-weight: bold;
-                    text-decoration: none;
-                    color: inherit;
-                    text-transform: uppercase;
-                    z-index: 99999;
+                display: flex;
+                list-style-type: none;
+                justify-content: center;
+                padding: 0;
+                padding-bottom: 20px;
+                margin-top: 20px;
+                position: relative;
+                li {
+                    color: #fff;
+                    padding: 10px 30px;
                     position: relative;
-                    p {
-                        padding: 0;
-                        margin: 0;
-                        text-transform: none;
-                        font-size: 10px;
-                        font-weight: normal;
+                    &:first-of-type {
+                        &::hover {
+                            &::after {
+                                border-bottom: none;
+                                opacity: .1;
+                            }
+                        }
                     }
+                    &:hover {
+                        &::after {
+                            cursor: pointer;
+                            border-bottom: 2px solid #fff;
+                            transition: all .4s ease;
+                            width: 100%;
+                            opacity: 1;
+                        }
+                    }
+                    &::after {
+                        content: '';
+                        display: block;
+                        border-right: 2px solid #fff;
+                        width: 2px;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;                
+                        right: 0;
+                        opacity: .1;
+                    }
+                    a {
+                        font-weight: bold;
+                        text-decoration: none;
+                        color: inherit;
+                        text-transform: uppercase;
+                        z-index: 99999;
+                        position: relative;
+                        p {
+                            padding: 0;
+                            margin: 0;
+                            text-transform: none;
+                            font-size: 10px;
+                            font-weight: normal;
+                        }
+                    }
+                }            
+            }
+            &:last-of-type {
+                list-style-type: none;
+                display: flex;
+                margin: 0;
+                padding: 10px 10px;
+                li {
+                    border-bottom: 1px solid transparent;
+                    &:hover {
+                        cursor: pointer;
+                        transition: all .4s ease;
+                        border-bottom: 1px solid;
+                        opacity: .4;
+                    }
+                    color: #fff;
+                    &:first-child {
+                        text-transform: uppercase;
+                        font-size: 14px;
+                        margin: 0;
+                        margin-right: 10px;
+                        top: 0;
+                    }
+                    margin: 0 10px;
                 }
-            }            
+            }
         }
-        &:last-of-type {
-            list-style-type: none;
-            display: flex;
-            margin: 0;
-            padding: 10px 10px;
-            li {
-                border-bottom: 1px solid transparent;
-                &:hover {
-                    cursor: pointer;
-                    transition: all .4s ease;
-                    border-bottom: 1px solid;
-                    opacity: .4;
+        &.fixed {
+            position: fixed;
+            margin: 0 auto;
+            @include dropShadow;
+            background-color: #fff;
+            max-width: unset;
+            width: 100%;
+            transition: all .4s ease;
+            top: 0;
+            z-index: 9999;
+            ul, li, a {
+                color: $mainTextColor !important;
+            }
+            ul {
+                &:last-of-type {
+                    display: none;
                 }
-                color: $mainTextColor;
-                &:first-child {
-                    text-transform: uppercase;
-                    font-size: 12px;
-                    margin: 0;
-                    margin-right: 10px;
-                }
-                margin: 0 10px;
             }
         }
     }
