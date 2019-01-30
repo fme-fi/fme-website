@@ -75,7 +75,7 @@ exports.createPages = ({
               date
               modified
               slug
-              status        
+              status                      
             }
           }
         }

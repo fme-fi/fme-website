@@ -7,7 +7,7 @@
     z-index: 9;
     margin: 0 auto;
     width: 100%;
-    bottom: -250px;    
+    bottom: -200px;    
     .box {
         &:hover {
             transform: scale(1.05);
@@ -24,7 +24,31 @@
         align-items: flex-start;
         display: flex;
         margin: 20px;
-        border-radius: 15px;
+        position: relative;
+        &:before, {
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            right: -0.2px;
+            background: inherit;
+            height: 50px;
+            transform: skewY(-4deg);
+            transform-origin: 100%;
+            z-index: 1;
+            content: '';
+        }
+        &:after {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: -0.2px;
+            background: inherit;
+            height: 50px;
+            transform: skewY(-4deg);
+            transform-origin: 100%;
+            z-index: 1;
+            content: '';
+        }
         h1 {
             color: #fff;
             font-size: 1.4em;

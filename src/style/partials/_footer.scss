@@ -8,20 +8,8 @@
         &.deer {
             position: absolute;
             max-width: 100px;
-            bottom: 0;
-        }
-    }
-}
-
-.footerLinkContainer {
-    display: grid;
-    grid-template-columns: 2fr 2fr;
-    margin: 50px;
-    div {
-        display: flex;
-        justify-content: center;
-        h1 {
-         color: $mainTextColor;
+            bottom: 20px;
+            left: 20px;
         }
     }
 }

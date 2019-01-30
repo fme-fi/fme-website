@@ -78,8 +78,7 @@ class TopMenuBar extends Component {
                     }
                 `}
             
-                render={data => (
-                    console.log(data),
+                render={data => (                    
                 <div className="topMenuContainer">
                     <div className={`topMenuBar ${fixMenuBar}`}>
                         <ul>

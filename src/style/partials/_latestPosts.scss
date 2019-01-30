@@ -5,7 +5,7 @@
  align-items: center;
  margin: 0 auto;
  position: relative;
- top: 40px;
+ top: 80px;
 }
 
 .posts {
@@ -24,6 +24,7 @@
             padding: 0;        
         }
         p {
+            font-size: 15px;
             &:after {
                 //content: ' ...';
                 font-size: 16px;

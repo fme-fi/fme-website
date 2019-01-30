@@ -26,8 +26,7 @@ class LatestPosts extends Component {
                         }
                     }
                 `}
-                render={data => (
-                    console.log(data),
+                render={data => (                    
                     <div>
                     {
                         data.allWordpressPost.edges.map(({node}) => (

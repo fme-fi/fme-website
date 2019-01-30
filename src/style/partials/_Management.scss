@@ -5,6 +5,25 @@
     grid-template-columns: repeat(4, 220px);
     row-gap: 40px;
     .face {
+        position: relative;
+        .SVGInline {
+            position: absolute;
+            top: -15px;
+            opacity: 0;
+        }
+        &:hover {
+            cursor: pointer;
+            .SVGInline {
+                opacity: 1;
+                svg {
+                    stroke-dasharray: 1948.6529541015625;
+                    stroke-dashoffset: 0;
+                    animation: dash 1s linear backwards;
+                    animation-fill-mode: backwards;
+                }
+
+            }
+        }
         display: flex;
         justify-content: center;
         align-items: center;
@@ -26,3 +45,12 @@
         }
     }
 }
+
+@keyframes dash {
+    from {
+      stroke-dashoffset: 1948.6529541015625;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }

@@ -61,7 +61,7 @@ class Header extends Component {
         <TopMenuBar />        
         <WelcomeText />               
         <div className="videoBackground">
-          <video autoPlay>
+          <video autoPlay muted>
             <source src={finlandVideo} type="video/mp4" />
           </video>
         </div>
