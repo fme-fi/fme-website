@@ -3,14 +3,6 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import Slider from 'react-slick';
 import forEach from 'lodash/forEach';
-import 'slick-carousel/slick/slick-theme.scss';
-import 'slick-carousel/slick/slick.css';
-import SliderImage3 from './assets/slider/slider_1.jpg';
-import SliderImage2 from './assets/slider/slider_2.jpg';
-import SliderImage1 from './assets/slider/slider_3.jpg';
-import SliderImage4 from './assets/slider/slider_4.jpg';
-import SliderImage5 from './assets/slider/slider_5.jpg';
-import SliderImage6 from './assets/slider/slider_6.jpg';
 import WelcomeText from './WelcomeText';
 import TopMenuBar from './common/TopMenuBar';
 import Box from './common/Box';
@@ -31,18 +23,11 @@ const TestimonialSectionContainer = styled.div`
   padding: 0 50px ;
 `;
 
-const sliderConfig = {
-  dots: false,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: true
-};
-
-const sliderImages = [
-  SliderImage5, SliderImage6
-];
+const SectionTitle = styled.h1`
+    position: relative;
+    top: 200px;
+    margin: 50px 20px;
+`;
 
 class Header extends Component {
   render() {    
@@ -55,19 +40,13 @@ class Header extends Component {
             <source src={finlandVideo} type="video/mp4" />
           </video>
         </div>
-        <Box />
-        <Row center>
-          <Col flex={6}>
+        <Box />        
+        <Row center>                                        
+          <Col lg={10}>
+            <SectionTitle>
+              Következő eseményeink
+            </SectionTitle>
             <NextEvents />
-          </Col>
-          <Col flex={6}>
-            <TestimonialSectionContainer style={{backgroundColor: `#dedede`}}>
-                <div className="contentWrapper">
-                  <div className="posts">
-                    <LatestPosts />                
-                  </div>
-                </div>
-            </TestimonialSectionContainer>
           </Col>
         </Row>
         <Management />

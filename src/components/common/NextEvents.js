@@ -1,24 +1,21 @@
 import React, { Component } from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
 import { wordpressIds } from './../../postIds';
-import Calendar from 'react-calendar';
+import striptags from 'striptags';
+import { forEach } from 'lodash';
+import UpcomingEventCards from './UpcomingEventCards';
+import { Container, Row, Col } from 'react-flexybox';
 
 class NextEvents extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            date: new Date(),
-        }
-
-        this.onChange = this.onChange.bind(this);
-
+            date: new Date(),            
+        }        
       } 
 
-      onChange(selectedDate) {
-          console.log(selectedDate);
-      }
-      
-    render() {
+    render() {        
+        let businessRules = [];
         return (
             <StaticQuery
                 query={graphql`
@@ -44,11 +41,26 @@ class NextEvents extends Component {
                     }
                 `}
                 render={data => (
-                    <div className="nextEventsContainer">
-                            <Calendar className="calendar"
-                            onChange={(value) => this.onChange(value)}
-                            value={this.state.date}
-                            />                      
+                    forEach(data.allWordpressPage.edges, (key, value) => {
+                        let convertedObject = JSON.parse(striptags(key.node.excerpt).replace(/&#8220;/g, '"').replace(/&#8221;/g, '"').replace(/&#038;#8221;/g, '"'));                        
+                        businessRules.push(convertedObject)                        
+                    }),           
+                    console.log(data),
+                    <div className="nextEventsContainer">                                              
+                        {
+                            data.allWordpressPage.edges.map(({node}, index) => (
+                                <Col className="nextEventContainer" xs={12} lg={4}>
+                                    <span className="eventDate">
+                                        <span>
+                                            {
+                                                businessRules[index].date
+                                            }
+                                        </span> 
+                                    </span>
+                                    <UpcomingEventCards featuredImage={node.featured_media.source_url} title={node.title} key={index} businessRules={businessRules[index]} />
+                                </Col>
+                            ))
+                        }
                     </div>                    
                 )}
                 />

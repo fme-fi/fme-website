@@ -1,6 +1,9 @@
 @import './../mixins/dropShadow';
 
 .topMenuContainer {
+    @media screen and (max-width: $screen-sm-min - 1) {
+        display: none;
+    }
     .topMenuBar {
         max-width: 1100px;
         height: auto;        

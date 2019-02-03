@@ -40,7 +40,7 @@ class PastEvents extends Component {
                         <Row justifyContent="center">
                         {
                                 data.allWordpressPost.edges.map(({node}) => (                                    
-                                    <a href={`/blog/${node.slug}`}>
+                                    <a key={node.id} href={`/blog/${node.slug}`}>
                                         <Col className="onePastEvent" xs={12} lg={3}>
                                         <div style={{backgroundImage: `url(${node.featured_media.source_url})`}} className="featuredImage">
                                             <span>

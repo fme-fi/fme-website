@@ -4,3 +4,13 @@ $hungarianFlagColorRed: #FF0000;
 $hungarianFlagColorGreen: #417505;
 $longArrowRight: '⟶';
 $longArrowLeft: '⟵';
+
+//Grid variables
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;
+
+//Breakpoints
+$screen-xs-min: 480px !default;
+$screen-sm-min: 768px !default;
+$screen-md-min: 992px !default;
+$screen-lg-min: 1200px !default;

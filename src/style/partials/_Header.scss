@@ -2,9 +2,15 @@
 
 .videoBackground {
     height: 100vh;
+    @media screen and (max-width: $screen-sm-min - 1) {
+        height: 80vh;
+    }
     video {
         width: 100%;
-    }
+        @media screen and (max-width: $screen-sm-min - 1) {
+            display: none;
+        }
+    }    
     &:before {
         content: '';
         position: absolute;
@@ -20,6 +26,11 @@
     z-index: 99;
     top: 40%;
     left: 10%;
+    @media screen and (max-width: $screen-sm-min - 1) {
+        top: 20%;
+        left: 10%;
+    }
+
     h1, h2 {
         font-weight: bold;
         color: #fff;
