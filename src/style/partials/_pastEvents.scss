@@ -1,5 +1,14 @@
 .pastEventsContainer {
     margin-top: 50px;
+    a {
+        color: inherit;
+        text-decoration: none;
+        &:hover {
+            cursor: pointer;
+            color: #f0274e;
+            transition: all .2s ease;
+        }
+    }
     .onePastEvent {
         margin: 0 10px;
         width: calc(100% - 20px);
@@ -7,7 +16,8 @@
             background-repeat: no-repeat;
             background-size: cover;
             height: 360px;
-            position: relative;            
+            position: relative;
+            min-width: 320px;
             &:before {
                 content: '';
                 content: '';
@@ -41,6 +51,7 @@
                 position: relative;
                 top: 20px;
                 z-index: 9;
+                width: 200px;
             }
             position: relative;
             &:before {

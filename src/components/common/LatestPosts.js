@@ -5,15 +5,13 @@ import striptags from 'striptags';
 
 const LatestPostsContainer = styled.div``;
 
-
-
 class LatestPosts extends Component {
     render() {
         return (
             <StaticQuery
                 query={graphql`
                     query LatestPostQuery {
-                        allWordpressPost (limit:3) {
+                        allWordpressPost ( filter: {categories: {ne: 669435248}} limit:3) {
                             edges {
                             node {
                                 id

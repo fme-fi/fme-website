@@ -33,7 +33,19 @@ exports.createPages = ({
                     slug
                     status
                     template
-                    format
+                    format                  
+                  }
+                  next {
+                    wordpress_id
+                    id
+                    slug
+                    title
+                  }
+                  previous {
+                    wordpress_id
+                    id
+                    slug
+                    title
                   }
                 }
               }
@@ -49,11 +61,27 @@ exports.createPages = ({
       // post node. We'll just use the Wordpress Slug for the slug.
       // The Post ID is prefixed with 'POST_'
       _.each(result.data.allWordpressPost.edges, (edge) => {
+        let currentNext = edge.next ? edge.next.slug : "";
+        let currentPrev = edge.previous ? edge.previous.slug : "";
+        let currentNextTitle = edge.next ? edge.next.title  : "";
+        let currentPrevTitle = edge.previous ? edge.previous.title : "";
+
+        let nextObject = {
+          next: {
+            slug: currentPrev, 
+            title: currentPrevTitle
+          }, 
+          prev: {
+            slug: currentNext, 
+            title: currentNextTitle
+          }
+        }
         createPage({
           path: `/blog/${edge.node.slug}`,
           component: slash(postTemplate),
           context: {
-            id: edge.node.id,
+            id: edge.node.id,   
+            pagination: nextObject                  
           },
         });
       });

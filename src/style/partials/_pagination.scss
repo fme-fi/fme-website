@@ -1,0 +1,61 @@
+.paginationContainer {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    margin: 50px 0;
+    div {
+        display: flex;
+        position: relative;
+        align-items: center;
+        padding: 30px;
+        background: #f9f9f9;
+        a {
+            text-decoration: none;
+            p {
+                display: inherit;
+                align-items: center;
+                position: relative;
+                color: #bebebe;
+                &:hover {
+                    cursor: pointer;
+                    color: $mainTextColor;
+                    transition: all .4s ease;
+                }
+                line-height: 1.1;
+                font-size: 16px;
+            }
+        }
+        &:first-of-type {
+            justify-content: flex-start;
+            &:after {
+                content: '';
+                display: block;
+                border-right: 1px dotted #444;
+                position: absolute;
+                right: 0;
+                height: 100%;
+                max-height: 100%;
+                top: 0;
+                opacity: .2;
+                overflow: hidden;
+            }
+            p {                          
+                &:before {
+                    margin-right: 20px;
+                    font-size: 30px;
+                    content: $longArrowLeft;
+                }
+            }
+        }
+        &:last-of-type {
+            justify-content: flex-end;
+            p {
+                &:after {
+                    margin-left: 20px;
+                    font-size: 30px;
+                    content: $longArrowRight;
+                }
+            }
+        }
+    }
+}

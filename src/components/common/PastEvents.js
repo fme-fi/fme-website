@@ -4,6 +4,15 @@ import { StaticQuery, graphql, Link } from 'gatsby';
 import striptags from 'striptags';
 
 class PastEvents extends Component {
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);        
+    }
+
+    handleClick(postSlug) {
+        console.log(postSlug);
+        this.props.histpry.push(postSlug);
+    }
     render() {
         return (
             <StaticQuery
@@ -30,23 +39,25 @@ class PastEvents extends Component {
                     <Container fluid={false}>
                         <Row justifyContent="center">
                         {
-                                data.allWordpressPost.edges.map(({node}) => (
-                                    <Col className="onePastEvent" xs={12} lg={3}>
-                                    <div style={{backgroundImage: `url(${node.featured_media.source_url})`}} className="featuredImage">
-                                        <span>
-                                            {
-                                                new Date(node.date).toLocaleString("hu", { month: "long"  }) + ", " + new Date(node.date).getFullYear()
-                                            }
-                                        </span>
-                                    </div>
-                                        <div className="content">
-                                            <h1>
-                                            {
-                                                striptags(node.title).replace('&nbsp;', ' ')
-                                            }                                            
-                                            </h1>
+                                data.allWordpressPost.edges.map(({node}) => (                                    
+                                    <a href={`/blog/${node.slug}`}>
+                                        <Col className="onePastEvent" xs={12} lg={3}>
+                                        <div style={{backgroundImage: `url(${node.featured_media.source_url})`}} className="featuredImage">
+                                            <span>
+                                                {
+                                                    new Date(node.date).toLocaleString("hu", { month: "long"  }) + ", " + new Date(node.date).getFullYear()
+                                                }
+                                            </span>
                                         </div>
-                                    </Col>
+                                            <div className="content">
+                                                <h1>
+                                                {
+                                                    striptags(node.title).replace('&nbsp;', ' ')
+                                                }                                            
+                                                </h1>
+                                            </div>
+                                        </Col>
+                                    </a>                                    
                                 ))
                             }                                  
                         </Row>

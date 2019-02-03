@@ -1,0 +1,13 @@
+@import './../mixins/dropShadow';
+
+.nextEventsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(222, 222, 222);
+    height: 800px;
+    .calendar {
+        border: none;
+        @include dropShadow;
+    }
+}

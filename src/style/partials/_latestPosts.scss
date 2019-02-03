@@ -19,19 +19,18 @@
         flex: 2;
         padding: 10px 0;
         h1, p {
-            color: #fff;
+            color: $mainTextColor;
             margin: 0;
-            padding: 0;        
+            padding: 0;
         }
         p {
             font-size: 15px;
             &:after {
-                //content: ' ...';
                 font-size: 16px;
             }
             span {
                 margin-left: 5px;
-                color: #F7C580;
+                color: $mainTextColor;
             }
         }
         a {
@@ -43,7 +42,7 @@
         h1 {            
             &:hover {
                 cursor: pointer;
-                color: #F7C580;
+                color: $mainTextColor;
                 transition: all .4s ease;
             }
             p {
@@ -54,12 +53,12 @@
                 top: 15px;
                 &:after {
                     content: '';
-                    border-left: 2px solid #fff;
+                    border-left: 2px solid $mainTextColor;
                     position: absolute;
-                    height: 100px;
+                    height: 80px;
                     top: 30px;
                     left: 25px;
-                    opacity: .3;
+                    
                 }
             }
         }

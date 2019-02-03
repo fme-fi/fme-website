@@ -6,27 +6,27 @@ import { graphql, Link } from 'gatsby';
 import striptags from 'striptags';
 import BlogContainer from './../components/common/BlogContainer'
 import BlogHeader from './../components/common/BlogHeader';
-
+import { Container, Row, Col } from 'react-flexybox';
 
 const PostTemplate = (props) => {
-  const { data: { wordpressPost: post } } = props;  
+  const { data: { wordpressPost: post } } = props;      
   return (
-    
+    <Container fluid>
       <div>
         <Helmet
-        title={post.title}
-        meta={[
-          { name: 'description', content: post.excerpt },
-        ]}
-      />      
-      <article>
+          title={post.title}
+          meta={[
+            { name: 'description', content: post.excerpt },
+          ]}
+        />      
+       <article>
         <header>
           <BlogHeader postDate={post.date} author={post.author.name} blogTitle={striptags(post.title).replace('&nbsp;', ' ')} featuredImage={post.featured_media.source_url} />
         </header>
-          <BlogContainer content={post.content} />                    
-      </article>
-      </div>
-    
+          <BlogContainer pagination={props.pageContext.pagination} thisPostId={post.wordpress_id} content={post.content} />                    
+        </article>
+      </div> 
+    </Container>         
   );
 };
 PostTemplate.propTypes = {
@@ -49,6 +49,7 @@ export const pageQuery = graphql`
         author {
           name
         }
+        wordpress_id
     }
   }
 `;

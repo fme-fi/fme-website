@@ -21,24 +21,14 @@ import LatestPosts from './common/LatestPosts';
 import { Parallax, Background } from 'react-parallax';
 import Management from './common/Management';
 import finlandVideo from './assets/others/suomi.mp4';
+import { Container, Row, Col } from 'react-flexybox';
+import NextEvents from './common/NextEvents';
 
 const TestimonialSectionContainer = styled.div`
+  height: 800px;
   display: flex;
-  height: 890px;
-  background-size: cover;
-  margin-top: -10px;
-  position: relative;  
   align-items: center;
-  &:before {
-    background-color: rgba(27, 27, 27, 0.8);
-    
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: '';
-    width: 100%;
-    height: 100%;
-  }
+  padding: 0 50px ;
 `;
 
 const sliderConfig = {
@@ -57,7 +47,7 @@ const sliderImages = [
 class Header extends Component {
   render() {    
     return(
-      <div>
+      <Container fluid>
         <TopMenuBar />        
         <WelcomeText />               
         <div className="videoBackground">
@@ -66,16 +56,22 @@ class Header extends Component {
           </video>
         </div>
         <Box />
-        <TestimonialSectionContainer style={{backgroundImage: `url(${Marhak})`}}>
-            <div className="contentWrapper">
-              <Testimonials />
-              <div className="posts">
-                <LatestPosts />                
-              </div>
-            </div>
-        </TestimonialSectionContainer>
+        <Row center>
+          <Col flex={6}>
+            <NextEvents />
+          </Col>
+          <Col flex={6}>
+            <TestimonialSectionContainer style={{backgroundColor: `#dedede`}}>
+                <div className="contentWrapper">
+                  <div className="posts">
+                    <LatestPosts />                
+                  </div>
+                </div>
+            </TestimonialSectionContainer>
+          </Col>
+        </Row>
         <Management />
-      </div>
+        </Container>
     )
   }
 }
