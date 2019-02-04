@@ -12,6 +12,9 @@
     .onePastEvent {
         margin: 0 10px;
         width: calc(100% - 20px);
+        @media screen and (max-width: $screen-sm-min - 1) {
+            margin: unset;
+        }
         .featuredImage {
             background-repeat: no-repeat;
             background-size: cover;
@@ -42,7 +45,8 @@
                     color: #fff;
                     background-color: #f0274e;
                     padding: 10px;
-                    text-transform: capitalize;                       
+                    text-transform: capitalize;
+
             }
         }
         .content {
@@ -52,6 +56,9 @@
                 top: 20px;
                 z-index: 9;
                 width: 200px;
+                @media screen and (max-width: $screen-sm-min - 1) {
+                    top: 0;
+                }
             }
             position: relative;
             &:before {
@@ -67,6 +74,12 @@
                 content: '';
                 margin-bottom: -30px;
                 background: #fff;
+                @media screen and (max-width: $screen-sm-min - 1) {
+                    border-left: 2px solid #fff;
+                    left: -1px;
+                    border-right: 2px solid #fff;
+                    overflow: hidden;
+                }
             }
         }
     }

@@ -37,7 +37,7 @@ class PastEvents extends Component {
                 `}
                 render={data =>(                
                     <Container fluid={false}>
-                        <Row justifyContent="center">
+                        <Row center>
                         {
                                 data.allWordpressPost.edges.map(({node}) => (                                    
                                     <a key={node.id} href={`/blog/${node.slug}`}>

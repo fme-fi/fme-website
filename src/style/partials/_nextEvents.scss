@@ -16,7 +16,15 @@
     align-items: center;
     justify-content: center;
     margin-top: 300px;
+    @media screen and (max-width: $screen-sm-min - 1) {
+        flex-direction: column;
+    }
     .nextEventContainer {
+        &:last-of-type {
+            &:after {
+                content: unset;
+            }
+        }
         span {            
             &.eventDate {                
                 position: absolute;
@@ -54,9 +62,20 @@
             height: 100px;
             left: 50%;
         }
+        &:after {
+            content: '';
+            border-right: 2px solid #dedede;
+            position: absolute;
+            bottom: 0;
+            height: 100px;
+            left: 50%;
+        }        
         .eventCard {
             border-radius: 10px;
             z-index: 9;
+            @media screen and (max-width: $screen-sm-min - 1) {
+                margin-bottom: 100px;
+            }
             h1 {
                 color: #fff;
                 font-weight: 200;
