@@ -3,12 +3,18 @@ import PropType from 'prop-types';
 import Helmet from 'react-helmet';
 import Img from 'gatsby-image';
 import { graphql, Link } from 'gatsby';
+import LinkCollection from './../pages/LinkCollection';
 
 const PageTemplate = (props) => {
   const { data: { wordpressPage: page } } = props;
+  
+  const Layout = LinkCollection;
+
   return (
     <div>
-        {page.title}
+        <LinkCollection>
+            {page.title}
+        </LinkCollection>
     </div>
   );
 };
@@ -25,6 +31,8 @@ export const pageQuery = graphql`
         excerpt
         date(formatString: "DD, MMM YYYY")                        
         slug
+        id
+        wordpress_id
     }
   }
 `;
