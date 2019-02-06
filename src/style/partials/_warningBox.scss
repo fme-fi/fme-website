@@ -1,0 +1,17 @@
+.warningBox {
+    background-color: #ffb454;
+    border-bottom: 8px solid $warningColor;
+    padding: 15px;
+    p {
+        color: $mainTextColor;
+        font-size: 18px;
+        opacity: .8;
+        transform: all .4s ease;
+    }
+    &:hover {
+        p {
+            opacity: 1;
+            transform: all .4s ease;
+        }
+    }
+}

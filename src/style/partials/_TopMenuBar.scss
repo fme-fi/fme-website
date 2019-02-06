@@ -4,6 +4,12 @@
     @media screen and (max-width: $screen-sm-min - 1) {
         display: none;
     }
+    &.subPage {
+        height: 180px;
+        ul, li {
+            color: $mainTextColor !important;
+        }
+    }
     .topMenuBar {
         max-width: 1100px;
         height: auto;        

@@ -57,6 +57,7 @@ class TopMenuBar extends Component {
     }
     render() {
         let fixMenuBar = this.state.isMenuBarFixed ? 'fixed' : '';
+        let isSubPage = this.props.subPage ? 'subPage' : '';
         return (
             <StaticQuery
                 query={graphql`
@@ -79,7 +80,7 @@ class TopMenuBar extends Component {
                 `}
             
                 render={data => (                    
-                <div className="topMenuContainer">
+                <div className={`topMenuContainer ${isSubPage}`}>
                     <div className={`topMenuBar ${fixMenuBar}`}>
                         <ul>
                         <li>

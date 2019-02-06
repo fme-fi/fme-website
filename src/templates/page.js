@@ -12,8 +12,8 @@ const PageTemplate = (props) => {
 
   return (
     <div>
-        <LinkCollection>
-            {page.title}
+        <LinkCollection links={page.content}>
+            {page.title}                        
         </LinkCollection>
     </div>
   );
