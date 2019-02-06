@@ -1,4 +1,5 @@
 export const wordpressIds = {
     testimonials: 548,
-    upcomingEvents: 617
+    upcomingEvents: 617,
+    usefulStuff: 538
 }

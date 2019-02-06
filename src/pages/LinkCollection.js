@@ -5,6 +5,7 @@ import ListElement from './../components/common/ListElement';
 import striptags from 'striptags';
 import UsefulSidebar from './../components/UsefulSidebar';
 import TopMenuBar from './../components/common/TopMenuBar';
+import Footer from './../components/common/Footer';
 
 class LinkCollection extends Component {
     constructor(props) {
@@ -53,6 +54,7 @@ class LinkCollection extends Component {
                     </Col>       
                 </Row>                
             </Container>
+            <Footer />
             </div>
         )
     }

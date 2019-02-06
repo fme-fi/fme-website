@@ -14,10 +14,7 @@ class Footer extends Component {
     render() {
         
         return (
-            <div>
-                <div className="pastEventsContainer">
-                    <PastEvents />
-                </div>
+            <div>                
                 <VelocityComponent runOnMount={true} animation={{backgroundPositionX: "10000%"}} easing="linear" duration={45e5}>
                     <div style={{
                         backgroundImage: `url(${backgroundImage})`,

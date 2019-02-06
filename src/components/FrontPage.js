@@ -7,14 +7,12 @@ import WelcomeText from './WelcomeText';
 import TopMenuBar from './common/TopMenuBar';
 import Box from './common/Box';
 import styled from 'styled-components';
-import Marhak from './assets/others/marhabg.png';
-import Testimonials from './common/Testimonials';
 import LatestPosts from './common/LatestPosts';
-import { Parallax, Background } from 'react-parallax';
 import Management from './common/Management';
 import finlandVideo from './assets/others/suomi.mp4';
 import { Container, Row, Col } from 'react-flexybox';
 import NextEvents from './common/NextEvents';
+import PastEvents from './common/PastEvents';
 
 const TestimonialSectionContainer = styled.div`
   height: 800px;
@@ -50,6 +48,9 @@ class Header extends Component {
           </Col>
         </Row>
         <Management />
+        <div className="pastEventsContainer">
+            <PastEvents />
+        </div>
         </Container>
     )
   }
