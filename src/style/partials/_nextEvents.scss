@@ -62,14 +62,16 @@
             height: 100px;
             left: 50%;
         }
-        &:after {
-            content: '';
-            border-right: 2px solid #dedede;
-            position: absolute;
-            bottom: 0;
-            height: 100px;
-            left: 50%;
-        }        
+        @media screen and (max-width: $screen-sm-min - 1) {
+            &:after {
+                content: '';
+                border-right: 2px solid #dedede;
+                position: absolute;
+                bottom: 0;
+                height: 100px;
+                left: 50%;
+            }
+        }                
         .eventCard {
             border-radius: 10px;
             z-index: 9;

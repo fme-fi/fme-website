@@ -11,6 +11,16 @@
             padding: 10px;
             padding-left: 20px;
             border-bottom: 1px solid rgba(28, 49, 66, .4);
+            &:first-of-type {
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 20px;
+                &:hover {
+                    cursor: initial;
+                    background: inherit;
+                    transition: none;
+                }
+            }
             &:hover {
                 cursor: pointer;
                 background-color: $mainTextColor;

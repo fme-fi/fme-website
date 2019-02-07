@@ -5,12 +5,12 @@ import Img from 'gatsby-image';
 import { graphql, Link } from 'gatsby';
 import LinkCollection from './../pages/LinkCollection';
 import { wordpressIds } from './../postIds';
+import BasicMap from './../pages/Events';
 
 const PageTemplate = (props) => {
-  const { data: { wordpressPage: page } } = props;
+  const { data: { wordpressPage: page } } = props;  
+  const Layout = LinkCollection;  
   
-  const Layout = LinkCollection;
-  console.log(page.wordpress_id);
   return (
     page.wordpress_id === wordpressIds.usefulStuff ? 
     <div>
@@ -18,6 +18,8 @@ const PageTemplate = (props) => {
             {page.title}                        
         </LinkCollection>
     </div>
+    : page.wordpress_id === wordpressIds.events ?
+      <BasicMap />
     : null
   );
 };
