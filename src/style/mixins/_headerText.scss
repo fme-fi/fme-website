@@ -1,0 +1,16 @@
+@mixin headerText {
+    font-size: 42px;
+    color: $mainTextColor;
+    text-transform: uppercase;
+    position: relative;
+    &:after {
+        content: '';
+        display: block;
+        width: 84%;
+        border-bottom: 3px solid $mainTextColor;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        opacity: .2;
+    }
+}

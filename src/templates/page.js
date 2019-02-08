@@ -6,11 +6,13 @@ import { graphql, Link } from 'gatsby';
 import LinkCollection from './../pages/LinkCollection';
 import { wordpressIds } from './../postIds';
 import BasicMap from './../pages/Events';
+import AboutUs from './../pages/AboutUs';
+import Archive from './../pages/Archive';
 
 const PageTemplate = (props) => {
   const { data: { wordpressPage: page } } = props;  
   const Layout = LinkCollection;  
-  
+
   return (
     page.wordpress_id === wordpressIds.usefulStuff ? 
     <div>
@@ -20,7 +22,11 @@ const PageTemplate = (props) => {
     </div>
     : page.wordpress_id === wordpressIds.events ?
       <BasicMap />
-    : null
+    : page.wordpress_id === wordpressIds.aboutUs ?
+      <AboutUs content={page.content} />
+    : page.wordpress_id === wordpressIds.archive ?
+      <Archive />
+      : null
   );
 };
 PageTemplate.propTypes = {

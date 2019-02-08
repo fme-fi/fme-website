@@ -45,6 +45,9 @@
                     padding: 10px 30px;
                     position: relative;
                     &:first-of-type {
+                        a {
+                            display: block;
+                        }
                         &::hover {
                             &::after {
                                 border-bottom: none;

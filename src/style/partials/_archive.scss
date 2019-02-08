@@ -1,0 +1,23 @@
+@import './../mixins/headerText';
+
+.archiveList {
+    h1 {
+        @include headerText;
+    }    
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        a {
+            color: $mainTextColor;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        li {
+            font-size: 18px;
+            padding: 4px 0;
+        }
+    }
+}

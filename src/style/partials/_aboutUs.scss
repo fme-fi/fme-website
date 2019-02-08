@@ -1,0 +1,20 @@
+@import './../mixins/headerText';
+
+.aboutUs {
+    margin-top: 40px;
+    h1 {
+        @include headerText;
+    }
+    p {
+        line-height: 1.60;
+        font-size: 20px;
+        letter-spacing: .4px;
+        color: #404040;
+        font-weight: 200; 
+        a {
+            color: #243e54;
+            text-decoration: underline;
+            font-weight: 400;            
+        }
+    }
+}

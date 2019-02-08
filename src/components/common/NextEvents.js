@@ -49,7 +49,7 @@ class NextEvents extends Component {
                     <div className="nextEventsContainer">                                              
                         {
                             data.allWordpressPage.edges.map(({node}, index) => (
-                                <Col className="nextEventContainer" xs={12} lg={4}>
+                                <Col key={index} className="nextEventContainer" xs={12} lg={4}>
                                     <span className="eventDate">
                                         <span>
                                             {

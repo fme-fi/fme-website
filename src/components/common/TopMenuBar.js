@@ -84,7 +84,9 @@ class TopMenuBar extends Component {
                     <div className={`topMenuBar ${fixMenuBar}`}>
                         <ul>
                         <li>
-                            <FmeLogoImage src={FmeLogo} />
+                            <Link to="/">
+                                <FmeLogoImage src={FmeLogo} />
+                            </Link>
                         </li>
                         {
                             data.allWordpressPage.edges.map(({node}) => (
