@@ -32,22 +32,14 @@ class Archive extends Component {
                             <Row center>
                                 <Col lg={8}>
                                     <h1>
-                                        Archív {data.allWordpressPost.edges.length}
+                                        {`Archiv (${data.allWordpressPost.edges.length})`}
                                     </h1>
-                                    <div>
-                                        {   
-                                            data.allWordpressPost.edges.forEach((element) => {                                            
-                                                let currentDate = new Date(element.node.date);                                              
-                                            if (!postDates.includes(currentDate.getFullYear())) {                                              
-                                                postDates.push(currentDate.getFullYear())
-                                            }
-                                            })
-                                        }
+                                    <div>                                        
                                         <ul>
                                             {
                                                 data.allWordpressPost.edges.map(({node}, index) => (
-                                                    <Link to={`blog/${node.slug}`}>
-                                                        <li key={index} dangerouslySetInnerHTML={{__html: node.title}} />                                                                                                            
+                                                    <Link key={index} to={`blog/${node.slug}`}>
+                                                        <li dangerouslySetInnerHTML={{__html: node.title}} />                                                                                                            
                                                     </Link>
                                                 ))
                                             }

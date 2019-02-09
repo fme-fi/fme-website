@@ -41,6 +41,14 @@
                 margin-top: 20px;
                 position: relative;
                 li {
+                    &.activePage {
+                        border-bottom: 2px solid $mainTextColor;
+                        &:hover {
+                            &:after {
+                                content: unset;
+                            }
+                        }
+                    }
                     color: #fff;
                     padding: 10px 30px;
                     position: relative;
@@ -48,15 +56,15 @@
                         a {
                             display: block;
                         }
-                        &::hover {
-                            &::after {
+                        &:hover {
+                            &:after {
                                 border-bottom: none;
                                 opacity: .1;
                             }
                         }
                     }
                     &:hover {
-                        &::after {
+                        &:after {
                             cursor: pointer;
                             border-bottom: 2px solid #fff;
                             transition: all .4s ease;

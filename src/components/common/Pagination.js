@@ -9,7 +9,7 @@ class Pagination extends Component {
             <div className="paginationContainer">
                 {
                     this.props.pagination.prev.slug !== "" ? 
-                    <div>
+                    <div className="goBack">
                         <a href={`/blog/${this.props.pagination.prev.slug}`}>
                             <p>
                                 {
@@ -22,7 +22,7 @@ class Pagination extends Component {
                 }
                 {
                     this.props.pagination.next.slug !== "" ? 
-                    <div>
+                    <div className="goForward">
                     <a href={`/blog/${this.props.pagination.next.slug}`}>
                             <p>
                                 {

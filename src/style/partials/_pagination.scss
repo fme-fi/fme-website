@@ -25,7 +25,7 @@
                 font-size: 16px;
             }
         }
-        &:first-of-type {
+        &.goBack {
             justify-content: flex-start;
             &:after {
                 content: '';
@@ -47,7 +47,7 @@
                 }
             }
         }
-        &:last-of-type {
+        &.goForward {
             justify-content: flex-end;
             p {
                 &:after {

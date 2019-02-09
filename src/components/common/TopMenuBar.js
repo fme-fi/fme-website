@@ -25,12 +25,18 @@ class TopMenuBar extends Component {
         super(props)
         this.state = {
             isMenuBarFixed: false,            
+            currentPage: null
         }
         this.handleScroll = this.handleScroll.bind(this);
     }
 
     componentDidMount() {
         window.addEventListener('scroll', this.handleScroll);
+        let urlArray = window.location.href.split("/");
+        let currentPage = urlArray[urlArray.length - 1];        
+        this.setState({
+            currentPage: currentPage
+        })
     }
 
     componentWillUnmount() {
@@ -57,7 +63,7 @@ class TopMenuBar extends Component {
     }
     render() {
         let fixMenuBar = this.state.isMenuBarFixed ? 'fixed' : '';
-        let isSubPage = this.props.subPage ? 'subPage' : '';
+        let isSubPage = this.props.subPage ? 'subPage' : '';        
         return (
             <StaticQuery
                 query={graphql`
@@ -79,7 +85,7 @@ class TopMenuBar extends Component {
                     }
                 `}
             
-                render={data => (                    
+                render={data => (                                
                 <div className={`topMenuContainer ${isSubPage}`}>
                     <div className={`topMenuBar ${fixMenuBar}`}>
                         <ul>
@@ -90,8 +96,18 @@ class TopMenuBar extends Component {
                         </li>
                         {
                             data.allWordpressPage.edges.map(({node}) => (
-                                
-                                    <li key={node.slug}>
+                                    this.state.currentPage === node.slug ?
+                                        <li className="activePage" key={node.slug}>
+                                            <Link to={`/${node.slug}`}>
+                                                {node.title}
+                                                <p>
+                                                    {
+                                                        striptags(node.excerpt)
+                                                    }
+                                                </p>
+                                            </Link>
+                                        </li>
+                                    : <li key={node.slug}>
                                         <Link to={`/${node.slug}`}>
                                             {node.title}
                                             <p>
