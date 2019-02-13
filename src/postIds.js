@@ -4,5 +4,6 @@ export const wordpressIds = {
     usefulStuff: 538,
     events: 535,
     aboutUs: 527,
-    archive: 530
+    archive: 530, 
+    connections: 540
 }
