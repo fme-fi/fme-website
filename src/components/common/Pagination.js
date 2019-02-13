@@ -3,8 +3,7 @@ import { StaticQuery, graphql, Link } from 'gatsby';
 import striptags from 'striptags';
 
 class Pagination extends Component {    
-    render() {
-        console.log(this.props.pagination);
+    render() {        
         return (
             <div className="paginationContainer">
                 {

@@ -19,7 +19,8 @@ class Archive extends Component {
                                 wordpress_id
                                 id
                                 title        
-                                date                                
+                                date
+                                slug                                
                             }
                             }
                         }
@@ -37,7 +38,7 @@ class Archive extends Component {
                                     <div>                                        
                                         <ul>
                                             {
-                                                data.allWordpressPost.edges.map(({node}, index) => (
+                                                data.allWordpressPost.edges.map(({node}, index) => (                                                    
                                                     <Link key={index} to={`blog/${node.slug}`}>
                                                         <li dangerouslySetInnerHTML={{__html: node.title}} />                                                                                                            
                                                     </Link>

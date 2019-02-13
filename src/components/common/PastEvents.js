@@ -10,7 +10,6 @@ class PastEvents extends Component {
     }
 
     handleClick(postSlug) {
-        console.log(postSlug);
         this.props.histpry.push(postSlug);
     }
     render() {

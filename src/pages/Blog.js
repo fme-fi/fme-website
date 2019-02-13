@@ -29,7 +29,7 @@ const Blog = () => (
             <div className="col col-xs-12">
               <div className="blog-grids">
                 {
-                    data.allWordpressPost.edges.map(({ node }) => (
+                    data.allWordpressPost.edges.map(({ node }) => (                      
                   <div key={node.slug} className="grid">
                     <div className="entry-media">
                       { node.featured_media && (

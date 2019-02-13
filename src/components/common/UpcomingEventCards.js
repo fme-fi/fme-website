@@ -5,8 +5,7 @@ class UpcomingEventCards extends Component {
         super(props);        
     }
 
-    render() {
-        console.log(this.props.businessRules)
+    render() {        
         return (
             <div style={{backgroundImage: `url(${this.props.featuredImage})`}} className="eventCard">
                 <h1>

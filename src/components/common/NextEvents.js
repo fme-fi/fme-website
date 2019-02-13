@@ -44,8 +44,7 @@ class NextEvents extends Component {
                     forEach(data.allWordpressPage.edges, (key, value) => {
                         let convertedObject = JSON.parse(striptags(key.node.excerpt).replace(/&#8220;/g, '"').replace(/&#8221;/g, '"').replace(/&#038;#8221;/g, '"'));                        
                         businessRules.push(convertedObject)                        
-                    }),           
-                    console.log(data),
+                    }),
                     <div className="nextEventsContainer">                                              
                         {
                             data.allWordpressPage.edges.map(({node}, index) => (
