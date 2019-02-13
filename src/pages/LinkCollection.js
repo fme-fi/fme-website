@@ -35,7 +35,7 @@ class LinkCollection extends Component {
                             </li>
                             {
                                 linksObject.social.map((currentLink, index) => (
-                                    <ListElement key={index} url={currentLink.url} title={currentLink.title} />
+                                    <ListElement description={currentLink.desc} key={index} url={currentLink.url} title={currentLink.title} />
                                 ))  
                             }
                         </ul>
@@ -47,7 +47,7 @@ class LinkCollection extends Component {
                             </li>
                             {
                                 linksObject.city.map((currentLink, index) => (
-                                    <ListElement key={index} url={currentLink.url} title={currentLink.title} />
+                                    <ListElement description={currentLink.desc} key={index} url={currentLink.url} title={currentLink.title} />
                                 ))  
                             }
                         </ul>
@@ -59,7 +59,7 @@ class LinkCollection extends Component {
                             </li>
                             {
                                 linksObject.travelling.map((currentLink, index) => (
-                                    <ListElement key={index} url={currentLink.url} title={currentLink.title} />
+                                    <ListElement description={currentLink.desc} key={index} url={currentLink.url} title={currentLink.title} />
                                 ))  
                             }
                         </ul>
@@ -71,7 +71,7 @@ class LinkCollection extends Component {
                             </li>
                             {
                                 linksObject.houseing.map((currentLink, index) => (
-                                    <ListElement key={index} url={currentLink.url} title={currentLink.title} />
+                                    <ListElement description={currentLink.desc} key={index} url={currentLink.url} title={currentLink.title} />
                                 ))  
                             }
                         </ul>

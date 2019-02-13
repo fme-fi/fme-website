@@ -4,11 +4,11 @@ import React, { Component } from 'react';
         return ( 
             <li>
                 <a href={props.url}>
+                    <p dangerouslySetInnerHTML={{__html: props.title}} ></p>
                     <p>
-                        {props.title}
-                    </p>
-                    <p>
-                        lorem ipsum
+                        {
+                            props.description
+                        }
                     </p>
                 </a>
             </li>
