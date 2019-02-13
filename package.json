@@ -21,6 +21,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-big-calendar": "^0.20.3",
+    "react-burger-menu": "^1.12.0",
     "react-connect-elements": "^0.1.1",
     "react-dom": "^16.6.3",
     "react-feather": "^1.1.5",

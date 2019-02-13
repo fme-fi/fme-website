@@ -1,5 +1,10 @@
 
 .linkCollection {
+    .col {
+        @media screen and (min-width: $screen-sm-min - 1) {
+            margin: 20px;
+        }
+    }
     ul {
         list-style-type: none;
         padding: 0;
@@ -17,6 +22,9 @@
                     cursor: initial;
                     background: inherit;
                     transition: none;
+                    a {
+                        color: $mainTextColor;
+                    }
                 }
             }
             &:hover {
@@ -41,6 +49,9 @@
                 p {
                     &:last-of-type {
                         opacity: 0;
+                        @media screen and (max-width: $screen-sm-min - 1) {
+                            display: none;
+                        }
                     }
                 }
             }            

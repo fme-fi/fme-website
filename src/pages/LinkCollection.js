@@ -26,7 +26,7 @@ class LinkCollection extends Component {
                 <TopMenuBar subPage={true} />
                 <Container className="linkCollection">                
                 <Row>                    
-                    <Col style={{margin: `20px`}} xs={12} lg={8}>
+                    <Col className="col" style={{margin: `20px`}} xs={12} lg={8}>
                         <ul>
                             <li>
                             {

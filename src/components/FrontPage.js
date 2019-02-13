@@ -30,28 +30,30 @@ const SectionTitle = styled.h1`
 class Header extends Component {
   render() {    
     return(
-      <Container fluid>
-        <TopMenuBar />        
-        <WelcomeText />               
-        <div className="videoBackground">
-          <video autoPlay muted>
-            <source src={finlandVideo} type="video/mp4" />
-          </video>
-        </div>
-        <Box />        
-        <Row center>                                        
-          <Col lg={10}>
-            <SectionTitle>
-              Következő eseményeink
-            </SectionTitle>
-            <NextEvents />
-          </Col>
-        </Row>
-        <Management />
-        <div className="pastEventsContainer">
-            <PastEvents />
-        </div>
-        </Container>
+      <div>
+        <Container fluid>
+          <TopMenuBar />        
+          <WelcomeText />               
+          <div className="videoBackground">
+            <video autoPlay muted>
+              <source src={finlandVideo} type="video/mp4" />
+            </video>
+          </div>
+          <Box />        
+          <Row center>                                        
+            <Col lg={10}>
+              <SectionTitle>
+                Következő eseményeink
+              </SectionTitle>
+              <NextEvents />
+            </Col>
+          </Row>
+          <Management />
+          <div className="pastEventsContainer">
+              <PastEvents />
+          </div>
+          </Container>
+      </div>
     )
   }
 }

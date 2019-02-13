@@ -5,11 +5,7 @@ import React, { Component } from 'react';
             <li>
                 <a href={props.url}>
                     <p dangerouslySetInnerHTML={{__html: props.title}} ></p>
-                    <p>
-                        {
-                            props.description
-                        }
-                    </p>
+                    <p dangerouslySetInnerHTML={{__html: props.description}}></p>
                 </a>
             </li>
          );
