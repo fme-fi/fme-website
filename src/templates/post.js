@@ -7,6 +7,7 @@ import striptags from 'striptags';
 import BlogContainer from './../components/common/BlogContainer'
 import BlogHeader from './../components/common/BlogHeader';
 import { Container, Row, Col } from 'react-flexybox';
+import defaultFeaturedImage from './../components/assets/others/default_featured_image.jpg';
 
 const PostTemplate = (props) => {
   const { data: { wordpressPost: post } } = props;      
@@ -21,7 +22,11 @@ const PostTemplate = (props) => {
         />      
        <article>
         <header>
-          <BlogHeader postDate={post.date} author={post.author.name} blogTitle={striptags(post.title).replace('&nbsp;', ' ')} featuredImage={post.featured_media.source_url} />
+          {
+            !post.featured_media ? 
+              <BlogHeader postDate={post.date} author={post.author.name} blogTitle={striptags(post.title).replace('&nbsp;', ' ')} featuredImage={defaultFeaturedImage} />
+            : <BlogHeader postDate={post.date} author={post.author.name} blogTitle={striptags(post.title).replace('&nbsp;', ' ')} featuredImage={post.featured_media.source_url} />
+          }
         </header>
           <BlogContainer pagination={props.pageContext.pagination} thisPostId={post.wordpress_id} content={post.content} />                    
         </article>

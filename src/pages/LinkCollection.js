@@ -5,7 +5,7 @@ import striptags from 'striptags';
 import UsefulSidebar from './../components/UsefulSidebar';
 import TopMenuBar from './../components/common/TopMenuBar';
 import Footer from './../components/common/Footer';
-import { usefulLinks } from './../helpers/usefulLinks';
+import { usefulLinks, linkCollection } from './../helpers/usefulLinks';
 
 class LinkCollection extends Component {
     constructor(props) {
@@ -13,8 +13,13 @@ class LinkCollection extends Component {
     }
     render() {
         let sectionTitle = [];
-        let linksObject = JSON.parse(striptags(this.props.links).replace(/&#8220;/g, '"').replace(/&#8221;/g, '"').replace(/&#038;#8221;/g, '"'));
-        let linkObjectKeys = Object.keys(linksObject);                    
+        let linksObject = null;        
+        if (process.env.NODE_ENV === 'production')  {
+            linksObject = linkCollection
+        } else {
+            linksObject = JSON.parse(striptags(this.props.links).replace(/&#8220;/g, '"').replace(/&#8221;/g, '"').replace(/&#038;#8221;/g, '"'));            
+        }              
+        let linkObjectKeys = Object.keys(linksObject);    
         for (let i = 0; i<linkObjectKeys.length; i++) {
             let thisLinkSectionTitle =  usefulLinks.find(function(element) {
                 return element.slug === linkObjectKeys[i];
@@ -35,7 +40,9 @@ class LinkCollection extends Component {
                             </li>
                             {
                                 linksObject.social.map((currentLink, index) => (
+                                    currentLink.desc ? 
                                     <ListElement description={currentLink.desc} key={index} url={currentLink.url} title={currentLink.title} />
+                                    : <ListElement description="" key={index} url={currentLink.url} title={currentLink.title} />
                                 ))  
                             }
                         </ul>

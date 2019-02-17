@@ -13,8 +13,9 @@ const Blog = () => (
             title
             excerpt            
             slug
-            author{
-                name
+            author {
+                id
+                name                
             }
           }
         }

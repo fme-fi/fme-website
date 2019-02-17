@@ -6,9 +6,11 @@
     div {
         display: flex;
         position: relative;
-        align-items: center;
-        padding: 30px;
+        align-items: center;        
         background: #f9f9f9;
+        height: 130px;
+        padding: 0 20px;
+        //TODO mobile pagination here
         a {
             text-decoration: none;
             p {

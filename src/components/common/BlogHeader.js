@@ -8,14 +8,22 @@ const BlogHeaderWrapper = styled.div``;
 const BlogFeaturedImage = styled.img``;
 const BlogMeta = styled.div``;
 
+const PostAuthor = (props) => {
+    return ( 
+        <div>
+            <User /> {props.author}
+        </div>
+     );
+}
+
 class BlogHeader extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            postAuthor: null
+            postAuthor: null,            
         };
 
-    }
+    }    
     render() {
         
         let thisPostAuthor = this.props.author
@@ -41,7 +49,11 @@ class BlogHeader extends Component {
                         <div>
                             <p>
                                 <span>
-                                <User /> {currentAuthor.fullName}
+                                {
+                                    currentAuthor ? 
+                                        <PostAuthor author={currentAuthor.fullName} />
+                                    : null
+                                }
                                 </span> 
                                 <span>
                                 <Clock /> {this.props.postDate}                               
