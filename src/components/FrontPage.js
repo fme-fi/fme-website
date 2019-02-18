@@ -9,7 +9,7 @@ import Box from './common/Box';
 import styled from 'styled-components';
 import LatestPosts from './common/LatestPosts';
 import Management from './common/Management';
-import finlandVideo from './assets/others/suomi.mp4';
+import finlandVideo from './assets/others/suomi2.mp4';
 import { Container, Row, Col } from 'react-flexybox';
 import NextEvents from './common/NextEvents';
 import PastEvents from './common/PastEvents';
