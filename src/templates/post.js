@@ -8,6 +8,7 @@ import BlogContainer from './../components/common/BlogContainer'
 import BlogHeader from './../components/common/BlogHeader';
 import { Container, Row, Col } from 'react-flexybox';
 import defaultFeaturedImage from './../components/assets/others/default_featured_image.jpg';
+import './../style/Site.scss';
 
 const PostTemplate = (props) => {
   const { data: { wordpressPost: post } } = props;      
