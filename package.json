@@ -1,11 +1,11 @@
 {
   "name": "gatsby-starter-default",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "FME website",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Richard Zilahi <hello.kylerichardzilahi.hu>",
   "dependencies": {
-    "@madetech/gatsby-source-wordpress": "0.0.2",
+    "@zilahir/gatsby-source-wordpress": "0.0.2",
     "dotenv": "^6.2.0",
     "gatsby": "^2.0.76",
     "gatsby-image": "^2.0.20",
