@@ -9,6 +9,8 @@ import BlogHeader from './../components/common/BlogHeader';
 import { Container, Row, Col } from 'react-flexybox';
 import defaultFeaturedImage from './../components/assets/others/default_featured_image.jpg';
 import './../style/Site.scss';
+import Share from './../components/common/Share';
+import Pagination from './../components/common/Pagination';
 
 const PostTemplate = (props) => {
   const { data: { wordpressPost: post } } = props;      
@@ -29,7 +31,11 @@ const PostTemplate = (props) => {
             : <BlogHeader postDate={post.date} author={post.author.name} blogTitle={striptags(post.title).replace('&nbsp;', ' ')} featuredImage={post.featured_media.source_url} />
           }
         </header>
-          <BlogContainer pagination={props.pageContext.pagination} thisPostId={post.wordpress_id} content={post.content} />                    
+        <div className="blogContentContainer">
+                <Share />
+                <p dangerouslySetInnerHTML={{ __html: post.content }} />
+                <Pagination pagination={props.pageContext.pagination} />
+          </div>             
         </article>
       </div> 
     </Container>         
