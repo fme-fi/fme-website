@@ -33,7 +33,7 @@ const PostTemplate = (props) => {
         </header>
         <div className="blogContentContainer">
                 <Share />
-                <p dangerouslySetInnerHTML={{ __html: post.content }} />
+                <div dangerouslySetInnerHTML={{ __html: post.content }} />
                 <Pagination pagination={props.pageContext.pagination} />
           </div>             
         </article>
