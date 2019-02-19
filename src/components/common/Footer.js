@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import backgroundImage from './../assets/others/foreground.png';
 import Deer from './../assets/others/deer_brown.gif';
+import HuFlag from './../assets/others/hu_flag.gif'; 
 import { VelocityComponent } from 'velocity-react';
 import PastEvents from './PastEvents';
 const BackgroundImageContainer = styled.div``;
@@ -22,6 +23,7 @@ class Footer extends Component {
                     }} className="footerContainer">
                         <BackgroundImageContainer />                
                         <img className="deer" src={Deer} />
+                        <img className="huFlag" src={HuFlag} />
                     </div>
                 </VelocityComponent>
             </div>            
