@@ -11,11 +11,13 @@ import defaultFeaturedImage from './../components/assets/others/default_featured
 import './../style/Site.scss';
 import Share from './../components/common/Share';
 import Pagination from './../components/common/Pagination';
+import TopMenuBar from './../components/common/TopMenuBar';
 
 const PostTemplate = (props) => {
   const { data: { wordpressPost: post } } = props;      
   return (
     <Container fluid>
+      <TopMenuBar subPage={true} />
       <div>
         <Helmet
           title={post.title}

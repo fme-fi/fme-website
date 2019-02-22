@@ -5,7 +5,7 @@
         display: none;
     }
     &.subPage {
-        height: 180px;
+        height: 160px;
         ul, li {
             color: $mainTextColor !important;
         }
@@ -101,6 +101,9 @@
                 }            
             }
             &:last-of-type {
+                &.subPage {
+                    display: none;
+                }
                 list-style-type: none;
                 display: flex;
                 margin: 0;

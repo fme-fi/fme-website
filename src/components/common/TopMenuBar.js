@@ -120,7 +120,7 @@ class TopMenuBar extends Component {
                             ))
                         }
                         </ul>
-                        <ul>
+                        <ul className={isSubPage}>
                             <li>
                                 Közösségi média
                             </li>
