@@ -73,6 +73,7 @@
             }
         }                
         .eventCard {
+            min-width: 300px;
             border-radius: 10px;
             z-index: 9;
             @media screen and (max-width: $screen-sm-min - 1) {

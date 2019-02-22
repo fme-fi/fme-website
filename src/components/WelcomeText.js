@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 
 class WelcomeText extends Component {
-
     render() {
         return (
-            <div className="welcome">
+            <div className="welcome">                
                 <h1>
                     Finnországi magyarok egyesülete
                 </h1>

@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import FrontPage from './FrontPage'
 import './../style/Site.scss';
 import Footer from './common/Footer';
+import MobileMenuToggle from './common/MobileMenuToggle.js'
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -17,7 +18,8 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <>
+      <>    
+        <MobileMenuToggle />    
         <FrontPage siteTitle={data.site.siteMetadata.title} />
         <Footer />
       </>

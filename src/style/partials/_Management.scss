@@ -4,7 +4,7 @@
     margin: 0 auto;
     grid-template-columns: repeat(4, 220px);
     @media screen and (max-width: $screen-sm-min - 1) {
-        grid-template-columns: repeat(4, 190px);
+        grid-template-columns: repeat(2, 190px);
     }
     row-gap: 40px;
     .face {

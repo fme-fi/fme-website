@@ -39,7 +39,11 @@ class Header extends Component {
               <source src={finlandVideo} type="video/mp4" />
             </video>
           </div>
-          <Box />        
+          <Row center>
+            <Col lg={12}>
+              <Box />        
+            </Col>
+          </Row>
           <Row center>                                        
             <Col lg={10}>
               <SectionTitle>

@@ -1,10 +1,11 @@
 @import './../mixins/hungarianColors';
+@import './../partials/mobileBg';
 
 .videoBackground {
     height: 100vh;
     @media screen and (max-width: $screen-sm-min - 1) {
         height: 80vh;
-        background-image: url('~/finland.jpg');
+        background-image: $mobileBg;
         background-position: 50%;
     }
     video {
