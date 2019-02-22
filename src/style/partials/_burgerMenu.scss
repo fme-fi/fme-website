@@ -10,8 +10,17 @@
         & > div {
             width: 0;
         }
+        .closeContainer {
+            display: none;
+        }
     }
     .burgerMenu {
+        .closeContainer {
+            position: absolute;
+            right: 0;
+            padding: 20px;
+        }
+        position: relative;
         position: absolute;
         width: 100%;
         height: 100vh;
