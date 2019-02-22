@@ -5,6 +5,7 @@ import striptags from 'striptags';
 import { forEach } from 'lodash';
 import UpcomingEventCards from './UpcomingEventCards';
 import { Container, Row, Col } from 'react-flexybox';
+import { orderBy } from 'lodash';
 
 class NextEvents extends Component {
     constructor(props) {
@@ -20,7 +21,7 @@ class NextEvents extends Component {
             <StaticQuery
                 query={graphql`
                     query upComingEventsQuery {
-                        allWordpressPage( sort: { field: [date], order:[DESC]  }, filter: { wordpress_parent: {eq: 617} } limit: 3) {
+                        allWordpressPage( filter: { wordpress_parent: {eq: 617} } limit: 3 ) {
                             edges {
                             node {
                                 id
@@ -42,7 +43,7 @@ class NextEvents extends Component {
                 `}
                 render={data => (
                     forEach(data.allWordpressPage.edges, (key, value) => {
-                        let convertedObject = JSON.parse(striptags(key.node.excerpt).replace(/&#8220;/g, '"').replace(/&#8221;/g, '"').replace(/&#038;#8221;/g, '"'));                        
+                        let convertedObject = JSON.parse(striptags(key.node.excerpt).replace(/&#8220;/g, '"').replace(/&#8221;/g, '"').replace(/&#038;#8221;/g, '"'));                                                
                         businessRules.push(convertedObject)                        
                     }),
                     <div className="nextEventsContainer">                                              
