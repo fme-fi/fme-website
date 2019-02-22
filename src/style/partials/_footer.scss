@@ -19,4 +19,40 @@
             transform: rotate(-22deg);
         }
     }
+    .footerMenuContainer {
+        position: absolute;
+        bottom: 0;
+        max-width: 900px;
+        width: 900px;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        ul {
+            list-style-type: none;
+            display: inline-flex;
+            li {
+                position: relative;
+                &:last-of-type {
+                    &::after {
+                        content: 'unset';
+                    }
+                }
+                &:after {
+                    content: '';
+                    border-right: 1px dashed #ababab;
+                    display: block;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    height: 100%;                    
+                }
+                a {
+                    text-decoration: none;
+                    color: #ababab;
+                    padding-right: 10px;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
 }

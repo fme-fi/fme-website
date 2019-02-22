@@ -24,6 +24,13 @@ class Footer extends Component {
                         <BackgroundImageContainer />                
                         <img className="deer" src={Deer} />
                         <img className="huFlag" src={HuFlag} />
+                        <div className="footerMenuContainer">
+                            <ul>
+                                <li>
+                                    <a href="https://richardzilahi.hu">code: richardzilahi</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </VelocityComponent>
             </div>            

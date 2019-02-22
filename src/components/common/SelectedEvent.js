@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
+import { FaFacebookF, FaBookmark, FaMapPin } from 'react-icons/fa';
 
 class SelectedEvent extends Component {
     constructor(props) {
         super(props);                        
     }
     render() {         
-        let thisEventDate = new Date(this.props.selectedEvent.start)
+        let thisEventDate = new Date(this.props.selectedEvent.start)        
         return ( 
             <div className="selectedEvent">
-                <div style={{backgroundImage: `url(${this.props.selectedEvent.featuredImage})`}} className="featuredImage"></div>
+                <div style={{backgroundImage: `url(${this.props.selectedEvent.featuredImage})`}} className="featuredImage">
+                    <div>
+                        <p>
+                            {this.props.selectedEvent.title}                    
+                        </p>
+                        <p>
+                            <FaMapPin size="1em" color="#fff" /> {this.props.selectedEvent.location}
+                        </p>
+                    </div>
+                </div>
                 <div className="eventContainer">
                     <div>
                         <p>
@@ -20,7 +30,7 @@ class SelectedEvent extends Component {
                     </div>
                     <div>
                         <p>
-                            {this.props.selectedEvent.title}
+                            
                         </p>
                         <p>
                         {`Felelős: ${this.props.selectedEvent.responsible}`}

@@ -79,15 +79,15 @@ class BasicMap extends Component {
         `}
           render={data => (
             forEach(data.allWordpressPage.edges, (key, value) => {
-                        let convertedObject = JSON.parse(striptags(key.node.excerpt).replace(/&#8220;/g, '"').replace(/&#8221;/g, '"').replace(/&#038;#8221;/g, '"'));
-                        console.log(convertedObject)
+                        let convertedObject = JSON.parse(striptags(key.node.excerpt).replace(/&#8220;/g, '"').replace(/&#8221;/g, '"').replace(/&#038;#8221;/g, '"'));                        
                         businessRules.push({
                           title: key.node.title.replace(/&nbsp;/g, ' '), 
                           start: new Date(convertedObject.date), 
                           end: new Date(convertedObject.date), 
                           allDay: true,
                           featuredImage: key.node.featured_media.source_url, 
-                          responsible: convertedObject.responsible
+                          responsible: convertedObject.responsible, 
+                          location: convertedObject.location
                         })                        
             }),            
             <div>                

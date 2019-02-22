@@ -20,7 +20,7 @@ class NextEvents extends Component {
             <StaticQuery
                 query={graphql`
                     query upComingEventsQuery {
-                        allWordpressPage(filter: { wordpress_parent: {eq: 617} }) {
+                        allWordpressPage( sort: { field: [date], order:[DESC]  }, filter: { wordpress_parent: {eq: 617} } limit: 3) {
                             edges {
                             node {
                                 id
