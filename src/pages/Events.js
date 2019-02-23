@@ -1,16 +1,11 @@
 import React, { Component } from "react"
 import { Container, Row, Col } from 'react-flexybox';
 import { StaticQuery, graphql, Link } from 'gatsby';
-import BigCalendar from 'react-big-calendar'
-import moment from 'moment'
 import { forEach } from 'lodash'
-import './../style/partials/_calendar/calendar.scss';
 import TopMenuBar from './../components/common/TopMenuBar';
 import Footer from './../components/common/Footer';
 import striptags from 'striptags';
-import SelectedEvent from './../components/common/SelectedEvent';
-
-const localizer = BigCalendar.momentLocalizer(moment);
+import SelectedEvent from "../components/common/SelectedEvent";
 
 const myEventsList = [ 
   {
@@ -27,12 +22,6 @@ const myEventsList = [
     end: new Date(2019, 3, 10),
   },
 ]
-
-const views = {
-  month: true,
-  week: false,
-  agenda: false,
-}
 
 class BasicMap extends Component {  
   constructor(props) {
@@ -82,37 +71,23 @@ class BasicMap extends Component {
                         let convertedObject = JSON.parse(striptags(key.node.excerpt).replace(/&#8220;/g, '"').replace(/&#8221;/g, '"').replace(/&#038;#8221;/g, '"'));                        
                         businessRules.push({
                           title: key.node.title.replace(/&nbsp;/g, ' '), 
-                          start: new Date(convertedObject.date), 
-                          end: new Date(convertedObject.date), 
-                          allDay: true,
+                          date: new Date(convertedObject.date),
                           featuredImage: key.node.featured_media.source_url, 
                           responsible: convertedObject.responsible, 
                           location: convertedObject.location
-                        })                        
-            }),            
+                        })                                                
+            }),                        
             <div>                
                 <TopMenuBar subPage={true} />
                 <Container>
                   <Row center={true}>
-                    <Col lg={6} xs={12}>
-                    <div className="eventCalendarContainer">
-                      <BigCalendar
-                      localizer={localizer}
-                      events={businessRules}
-                      startAccessor="start"
-                      endAccessor="end"
-                      views={['month', 'agenda']}
-                      onSelectEvent={(event) => this.handleEventClick(event)}
-                      />
-                    </div>
-                    </Col>
-                    <Col lg={6}>
+                    <Col lg={10} xs={12}>                                  
                       {
-                        this.state.selectedEvent ? 
-                          <SelectedEvent selectedEvent={this.state.selectedEvent} />
-                        : null
+                        data.allWordpressPage.edges.map(({node}, index) => (
+                            <SelectedEvent selectedEvent={businessRules[index]} />                         
+                        ))
                       }
-                    </Col>
+                    </Col>                    
                   </Row>
                 </Container>
                 <Footer />

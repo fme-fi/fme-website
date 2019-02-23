@@ -10,9 +10,9 @@ const BlogMeta = styled.div``;
 
 const PostAuthor = (props) => {
     return ( 
-        <div>
+        <span>
             <User /> {props.author}
-        </div>
+        </span>
      );
 }
 
