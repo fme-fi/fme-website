@@ -83,7 +83,7 @@ class BasicMap extends Component {
                   <Row center={true}>
                     <Col lg={10} xs={12}>                                  
                       {
-                        data.allWordpressPage.edges.map(({node}, index) => (
+                        data.allWordpressPage.edges.map(({node}, index) => (                          
                             <SelectedEvent selectedEvent={businessRules[index]} />                         
                         ))
                       }

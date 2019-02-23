@@ -26,6 +26,9 @@
         flex-direction: column;
         position: relative;    
         margin-bottom: 200px;
+        @media screen and (max-width: $screen-sm-min - 1) {
+            margin-bottom: 100px;
+        }
         &:hover {
             cursor: pointer;            
             &:before {
