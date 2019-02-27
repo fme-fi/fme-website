@@ -86,7 +86,7 @@ class BasicMap extends Component {
                     <Col lg={10} xs={12}>                                  
                       {
                         data.allWordpressPage.edges.map(({node}, index) => (                          
-                            <SelectedEvent selectedEvent={businessRules[index]} />                         
+                            <SelectedEvent key={index} selectedEvent={businessRules[index]} />                         
                         ))
                       }
                     </Col>                    
