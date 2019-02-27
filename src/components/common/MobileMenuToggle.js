@@ -6,24 +6,16 @@ import { toggleMobileMenu } from './../../store/actions/toggleMobileMenu';
 
 class MobileMenuToggle extends Component {
     constructor(props) {
-        super(props);
-        this.state = {
-            isMenuOpen: false
-        }
+        super(props);        
         this.handleMenuOpen = this.handleMenuOpen.bind(this);
     }
 
-    handleMenuOpen() {
-        this.setState({
-            isMenuOpen: true
-        })
-        //test reducer
-        this.props.onToggleMobileMenu(!this.props.isMobileMenuOpen)
-        console.log(this.props.isMobileMenuOpen)
+    handleMenuOpen() {                
+        this.props.onToggleMobileMenu(!this.props.isMobileMenuOpen)            
     }
 
     render() { 
-        let isMobileMenuOpen = this.state.isMenuOpen ? '' : 'hidden';
+        let isMobileMenuOpen = this.props.isMobileMenuOpen ? '' : 'hidden';
         return ( 
             <div>
                 <div className="mobileMenuToggle">
@@ -38,7 +30,7 @@ class MobileMenuToggle extends Component {
 }  
 
 const mapStateToProps = state => ({
-    isMobileMenuOpen: state.isMobileMenuOpen
+    isMobileMenuOpen: state.isMobileMenuOpen.isMobileMenuOpen
 })
 
 const mapDispatchToProps = dispatch => ({

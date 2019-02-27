@@ -21,6 +21,9 @@
         }
     }
     .footerMenuContainer {
+        @media screen and (max-width: $screen-sm-min - 1) {
+            display: none;
+        }
         position: absolute;
         bottom: 0;        
         width: 100%;
