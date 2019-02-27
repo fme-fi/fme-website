@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { FaBars } from 'react-icons/fa';
 import BurgerMenu from './../BurgerMenu';
+import { connect } from 'react-redux';
+import { toggleMobileMenu } from './../../store/actions/toggleMobileMenu';
 
 class MobileMenuToggle extends Component {
     constructor(props) {
@@ -15,6 +17,8 @@ class MobileMenuToggle extends Component {
         this.setState({
             isMenuOpen: true
         })
+        //test reducer
+        
     }
 
     render() { 
@@ -30,6 +34,15 @@ class MobileMenuToggle extends Component {
             </div>
          );
     }
-}
+}  
+
+const mapStateToProps = state => ({
+    isMobileMenuOpen: state.isMobileMenuOpen
+})
+
+const mapDispatchToProps = dispatch => ({
+    onToggleMobileMenu: (isMobileMenuOpen) => dispatch(toggleMobileMenu(isMobileMenuOpen))
+})
+
  
-export default MobileMenuToggle;
+export default connecrt()(MobileMenuToggle);
