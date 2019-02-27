@@ -9,6 +9,7 @@ import BasicMap from './../pages/Events';
 import AboutUs from './../pages/AboutUs';
 import Archive from './../pages/Archive';
 import Connections from './../pages/Connections';
+
 const PageTemplate = (props) => {
   const { data: { wordpressPage: page } } = props;  
   const Layout = LinkCollection;  

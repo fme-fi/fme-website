@@ -6,6 +6,7 @@ import TopMenuBar from './../components/common/TopMenuBar';
 import Footer from './../components/common/Footer';
 import striptags from 'striptags';
 import SelectedEvent from "../components/common/SelectedEvent";
+import MobileMenuToggle from './../components/common/MobileMenuToggle';
 
 const myEventsList = [ 
   {
@@ -79,6 +80,7 @@ class BasicMap extends Component {
             }),                        
             <div>                
                 <TopMenuBar subPage={true} />
+                <MobileMenuToggle />    
                 <Container>
                   <Row center={true}>
                     <Col lg={10} xs={12}>                                  
@@ -89,8 +91,7 @@ class BasicMap extends Component {
                       }
                     </Col>                    
                   </Row>
-                </Container>
-                <Footer />
+                </Container>                
               </div>
           )}
       />

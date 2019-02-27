@@ -14,6 +14,7 @@ import { Container, Row, Col } from 'react-flexybox';
 import NextEvents from './common/NextEvents';
 import PastEvents from './common/PastEvents';
 
+
 const TestimonialSectionContainer = styled.div`
   height: 800px;
   display: flex;
@@ -30,7 +31,7 @@ const SectionTitle = styled.h1`
 class Header extends Component {
   render() {    
     return(
-      <div>
+      <div>        
         <Container fluid>
           <TopMenuBar />        
           <WelcomeText />               
