@@ -10,11 +10,11 @@ const store = configureStore();
 
 
 const IndexPage = () => (
-  <Layout>
-    <Provider store={store}>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`, 'finnorszag', 'finnorszagi magyarok egyesülete']} />        
-    </Provider>
-  </Layout>
+  <Provider store={store}>
+    <Layout>
+        <SEO title="Home" keywords={[`gatsby`, `application`, `react`, 'finnorszag', 'finnorszagi magyarok egyesülete']} />            
+    </Layout>
+  </Provider>
 )
 
 export default IndexPage

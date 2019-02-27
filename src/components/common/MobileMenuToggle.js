@@ -18,7 +18,8 @@ class MobileMenuToggle extends Component {
             isMenuOpen: true
         })
         //test reducer
-        
+        this.props.onToggleMobileMenu(!this.props.isMobileMenuOpen)
+        console.log(this.props.isMobileMenuOpen)
     }
 
     render() { 
@@ -45,4 +46,4 @@ const mapDispatchToProps = dispatch => ({
 })
 
  
-export default connecrt()(MobileMenuToggle);
+export default connect(mapStateToProps, mapDispatchToProps)(MobileMenuToggle);

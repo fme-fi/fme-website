@@ -1,4 +1,4 @@
-import { ALIGN_TEXT } from './../actions/actionTypes';
+import { TOGGLE_MOBILE_MENU } from './../actions/actionTypes';
 
 const initialState = {
     isMobileMenuOpen: false
@@ -6,7 +6,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {
-        case ALIGN_TEXT: 
+        case TOGGLE_MOBILE_MENU: 
             return {
                 ...state, 
                 isMobileMenuOpen: action.payload.isMobileMenuOpen

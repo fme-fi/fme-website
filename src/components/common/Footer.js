@@ -52,7 +52,7 @@ class Footer extends Component {
                                     </li>
                                     {
                                         data.allWordpressPage.edges.map(({node}) => (
-                                            <li>
+                                            <li key={node.id}>
                                                 <Link to={`/${node.slug}`}>
                                                     {node.title}
                                                 </Link>
