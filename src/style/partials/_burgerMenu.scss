@@ -9,10 +9,14 @@
     z-index: 9;
     padding: 20px;
 }
+
 .burgerMenuContainer {
-    &.hidden {
+    transition: all .4s ease;
+    &.hidden {        
         & > div {
             width: 0;
+            display: none;
+            transition: all .4s ease;
         }
         .closeContainer {
             display: none;
