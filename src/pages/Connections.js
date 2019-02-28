@@ -7,6 +7,7 @@ import TopMenuBar from './../components/common/TopMenuBar';
 import Footer from './../components/common/Footer';
 import { usefulLinks, links } from './../helpers/usefulLinks';
 import { FaRegLaughWink } from 'react-icons/fa';
+import MobileMenuToggle from './../components/common/MobileMenuToggle';
 
 class Connections extends Component {    
     render() {        
@@ -19,6 +20,7 @@ class Connections extends Component {
         return (
             <div>                
                 <TopMenuBar subPage={true} />
+                <MobileMenuToggle subPage={true} />    
                 <Container className="linkCollection">                
                 <Row>                    
                     <Col className="col" xs={12} lg={8}>

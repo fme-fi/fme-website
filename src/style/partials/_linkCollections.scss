@@ -10,6 +10,9 @@
         padding: 0;
         margin: 0;        
         margin: 20px 0;
+        @media screen and (max-width: $screen-sm-min - 1) {
+            margin-top: 60px;
+        }
         li {
             padding: 10px;
             padding-left: 20px;

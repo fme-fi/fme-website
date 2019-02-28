@@ -16,10 +16,11 @@ class MobileMenuToggle extends Component {
 
     render() { 
         let isMobileMenuOpen = this.props.isMobileMenuOpen ? '' : 'hidden';
+        let color = this.props.subPage ? '#1C3142' : '#fff'
         return ( 
             <div>
                 <div className="mobileMenuToggle">
-                    <FaBars onClick={this.handleMenuOpen} size={32} color="#ffffff" />
+                    <FaBars onClick={this.handleMenuOpen} size={32} color={color} />
                 </div>
                 <div className={`burgerMenuContainer ${isMobileMenuOpen}`}>
                     <BurgerMenu />
