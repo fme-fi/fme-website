@@ -6,6 +6,7 @@ import UsefulSidebar from './../components/UsefulSidebar';
 import TopMenuBar from './../components/common/TopMenuBar';
 import Footer from './../components/common/Footer';
 import { usefulLinks, linkCollection } from './../helpers/usefulLinks';
+import MobileMenuToggle from './../components/common/MobileMenuToggle';
 
 class LinkCollection extends Component {
     constructor(props) {
@@ -29,6 +30,7 @@ class LinkCollection extends Component {
         return (
             <div>
                 <TopMenuBar subPage={true} />
+                <MobileMenuToggle subPage={true} />    
                 <Container className="linkCollection">                
                 <Row>                    
                     <Col className="col" style={{margin: `20px`}} xs={12} lg={8}>

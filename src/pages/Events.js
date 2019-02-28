@@ -80,6 +80,7 @@ class BasicMap extends Component {
             }),                        
             <div>                
                 <TopMenuBar subPage={true} />                
+                <MobileMenuToggle subPage={false} />    
                 <Container>
                   <Row center={true}>
                     <Col lg={10} xs={12}>                                  

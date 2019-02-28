@@ -4,6 +4,7 @@ import Footer from './../components/common/Footer';
 import { Container, Row, Col } from 'react-flexybox';
 import { StaticQuery, graphql, Link } from 'gatsby';
 import { element } from 'prop-types';
+import MobileMenuToggle from './../components/common/MobileMenuToggle';
 
 class Archive extends Component {        
     render() { 
@@ -29,9 +30,10 @@ class Archive extends Component {
                 render={data => (
                     <div>
                         <TopMenuBar subPage={true} />
+                        <MobileMenuToggle subPage={true} />    
                         <Container fluid className="archiveList">
                             <Row center>
-                                <Col lg={8}>
+                                <Col xs={10} lg={8}>
                                     <h1>
                                         {`Archiv (${data.allWordpressPost.edges.length})`}
                                     </h1>
