@@ -7,10 +7,15 @@ import TopMenuBar from './../components/common/TopMenuBar';
 import Footer from './../components/common/Footer';
 import { usefulLinks, linkCollection } from './../helpers/usefulLinks';
 import MobileMenuToggle from './../components/common/MobileMenuToggle';
+import { connect } from 'react-redux';
+import { toggleMobileMenu } from './../store/actions/toggleMobileMenu';
 
 class LinkCollection extends Component {
     constructor(props) {
         super(props);
+    }
+    componentDidMount() {
+        this.props.onToggleMobileMenu(false);
     }
     render() {
         let sectionTitle = [];
@@ -96,4 +101,12 @@ class LinkCollection extends Component {
     }
 }
 
-export default LinkCollection;
+const mapStateToProps = state => ({
+    isMobileMenuOpen: state.isMobileMenuOpen.isMobileMenuOpen
+})
+
+const mapDispatchToProps = dispatch => ({
+    onToggleMobileMenu: (isMobileMenuOpen) => dispatch(toggleMobileMenu(isMobileMenuOpen))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(LinkCollection);

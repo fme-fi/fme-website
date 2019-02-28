@@ -14,6 +14,10 @@ class MobileMenuToggle extends Component {
         this.props.onToggleMobileMenu(!this.props.isMobileMenuOpen)            
     }
 
+    componentDidMount() {
+        this.props.onToggleMobileMenu(false);
+    }
+
     render() { 
         let isMobileMenuOpen = this.props.isMobileMenuOpen ? '' : 'hidden';
         let color = this.props.subPage ? '#1C3142' : '#fff'

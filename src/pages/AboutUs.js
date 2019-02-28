@@ -4,8 +4,13 @@ import Footer from './../components/common/Footer';
 import striptags from 'striptags';
 import { Container, Row, Col } from 'react-flexybox';
 import MobileMenuToggle from './../components/common/MobileMenuToggle';
+import { connect } from 'react-redux';
+import { toggleMobileMenu } from './../store/actions/toggleMobileMenu';
 
 class AboutUs extends Component {    
+    componentDidMount() {
+        this.props.onToggleMobileMenu(false);
+    }
     render() { 
         return ( 
             <div>
@@ -27,5 +32,13 @@ class AboutUs extends Component {
          );
     }
 }
+
+const mapStateToProps = state => ({
+    isMobileMenuOpen: state.isMobileMenuOpen.isMobileMenuOpen
+})
+
+const mapDispatchToProps = dispatch => ({
+    onToggleMobileMenu: (isMobileMenuOpen) => dispatch(toggleMobileMenu(isMobileMenuOpen))
+})
  
-export default AboutUs;
+export default connect(mapStateToProps, mapDispatchToProps)(AboutUs);

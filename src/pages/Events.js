@@ -7,6 +7,8 @@ import Footer from './../components/common/Footer';
 import striptags from 'striptags';
 import SelectedEvent from "../components/common/SelectedEvent";
 import MobileMenuToggle from './../components/common/MobileMenuToggle';
+import { connect } from 'react-redux';
+import { toggleMobileMenu } from './../store/actions/toggleMobileMenu';
 
 const myEventsList = [ 
   {
@@ -39,6 +41,10 @@ class BasicMap extends Component {
     this.setState({
       selectedEvent: event
     })
+  }
+
+  componentDidMount() {
+    this.props.onToggleMobileMenu(false);
   }
 
   render() {  
@@ -99,4 +105,12 @@ class BasicMap extends Component {
   }
 }
 
-export default BasicMap
+const mapStateToProps = state => ({
+  isMobileMenuOpen: state.isMobileMenuOpen.isMobileMenuOpen
+})
+
+const mapDispatchToProps = dispatch => ({
+  onToggleMobileMenu: (isMobileMenuOpen) => dispatch(toggleMobileMenu(isMobileMenuOpen))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(BasicMap)

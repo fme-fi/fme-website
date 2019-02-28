@@ -8,8 +8,13 @@ import Footer from './../components/common/Footer';
 import { usefulLinks, links } from './../helpers/usefulLinks';
 import { FaRegLaughWink } from 'react-icons/fa';
 import MobileMenuToggle from './../components/common/MobileMenuToggle';
+import { connect } from 'react-redux';
+import { toggleMobileMenu } from './../store/actions/toggleMobileMenu';
 
 class Connections extends Component {    
+    componentDidMount() {
+        this.props.onToggleMobileMenu(false);
+    }
     render() {        
         let linksObject = null;
         if (process.env.NODE_ENV === 'production') {
@@ -44,4 +49,12 @@ class Connections extends Component {
     }
 }
 
-export default Connections;
+const mapStateToProps = state => ({
+    isMobileMenuOpen: state.isMobileMenuOpen.isMobileMenuOpen
+})
+
+const mapDispatchToProps = dispatch => ({
+    onToggleMobileMenu: (isMobileMenuOpen) => dispatch(toggleMobileMenu(isMobileMenuOpen))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Connections);

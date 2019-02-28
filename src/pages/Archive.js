@@ -5,8 +5,13 @@ import { Container, Row, Col } from 'react-flexybox';
 import { StaticQuery, graphql, Link } from 'gatsby';
 import { element } from 'prop-types';
 import MobileMenuToggle from './../components/common/MobileMenuToggle';
+import { connect } from 'react-redux';
+import { toggleMobileMenu } from './../store/actions/toggleMobileMenu';
 
-class Archive extends Component {        
+class Archive extends Component {
+    componentDidMount() {
+        this.props.onToggleMobileMenu(false);
+    }
     render() { 
         let postDates = []
         let currentDate = null
@@ -58,5 +63,13 @@ class Archive extends Component {
          );
     }
 }
+
+const mapStateToProps = state => ({
+    isMobileMenuOpen: state.isMobileMenuOpen.isMobileMenuOpen
+})
+
+const mapDispatchToProps = dispatch => ({
+    onToggleMobileMenu: (isMobileMenuOpen) => dispatch(toggleMobileMenu(isMobileMenuOpen))
+})
  
-export default Archive;
+export default connect(mapStateToProps, mapDispatchToProps)(Archive);
