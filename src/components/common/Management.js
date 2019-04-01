@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import SVGInline from "react-svg-inline";
 import circleSvg from './circleSvg';
 import { Container, Row, Col } from 'react-flexybox';
+import striptags from 'striptags';
 
 const ProfilePicture = styled.div`
     width: 100px;
@@ -58,7 +59,9 @@ class Management extends Component {
                                                 {node.title}
                                             </h2>
                                             <h3>
-                                                Vezetőségi tag
+                                                {
+                                                    JSON.parse(striptags(node.excerpt).replace(/&#8220;/g, '"').replace(/&#8221;/g, '"').replace(/&#038;#8221;/g, '"')).role 
+                                                }
                                             </h3>
                                         </div>                                                                                               
                                     ))
