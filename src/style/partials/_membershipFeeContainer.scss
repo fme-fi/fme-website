@@ -1,0 +1,20 @@
+.membershipFeeContainer {
+    background-color: $warningBgColor;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    svg {
+        fill: #fff;
+        margin-right: 10px;
+    }
+    p {
+        display: inherit;
+        margin: 0;
+        padding: 0;
+        color: #fff;
+        align-items: center;
+        a {
+            margin-left: 5px;
+        }
+    }
+}

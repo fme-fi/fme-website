@@ -19,14 +19,18 @@ class Archive extends Component {
             <StaticQuery
                 query={graphql`
                     query allWordpressPost {
-                        allWordpressPost {
+                        allWordpressPost(filter: {tags: {elemMatch: {wordpress_id: { eq: 1187 }}}} ){
                             edges {
                             node {
                                 wordpress_id
                                 id
                                 title        
                                 date
-                                slug                                
+                                slug
+                                tags {
+                                    id
+                                    wordpress_id
+                                }
                             }
                             }
                         }

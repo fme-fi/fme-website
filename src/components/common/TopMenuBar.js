@@ -4,6 +4,7 @@ import striptags from 'striptags';
 import styled from 'styled-components';
 import FmeLogo from './../assets/others/logo.svg';
 import { FaInstagram, FaFacebookF } from 'react-icons/fa/'
+import MemberShipFee from './MemberShipFee';
 
 const SocialImage = styled.img``;
 
@@ -85,9 +86,14 @@ class TopMenuBar extends Component {
                     }
                 `}
             
-                render={data => (                                
-                <div className={`topMenuContainer ${isSubPage}`}>
+                render={data => (                
+                <div className={`topMenuContainer ${isSubPage}`}>                    
                     <div className={`topMenuBar ${fixMenuBar}`}>
+                        {
+                            this.state.isMenuBarFixed ? 
+                            <MemberShipFee />
+                            : null
+                        }
                         <ul>
                         <li>
                             <Link to="/">
