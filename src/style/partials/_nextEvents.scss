@@ -1,6 +1,9 @@
 @import './../mixins/dropShadow';
 
 .nextEventsContainer {
+    a {
+        width: inherit;
+    }
     position: relative;
     &:before {
         content: '';

@@ -46,22 +46,25 @@ class NextEvents extends Component {
                         let convertedObject = JSON.parse(striptags(key.node.excerpt).replace(/&#8220;/g, '"').replace(/&#8221;/g, '"').replace(/&#038;#8221;/g, '"'));                                                
                         businessRules.push(convertedObject)                        
                     }),
-                    <div className="nextEventsContainer">                                              
+                    
+                        <div className="nextEventsContainer">                                              
                         {
                             data.allWordpressPage.edges.map(({node}, index) => (
-                                <Col key={index} className="nextEventContainer" xs={12} lg={4}>
-                                    <span className="eventDate">
-                                        <span>
-                                            {
-                                                businessRules[index].date
-                                            }
-                                        </span> 
-                                    </span>
-                                    <UpcomingEventCards featuredImage={node.featured_media.source_url} title={node.title} key={index} businessRules={businessRules[index]} />
-                                </Col>
+                                <a key={node.id} href={`/${node.slug}`}>
+                                    <Col key={index} className="nextEventContainer" xs={12} lg={4}>
+                                        <span className="eventDate">
+                                            <span>
+                                                {
+                                                    businessRules[index].date
+                                                }
+                                            </span> 
+                                        </span>
+                                        <UpcomingEventCards featuredImage={node.featured_media.source_url} title={node.title} key={index} businessRules={businessRules[index]} />                                
+                                    </Col>
+                                </a>                  
                             ))
                         }
-                    </div>                    
+                        </div>                      
                 )}
                 />
         )

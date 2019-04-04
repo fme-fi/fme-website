@@ -42,7 +42,7 @@ class Header extends Component {
           </div>
           <Row center>
             <Col lg={12}>
-              <Box />        
+              { /* <Box /> */ }
             </Col>
           </Row>
           <Row center>                                        
