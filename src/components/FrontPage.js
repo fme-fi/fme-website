@@ -14,14 +14,6 @@ import { Container, Row, Col } from 'react-flexybox';
 import NextEvents from './common/NextEvents';
 import PastEvents from './common/PastEvents';
 
-
-const TestimonialSectionContainer = styled.div`
-  height: 800px;
-  display: flex;
-  align-items: center;
-  padding: 0 50px ;
-`;
-
 const SectionTitle = styled.h1`
     position: relative;
     top: 200px;
