@@ -7,9 +7,15 @@ class Share extends Component {
         return(
             <div className="shareContainer">            
             <ul>
-                <li>
-                    <FaMapPin size="1.5em" color={"#1C3142"} /> <span>Karjaa</span>
-                </li>
+                {
+                    this.props.excerpt ? 
+                        <li>
+                        <FaMapPin size="1.5em" color={"#1C3142"} /> <span>
+                            {this.props.excerpt.location}
+                        </span>
+                    </li>
+                    : null 
+                }
             </ul>
                 <ul>
                     <li>

@@ -41,11 +41,12 @@ class Management extends Component {
                         }
                     }
                 `}
-                render={data => (                    
-                    <Row center>
+                render={data => (
+                    <Container fluid={false}>
+                    <h1 style={{margin: `20px`}}>Vezetőség</h1>
+                    <Row center>                        
                         <Col lg={10} xs={12}>
-                            <div className="Management">
-                                <h1 style={{margin: `20px`}}>Vezetőség</h1>                    
+                            <div className="Management">                                                    
                                     <div className="facesContainer">                                                
                                     {
                                     data.allWordpressPage.edges.map(({node}) => (                            
@@ -70,6 +71,7 @@ class Management extends Component {
                             </div>
                         </Col>
                     </Row>
+                    </Container>                    
                 )}
                 />             
         );

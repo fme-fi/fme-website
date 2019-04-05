@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Parallax, Background } from 'react-parallax';
-import { Clock, User } from 'react-feather';
+import { Clock, User, Map } from 'react-feather';
 import { users } from './../../helpers/userFullnames';
 
 const BlogHeaderWrapper = styled.div``;
@@ -47,16 +47,27 @@ class BlogHeader extends Component {
                     </BlogMeta>
                     <div className="authorContainer">
                         <div>
-                            <p>
+                            <p>                                
                                 <span>
                                 {
-                                    currentAuthor ? 
+                                    currentAuthor && !this.props.excerpt ? 
                                         <PostAuthor author={currentAuthor.fullName} />
+                                    : this.props.excerpt.responsible ? 
+                                    <PostAuthor author={this.props.excerpt.responsible} />   
                                     : null
                                 }
                                 </span> 
                                 <span>
-                                <Clock /> {this.props.postDate}                               
+                                {
+                                    this.props.postDate && !this.props.excerpt ? 
+                                    <>
+                                        <Clock /> <span dangerouslySetInnerHTML={{__html: this.props.postDate}}></span>
+                                    </>
+                                    : 
+                                    <>
+                                        <Clock /> <span dangerouslySetInnerHTML={{__html: this.props.excerpt.date}}></span>
+                                    </>
+                                }                             
                                 </span>
                             </p>                            
                         </div>
