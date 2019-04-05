@@ -52,7 +52,7 @@ class BlogHeader extends Component {
                                 {
                                     currentAuthor && !this.props.excerpt ? 
                                         <PostAuthor author={currentAuthor.fullName} />
-                                    : this.props.excerpt.responsible ? 
+                                    : this.props.excerpt && this.props.excerpt.responsible ? 
                                     <PostAuthor author={this.props.excerpt.responsible} />   
                                     : null
                                 }
