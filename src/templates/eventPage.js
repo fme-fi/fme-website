@@ -16,7 +16,6 @@ import TopMenuBar from './../components/common/TopMenuBar';
 const EventPageTemplate = (props) => {  
 const post = props.post;
 const excerpt = JSON.parse(striptags(post.excerpt).replace(/&#8220;/g, '"').replace(/&#8221;/g, '"').replace(/&#038;#8221;/g, '"'))
-console.log(post)
   return (
     <Container fluid>
       <TopMenuBar subPage={true} />

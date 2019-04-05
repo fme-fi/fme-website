@@ -82,6 +82,15 @@
             @media screen and (max-width: $screen-sm-min - 1) {
                 margin-bottom: 100px;
             }
+            p {
+                position: absolute;
+                top: 0px;
+                left: 20px;
+                color: #fff;
+                background-color: #f0274e;
+                padding: 10px;
+                text-transform: capitalize;
+            }
             h1 {
                 color: #fff;
                 font-weight: 200;

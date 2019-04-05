@@ -37,7 +37,6 @@ class BasicMap extends Component {
   }
 
   handleEventClick(event) {
-    console.log(event);
     this.setState({
       selectedEvent: event
     })

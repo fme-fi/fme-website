@@ -8,6 +8,9 @@ class UpcomingEventCards extends Component {
     render() {        
         return (
             <div style={{backgroundImage: `url(${this.props.featuredImage})`}} className="eventCard">
+                <p>
+                   {this.props.businessRules.date} 
+                </p>
                 <h1 dangerouslySetInnerHTML={{__html: this.props.title}}>                    
                 </h1>
             </div>
