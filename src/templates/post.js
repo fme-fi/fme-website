@@ -23,7 +23,7 @@ const PostTemplate = (props) => {
           title={post.title}
           meta={[
             { name: 'description', content: post.title },
-            { name: 'og-image', content: post.featured_media.source_url }
+//            { name: 'og-image', content: post.featured_media.source_url } //TODO fix this
           ]}
         />      
        <article>
