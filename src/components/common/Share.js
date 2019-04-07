@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { FaFacebookF, FaBookmark, FaMapPin } from 'react-icons/fa';
+import { FacebookShareButton } from 'react-share';
 
-class Share extends Component {
-    
+class Share extends Component {    
     render() {
+        console.log("props", this.props)
         return(
             <div className="shareContainer">            
             <ul>
@@ -19,7 +20,9 @@ class Share extends Component {
             </ul>
                 <ul>
                     <li>
-                        <FaFacebookF size="1.5em" color={"#1C3142"} />
+                        <FacebookShareButton quote={this.props.postTitle} url={`${process.env.GATSBY_FME_WP_SITE_URL}/${this.props.thisLink}`}>
+                            <FaFacebookF size="1.5em" color={"#1C3142"} />
+                        </FacebookShareButton>
                     </li>
                     <li>
                         <FaBookmark size="1.5em" color={"#1C3142"} />

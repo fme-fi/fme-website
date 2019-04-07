@@ -22,7 +22,8 @@ const PostTemplate = (props) => {
         <Helmet
           title={post.title}
           meta={[
-            { name: 'description', content: post.excerpt },
+            { name: 'description', content: post.title },
+            { name: 'og-image', content: post.featured_media.source_url }
           ]}
         />      
        <article>
@@ -34,7 +35,7 @@ const PostTemplate = (props) => {
           }
         </header>
         <div className="blogContentContainer">
-                <Share />
+                <Share postTitle={post.title} thisLink={`/blog/${post.slug}`} />
                 <div dangerouslySetInnerHTML={{ __html: post.content }} />
                 <Pagination pagination={props.pageContext.pagination} />
           </div>             

@@ -38,7 +38,7 @@ class Header extends Component {
             </Col>
           </Row>
           <Row center>                                        
-            <Col lg={10}>
+            <Col className="upcomingEventsWrapper" lg={10}>
               <SectionTitle>
                 Következő eseményeink
               </SectionTitle>

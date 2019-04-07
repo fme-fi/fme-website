@@ -46,6 +46,9 @@
         h3 {
             font-size: 14px;
             text-align: center;
+            @media screen and (max-width: $screen-sm-min - 1) {
+                max-width: 50%;
+            }
         }
     }
 }

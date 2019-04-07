@@ -1,5 +1,12 @@
 @import './../mixins/dropShadow';
 
+.upcomingEventsWrapper {
+    @media screen and (max-width: $screen-sm-min - 1) {
+        position: relative;
+        top: -200px;
+    }
+}
+
 .nextEventsContainer {
     a {
         width: inherit;
@@ -75,7 +82,7 @@
                 height: 100px;
                 left: 50%;
             }
-        }                
+        }
         .eventCard {
             min-width: 300px;
             border-radius: 10px;

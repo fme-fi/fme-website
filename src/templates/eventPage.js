@@ -36,7 +36,7 @@ const excerpt = JSON.parse(striptags(post.excerpt).replace(/&#8220;/g, '"').repl
           }
         </header>                   
         <div className="blogContentContainer">
-            <Share excerpt={excerpt} />
+            <Share postTitle={post.title} thisLink={`/blog/${post.slug}`} excerpt={excerpt} />
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
           </div>
         </article>

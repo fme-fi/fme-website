@@ -1,8 +1,32 @@
 import React, { Component } from 'react';
 import { FaBars } from 'react-icons/fa';
+import { Link } from 'gatsby';
 import BurgerMenu from './../BurgerMenu';
 import { connect } from 'react-redux';
 import { toggleMobileMenu } from './../../store/actions/toggleMobileMenu';
+import FmeLogo from './../assets/others/logo.svg';
+import styled from 'styled-components';
+
+const FmeLogoImage = styled.img`
+    max-width: 100px;
+    display: flex;
+    align-self: center;
+    position: relative;
+    z-index: 9;
+    margin: 18px;
+    &:hover {
+        pointer: none;
+        border: none;        
+    }
+`;
+
+const MobileWrapper = styled.div`
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+`;
 
 class MobileMenuToggle extends Component {
     constructor(props) {
@@ -22,14 +46,17 @@ class MobileMenuToggle extends Component {
         let isMobileMenuOpen = this.props.isMobileMenuOpen ? '' : 'hidden';
         let color = this.props.subPage ? '#1C3142' : '#fff'
         return ( 
-            <div>
+            <MobileWrapper>
+                <Link to="/">
+                    <FmeLogoImage src={FmeLogo} />
+                </Link>
                 <div className="mobileMenuToggle">
                     <FaBars onClick={this.handleMenuOpen} size={32} color={color} />
                 </div>
                 <div className={`burgerMenuContainer ${isMobileMenuOpen}`}>
                     <BurgerMenu />
                 </div>
-            </div>
+            </MobileWrapper>
          );
     }
 }  
