@@ -25,12 +25,32 @@ let ticking = false;
 export default (props) => {    
 
     const [currentPage, setCurrentPage] = useState("");
+    const [fixMenuBar, setFixMenuBar] = useState("")
 
     useEffect( () => {
-        let urlArray = window.location.href.split("/"); 
-        console.log("urlArray", urlArray)       
+        let urlArray = window.location.href.split("/");            
         setCurrentPage(urlArray[urlArray.length - 1])
-    })
+        
+        window.addEventListener('scroll', handleScroll);
+        return function cleanup() {
+            window.removeEventListener('scroll', handleScroll);
+        }
+    });
+
+    function handleScroll () {        
+        lastScrollY = window.scrollY;
+        if (!ticking) {
+        window.requestAnimationFrame(() => {
+            if (lastScrollY > 180) {
+                setFixMenuBar("fixed")
+            } else {
+                setFixMenuBar("")
+            }
+            ticking = false;
+            });
+            ticking = true;
+        }
+    }
 
     const data = useStaticQuery(graphql`
         query MenuStructureQuery {
@@ -55,14 +75,13 @@ export default (props) => {
     const result = data.allWordpressPage.edges.sort( (a,b) => {  
         return b.node.menu_order - a.node.menu_order
     });
-    let fixMenuBar = ''
-    let isSubPage = props.subPage ? 'subPage' : '';        
-    console.log("currentPage", currentPage)
+    
+    let isSubPage = props.subPage ? 'subPage' : '';
     return (                        
             <div className={`topMenuContainer ${isSubPage}`}>                    
                 <div className={`topMenuBar ${fixMenuBar}`}>
                     {
-                        props.isMenuBarFixed ? 
+                        fixMenuBar === 'fixed' ? 
                         <MemberShipFee />
                         : null
                     }
