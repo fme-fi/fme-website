@@ -46,7 +46,7 @@ class MobileMenuToggle extends Component {
         let isMobileMenuOpen = this.props.isMobileMenuOpen ? '' : 'hidden';
         let color = this.props.subPage ? '#1C3142' : '#fff'
         return ( 
-            <MobileWrapper>
+            <MobileWrapper className="mobileWrapperLogo">
                 <Link to="/">
                     <FmeLogoImage src={FmeLogo} />
                 </Link>
