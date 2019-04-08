@@ -1,9 +1,10 @@
 .mobileWrapperLogo {
-    display: none;
+    display: none !important;
     @media screen and (max-width: $screen-sm-min - 1) {
-        display: flex;
+        display: flex !important;
     }
 }
+
 .mobileMenuToggle {
     display: none;
     @media screen and (max-width: $screen-sm-min - 1) {
