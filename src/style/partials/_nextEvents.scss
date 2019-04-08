@@ -26,9 +26,11 @@
     align-items: center;
     justify-content: center;
     margin-top: 300px;
+    margin-bottom: 100px;
     @media screen and (max-width: $screen-sm-min - 1) {
         flex-direction: column;
         margin-top: 250px;
+        margin-bottom: 0px;
     }
     .nextEventContainer {
         &:last-of-type {
@@ -84,8 +86,38 @@
             }
         }
         .eventCard {
+            .content {
+                position: absolute;
+                height: 8px;
+                width: 100%;
+                bottom: 0;
+                &:before {
+                    @media screen and (max-width: $screen-sm-min - 1) {
+                        content: unset;
+                    }
+                    position: absolute;
+                    bottom: 100%;
+                    left: 0;
+                    right: -0.2px;
+                    background: inherit;
+                    height: 50px;
+                    -webkit-transform: skewY(4deg);
+                    transform: skewY(4deg);
+                    -webkit-transform-origin: 100%;
+                    transform-origin: 100%;
+                    z-index: 1;
+                    content: '';
+                    margin-bottom: -29px;
+                    background: #fff;
+                    @media screen and (max-width: $screen-sm-min - 1) {
+                        border-left: 2px solid #fff;
+                        left: -1px;
+                        border-right: 2px solid #fff;
+                        overflow: hidden;
+                    }
+                }
+            }
             min-width: 300px;
-            border-radius: 10px;
             z-index: 9;
             @media screen and (max-width: $screen-sm-min - 1) {
                 margin-bottom: 0px;
@@ -103,24 +135,25 @@
                 text-transform: capitalize;
             }
             h1 {
-                color: #fff;
+                color: #000;
                 font-weight: 200;
-                font-size: 22px;
-                text-transform: uppercase;
-                position: absolute;
+                font-size: 16px;                
                 width: 100%;
                 bottom: 0;
-                margin: 10px 20px;
+                margin: 15px 20px;
+                @media screen and (max-width: $screen-sm-min - 1) {
+                    margin: 20px 0;
+                }
                 padding: 0;
                 max-width: 250px;
+                font-weight: bold;
             }
             height: 300px;
             margin: 40px 40px;
             background-size: cover;
             background-position: 50% 50%;
-            position: relative;
+            position: relative;            
             &:before {
-                border-radius: 20px;
                 content: '';
                 position: absolute;
                 top: 0;

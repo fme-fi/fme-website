@@ -11,8 +11,10 @@ class UpcomingEventCards extends Component {
                 <p>
                    {this.props.businessRules.date} 
                 </p>
-                <h1 dangerouslySetInnerHTML={{__html: this.props.title}}>                    
-                </h1>
+                <div className="content">
+                    <h1 dangerouslySetInnerHTML={{__html: this.props.title}}>                    
+                    </h1>
+                </div>
             </div>
         )
     }
