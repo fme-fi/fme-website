@@ -5,7 +5,7 @@ class WelcomeText extends Component {
         return (
             <div className="welcome">                
                 <h1>
-                    Finnországi magyarok egyesülete
+                    Finnországi Magyarok Egyesülete
                 </h1>
                 <h2>
                     Üdvözöljük honlapounkon!
