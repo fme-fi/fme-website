@@ -31,6 +31,3 @@ If applicable, add screenshots to help explain your problem.
  - Device: [e.g. iPhone8]
  - OS: [e.g. iOS10.1]
  - Browser [e.g. stock browser, safari]
-
-**Additional context**
-Add any other context about the problem here.
