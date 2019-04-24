@@ -1,11 +1,8 @@
-import React, { Component } from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
-import { wordpressIds } from './../../postIds';
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import striptags from 'striptags';
-import { forEach } from 'lodash';
 import UpcomingEventCards from './UpcomingEventCards';
-import { Container, Row, Col } from 'react-flexybox';
-import { orderBy } from 'lodash';
+import { Col } from 'react-flexybox';
 
 export default () => {
         const data = useStaticQuery(graphql`

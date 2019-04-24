@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Parallax, Background } from 'react-parallax';
-import { Clock, User, Map } from 'react-feather';
+import { Parallax } from 'react-parallax';
+import { Clock, User } from 'react-feather';
 import { users } from './../../helpers/userFullnames';
 
 const BlogHeaderWrapper = styled.div``;
-const BlogFeaturedImage = styled.img``;
 const BlogMeta = styled.div``;
 
 const PostAuthor = (props) => {

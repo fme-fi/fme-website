@@ -1,30 +1,13 @@
 import React, { Component } from "react"
 import { Container, Row, Col } from 'react-flexybox';
-import { StaticQuery, graphql, Link } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
 import { forEach } from 'lodash'
 import TopMenuBar from './../components/common/TopMenuBar';
-import Footer from './../components/common/Footer';
 import striptags from 'striptags';
 import SelectedEvent from "../components/common/SelectedEvent";
 import MobileMenuToggle from './../components/common/MobileMenuToggle';
 import { connect } from 'react-redux';
 import { toggleMobileMenu } from './../store/actions/toggleMobileMenu';
-
-const myEventsList = [ 
-  {
-    id: 0,
-    title: 'All Day Event very long title',
-    allDay: true,
-    start: new Date(2019, 3, 0),
-    end: new Date(2019, 3, 1),
-  },
-  {
-    id: 1,
-    title: 'Long Event',
-    start: new Date(2019, 3, 7),
-    end: new Date(2019, 3, 10),
-  },
-]
 
 class BasicMap extends Component {  
   constructor(props) {

@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
-class UpcomingEventCards extends Component {
-    constructor(props) {
-        super(props);        
-    }
-
+class UpcomingEventCards extends Component {    
     render() {        
         return (
             <div style={{backgroundImage: `url(${this.props.featuredImage})`}} className="eventCard">
@@ -20,4 +16,4 @@ class UpcomingEventCards extends Component {
     }
 }
 
-export default UpcomingEventCards;
+export default UpcomingEventCards

@@ -1,13 +1,8 @@
-import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import Slider from 'react-slick';
-import forEach from 'lodash/forEach';
 import WelcomeText from './WelcomeText';
 import TopMenuBar from './common/TopMenuBar';
-import Box from './common/Box';
 import styled from 'styled-components';
-import LatestPosts from './common/LatestPosts';
 import Management from './common/Management';
 import finlandVideo from './assets/others/suomi2.mp4';
 import { Container, Row, Col } from 'react-flexybox';

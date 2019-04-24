@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import TopMenuBar from './../components/common/TopMenuBar';
 import Footer from './../components/common/Footer';
-import striptags from 'striptags';
 import { Container, Row, Col } from 'react-flexybox';
 import MobileMenuToggle from './../components/common/MobileMenuToggle';
 import { connect } from 'react-redux';

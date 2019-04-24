@@ -11,9 +11,6 @@ import { connect } from 'react-redux';
 import { toggleMobileMenu } from './../store/actions/toggleMobileMenu';
 
 class LinkCollection extends Component {
-    constructor(props) {
-        super(props);
-    }
     componentDidMount() {
         this.props.onToggleMobileMenu(false);
     }

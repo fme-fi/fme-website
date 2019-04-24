@@ -6,8 +6,6 @@ import FmeLogo from './../assets/others/logo.svg';
 import { FaInstagram, FaFacebookF } from 'react-icons/fa/'
 import MemberShipFee from './MemberShipFee';
 
-const SocialImage = styled.img``;
-
 const FmeLogoImage = styled.img`
     max-width: 100px;
     display: flex;

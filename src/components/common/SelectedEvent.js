@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import { FaFacebookF, FaBookmark, FaMapPin, FaClock } from 'react-icons/fa';
+import { FaMapPin, FaClock } from 'react-icons/fa';
 
 class SelectedEvent extends Component {
-    constructor(props) {
-        super(props);                        
-    }
     render() {         
         let thisEventDate = new Date(this.props.selectedEvent.date)        
         return ( 

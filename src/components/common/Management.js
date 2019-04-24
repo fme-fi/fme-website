@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import SVGInline from "react-svg-inline";
-import circleSvg from './circleSvg';
 import { Container, Row, Col } from 'react-flexybox';
 import striptags from 'striptags';
 

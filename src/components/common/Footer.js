@@ -5,14 +5,9 @@ import { StaticQuery, graphql, Link } from 'gatsby';
 import Deer from './../assets/others/deer_brown.gif';
 import HuFlag from './../assets/others/hu_flag.gif'; 
 import { VelocityComponent } from 'velocity-react';
-import PastEvents from './PastEvents';
 const BackgroundImageContainer = styled.div``;
 
-class Footer extends Component {    
-    constructor(props) {
-        super(props)
-        
-    }
+class Footer extends Component {
     render() {
         
         return (
@@ -43,8 +38,8 @@ class Footer extends Component {
                             
                         }} className="footerContainer">
                             <BackgroundImageContainer />                
-                            <img className="deer" src={Deer} />
-                            <img className="huFlag" src={HuFlag} />
+                            <img alt="deer" className="deer" src={Deer} />
+                            <img alt="hungarian flag" className="huFlag" src={HuFlag} />
                             <div className="footerMenuContainer">
                                 <ul>
                                     <li>

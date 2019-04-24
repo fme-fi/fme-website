@@ -3,8 +3,7 @@ import TopMenuBar from './../components/common/TopMenuBar';
 import Footer from './../components/common/Footer';
 import { Container, Row, Col } from 'react-flexybox';
 import { StaticQuery, graphql, Link } from 'gatsby';
-import { element } from 'prop-types';
-import MobileMenuToggle from './../components/common/MobileMenuToggle';
+        import MobileMenuToggle from './../components/common/MobileMenuToggle';
 import { connect } from 'react-redux';
 import { toggleMobileMenu } from './../store/actions/toggleMobileMenu';
 
@@ -12,9 +11,7 @@ class Archive extends Component {
     componentDidMount() {
         this.props.onToggleMobileMenu(false);
     }
-    render() { 
-        let postDates = []
-        let currentDate = null
+    render() {        
         return ( 
             <StaticQuery
                 query={graphql`

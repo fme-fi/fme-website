@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { FaExclamationTriangle } from 'react-icons/fa/'
-import { Link } from 'gatsby';
 
 class MemberShipFee extends Component {
     constructor(props) {

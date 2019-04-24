@@ -1,12 +1,10 @@
 import React from 'react';
 import PropType from 'prop-types';
 import Helmet from 'react-helmet';
-import Img from 'gatsby-image';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import striptags from 'striptags';
-import BlogContainer from './../components/common/BlogContainer'
 import BlogHeader from './../components/common/BlogHeader';
-import { Container, Row, Col } from 'react-flexybox';
+import { Container } from 'react-flexybox';
 import defaultFeaturedImage from './../components/assets/others/default_featured_image.jpg';
 import './../style/Site.scss';
 import Share from './../components/common/Share';
