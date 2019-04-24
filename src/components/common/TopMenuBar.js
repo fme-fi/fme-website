@@ -66,7 +66,7 @@ export default (props) => {
                     slug
                     status, 
                     menu_order
-                }
+                    }
                 }
             }    
         }
@@ -74,7 +74,7 @@ export default (props) => {
 
     const result = data.allWordpressPage.edges.sort( (a,b) => {  
         return b.node.menu_order - a.node.menu_order
-    });
+    })
     
     let isSubPage = props.subPage ? 'subPage' : '';
     return (                        

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { useStaticQuery StaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import SVGInline from "react-svg-inline";
 import circleSvg from './circleSvg';
@@ -37,6 +37,11 @@ export default (props) => {
                     }
                 }                            
     `)
+
+    const result = data.allWordpressPage.edges.sort( (a, b ) => {
+        return JSON.parse(striptags(a.node.excerpt).replace(/&#8220;/g, '"').replace(/&#8221;/g, '"').replace(/&#038;#8221;/g, '"')).order - JSON.parse(striptags(b.node.excerpt).replace(/&#8220;/g, '"').replace(/&#8221;/g, '"').replace(/&#038;#8221;/g, '"')).order 
+    })
+
     return (            
         <Container fluid={false}>
         <h1 style={{margin: `20px`}}>Vezetőség</h1>
@@ -45,7 +50,7 @@ export default (props) => {
                     <div className="Management">                                                    
                             <div className="facesContainer">                                                
                             {
-                            data.allWordpressPage.edges.map(({node}) => (                            
+                            result.map(({node}) => (                            
                                 <div key={node.id} className="face">                                                                    
                                 <SVGInline
                                 svg={
