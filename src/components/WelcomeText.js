@@ -8,7 +8,7 @@ class WelcomeText extends Component {
                     Finnországi Magyarok Egyesülete
                 </h1>
                 <h2>
-                    Üdvözöljük honlapounkon!
+                    Üdvözöljük honlapunkon!
                 </h2>
             </div>
         )
