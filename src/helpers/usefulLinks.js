@@ -22,7 +22,8 @@ export const links = [
     },
     {
       "url": "https://finnorszagilevelek.com",
-      "title": "Finnországi Levelek – Judit Mäkinen blogja"
+      "title": "Finnországi Levelek", 
+      "desc": "Judit Mäkinen blogja"
     },
     {
       "url": "http://whatsupfinland.org/hungarian/",
