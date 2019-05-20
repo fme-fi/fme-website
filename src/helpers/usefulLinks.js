@@ -21,8 +21,8 @@ export const links = [
       "title": "Magyar Kulturális és Tudományos Központ"
     },
     {
-      "url": "http://helsinki.balassiintezet.hu/",
-      "title": "Magyar Kulturális és Tudományos Központ"
+      "url": "https://finnorszagilevelek.com",
+      "title": "Finnországi Levelek – Judit Mäkinen blogja"
     },
     {
       "url": "http://whatsupfinland.org/hungarian/",
