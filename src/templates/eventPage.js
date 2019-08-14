@@ -25,8 +25,10 @@ const excerpt = JSON.parse(striptags(post.excerpt).replace(/&#8220;/g, '"').repl
           title={post.title}
           meta={[
             { name: 'description', content: post.title },
+            { name: 'og:image', content: !post.featured_media ? defaultFeaturedImage : post.featured_media.source_url}
+
           ]}
-        />      
+        />
        <article>
         <header>
           {
