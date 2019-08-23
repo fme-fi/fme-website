@@ -64,17 +64,17 @@ class BasicMap extends Component {
                           featuredImage: key.node.featured_media.source_url, 
                           responsible: convertedObject.responsible, 
                           location: convertedObject.location
-                        })                                                
-            }),                        
-            <div>                
-                <TopMenuBar subPage={true} />                
-                <MobileMenuToggle subPage={false} />    
+                        })
+            }),
+            <div>
+                <TopMenuBar subPage={true} />
+                <MobileMenuToggle subPage={false} />
                 <Container>
                   <Row center={true}>
-                    <Col lg={10} xs={12}>                                  
+                    <Col lg={10} xs={12}>
                       {
-                        data.allWordpressPage.edges.map(({node}, index) => (                          
-                            <SelectedEvent key={index} selectedEvent={businessRules[index]} />                         
+                        data.allWordpressPage.edges.map(({node}, index) => (
+                            <SelectedEvent key={index} selectedEvent={businessRules[index]} />
                         ))
                       }
                     </Col>                    

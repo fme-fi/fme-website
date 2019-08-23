@@ -33,12 +33,12 @@ class BlogHeader extends Component {
         return(
             <Parallax
             blur={0}
-            bgImage={this.props.featuredImage}            
+            bgImage={this.props.featuredImage}
             strength={600} 
-            bgClassName="parallaxBlogHeader"     
-            contentClassName="parallaxContentBlogHeader"                  
+            bgClassName="parallaxBlogHeader"
+            contentClassName="parallaxContentBlogHeader"
             >            
-            <BlogHeaderWrapper className="blogHeaderWrapper">                
+            <BlogHeaderWrapper className="blogHeaderWrapper">
                     <BlogMeta className="blogMeta">
                         <h1>
                             {this.props.blogTitle}
@@ -46,13 +46,11 @@ class BlogHeader extends Component {
                     </BlogMeta>
                     <div className="authorContainer">
                         <div>
-                            <p>                                
+                            <p>
                                 <span>
                                 {
                                     currentAuthor && !this.props.excerpt ? 
                                         <PostAuthor author={currentAuthor.fullName} />
-                                    : this.props.excerpt && this.props.excerpt.responsible ? 
-                                    <PostAuthor author={this.props.excerpt.responsible} />   
                                     : null
                                 }
                                 </span> 
