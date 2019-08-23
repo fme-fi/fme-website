@@ -19,11 +19,15 @@ class Share extends Component {
                 }
             </ul>
                 <ul>
-                    <li>
-                        <a target="_blank" href={this.props.excerpt.fbevent}>
-                            <FaFacebookF size="1.5em" color={"#1C3142"} />
-                        </a>
-                    </li>
+                    {
+                    this.props.excerpt.fbevent ?
+                        <li>
+                            <a target="_blank" href={this.props.excerpt.fbevent}>
+                                <FaFacebookF size="1.5em" color={"#1C3142"} />
+                            </a>
+                        </li>
+                    : null
+                    }
                     <li>
                         <FaBookmark size="1.5em" color={"#1C3142"} />
                     </li>
