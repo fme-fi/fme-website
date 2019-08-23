@@ -20,7 +20,7 @@ class Share extends Component {
             </ul>
                 <ul>
                     {
-                    this.props.excerpt.fbevent ?
+                    this.props.excerpt && this.props.excerpt.fbevent ?
                         <li>
                             <a target="_blank" href={this.props.excerpt.fbevent}>
                                 <FaFacebookF size="1.5em" color={"#1C3142"} />
