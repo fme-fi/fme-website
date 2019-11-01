@@ -19,10 +19,6 @@
     "gatsby-plugin-styled-components": "^3.0.5",
     "gatsby-source-filesystem": "^2.1.35",
     "gatsby-transformer-sharp": "^2.1.8",
-<<<<<<< HEAD
-    "install": "^0.12.2",
-=======
->>>>>>> fb1dbf691229a40609443982de9ec592c1da21e5
     "lodash": "^4.17.13",
     "node-sass": "^4.11.0",
     "npm": "^6.12.1",
