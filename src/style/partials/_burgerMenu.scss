@@ -1,0 +1,69 @@
+.mobileWrapperLogo {
+    display: none !important;
+    @media screen and (max-width: $screen-sm-min - 1) {
+        display: flex !important;
+    }
+}
+
+.mobileMenuToggle {
+    display: none;
+    @media screen and (max-width: $screen-sm-min - 1) {
+        display: block;
+    }
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 9;
+    padding: 20px;
+}
+
+.burgerMenuContainer {
+    transition: all .4s ease;
+    &.hidden {        
+        & > div {
+            width: 0;            
+            transition: all .4s ease;
+            overflow: hidden;
+        }
+        .closeContainer {
+            display: none;
+        }
+    }
+    .burgerMenu {
+        .closeContainer {
+            position: absolute;
+            right: 0;
+            padding: 20px;
+        }        
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        background: #fff;
+        z-index: 9999;
+        width: calc(100% - 100px);
+        right: 0;
+        transition: all .4s ease;
+        ul {
+            margin: 70px 20px;
+            margin-bottom: 0;
+            padding: 0;
+            list-style-type: none;
+            li {
+                margin: 20px 0;
+                &.active {
+                    &:after {
+                        content: '';
+                        border-bottom: 2px solid $mainTextColor;
+                        display: block;
+                    }
+                }
+                a {
+                    font-size: 24px;
+                    text-decoration: none;
+                    color: $mainTextColor;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }    
+}

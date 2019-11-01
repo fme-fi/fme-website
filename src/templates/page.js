@@ -9,6 +9,8 @@ import BasicMap from './../pages/Events';
 import AboutUs from './../pages/AboutUs';
 import Archive from './../pages/Archive';
 import Connections from './../pages/Connections';
+import EventPageTemplate from './eventPage';
+
 const PageTemplate = (props) => {
   const { data: { wordpressPage: page } } = props;  
   const Layout = LinkCollection;  
@@ -30,7 +32,7 @@ const PageTemplate = (props) => {
       <Connections links={page.content}>
         {page.title}
       </Connections>
-    : null
+    : <EventPageTemplate post={page} />
   );
 };
 PageTemplate.propTypes = {
@@ -48,6 +50,13 @@ export const pageQuery = graphql`
         slug
         id
         wordpress_id
+        author {
+          name
+        }
+        featured_media {
+          id
+          source_url
+        }
     }
   }
 `;

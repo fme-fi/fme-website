@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Parallax, Background } from 'react-parallax';
+import { Parallax } from 'react-parallax';
 import { Clock, User } from 'react-feather';
 import { users } from './../../helpers/userFullnames';
 
 const BlogHeaderWrapper = styled.div``;
-const BlogFeaturedImage = styled.img``;
 const BlogMeta = styled.div``;
+
+const PostAuthor = (props) => {
+    return ( 
+        <span>
+            <User /> {props.author}
+        </span>
+     );
+}
 
 class BlogHeader extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            postAuthor: null
+            postAuthor: null,            
         };
 
-    }
+    }    
     render() {
         
         let thisPostAuthor = this.props.author
@@ -26,12 +33,12 @@ class BlogHeader extends Component {
         return(
             <Parallax
             blur={0}
-            bgImage={this.props.featuredImage}            
+            bgImage={this.props.featuredImage}
             strength={600} 
-            bgClassName="parallaxBlogHeader"     
-            contentClassName="parallaxContentBlogHeader"                  
+            bgClassName="parallaxBlogHeader"
+            contentClassName="parallaxContentBlogHeader"
             >            
-            <BlogHeaderWrapper className="blogHeaderWrapper">                
+            <BlogHeaderWrapper className="blogHeaderWrapper">
                     <BlogMeta className="blogMeta">
                         <h1>
                             {this.props.blogTitle}
@@ -41,10 +48,23 @@ class BlogHeader extends Component {
                         <div>
                             <p>
                                 <span>
-                                <User /> {currentAuthor.fullName}
+                                {
+                                    currentAuthor && !this.props.excerpt ? 
+                                        <PostAuthor author={currentAuthor.fullName} />
+                                    : null
+                                }
                                 </span> 
                                 <span>
-                                <Clock /> {this.props.postDate}                               
+                                {
+                                    this.props.postDate && !this.props.excerpt ? 
+                                    <>
+                                        <Clock /> <span dangerouslySetInnerHTML={{__html: this.props.postDate}}></span>
+                                    </>
+                                    : 
+                                    <>
+                                        <Clock /> <span dangerouslySetInnerHTML={{__html: this.props.excerpt.date}}></span>
+                                    </>
+                                }                             
                                 </span>
                             </p>                            
                         </div>

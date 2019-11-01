@@ -3,6 +3,11 @@
     flex-direction: row;
     justify-content: space-between;
     border-bottom: 1px solid #dedede;
+    & + div {
+        @media screen and (max-width: $screen-sm-min - 1) {
+            margin: 0 20px;
+        }
+    }
     ul {
         margin: 20px 0;
         padding: 0;
@@ -15,7 +20,7 @@
                 span {
                     font-size: 20px;
                     margin-left: 10px;
-                }
+                }                
             }
         }
         &:last-of-type {
@@ -24,6 +29,9 @@
                 margin: 0 10px;
                 display: inline-block;
                 align-content: center;
+                &:hover {
+                    cursor: pointer;
+                }
             }
         }        
     }

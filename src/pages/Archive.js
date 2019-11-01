@@ -3,24 +3,31 @@ import TopMenuBar from './../components/common/TopMenuBar';
 import Footer from './../components/common/Footer';
 import { Container, Row, Col } from 'react-flexybox';
 import { StaticQuery, graphql, Link } from 'gatsby';
-import { element } from 'prop-types';
+        import MobileMenuToggle from './../components/common/MobileMenuToggle';
+import { connect } from 'react-redux';
+import { toggleMobileMenu } from './../store/actions/toggleMobileMenu';
 
-class Archive extends Component {        
-    render() { 
-        let postDates = []
-        let currentDate = null
+class Archive extends Component {
+    componentDidMount() {
+        this.props.onToggleMobileMenu(false);
+    }
+    render() {        
         return ( 
             <StaticQuery
                 query={graphql`
                     query allWordpressPost {
-                        allWordpressPost {
+                        allWordpressPost(filter: {tags: {elemMatch: {wordpress_id: { eq: 1187 }}}} ){
                             edges {
                             node {
                                 wordpress_id
                                 id
                                 title        
                                 date
-                                slug                                
+                                slug
+                                tags {
+                                    id
+                                    wordpress_id
+                                }
                             }
                             }
                         }
@@ -29,9 +36,10 @@ class Archive extends Component {
                 render={data => (
                     <div>
                         <TopMenuBar subPage={true} />
+                        <MobileMenuToggle subPage={true} />    
                         <Container fluid className="archiveList">
                             <Row center>
-                                <Col lg={8}>
+                                <Col xs={10} lg={8}>
                                     <h1>
                                         {`Archiv (${data.allWordpressPost.edges.length})`}
                                     </h1>
@@ -56,5 +64,13 @@ class Archive extends Component {
          );
     }
 }
+
+const mapStateToProps = state => ({
+    isMobileMenuOpen: state.isMobileMenuOpen.isMobileMenuOpen
+})
+
+const mapDispatchToProps = dispatch => ({
+    onToggleMobileMenu: (isMobileMenuOpen) => dispatch(toggleMobileMenu(isMobileMenuOpen))
+})
  
-export default Archive;
+export default connect(mapStateToProps, mapDispatchToProps)(Archive);

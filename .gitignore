@@ -1,5 +1,6 @@
+src/components/assets/others/suomi.mp4
 .env*
-src/components/assets
+
 # Logs
 logs
 *.log

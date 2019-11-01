@@ -1,69 +1,98 @@
 import React, { Component } from "react"
-import {
-  ComposableMap,
-  ZoomableGroup,
-  Geographies,
-  Geography,
-} from "react-simple-maps"
-import Topo from './../helpers/topo.json';
+import { Container, Row, Col } from 'react-flexybox';
+import { StaticQuery, graphql } from 'gatsby';
+import { forEach } from 'lodash'
+import TopMenuBar from './../components/common/TopMenuBar';
+import striptags from 'striptags';
+import SelectedEvent from "../components/common/SelectedEvent";
+import MobileMenuToggle from './../components/common/MobileMenuToggle';
+import { connect } from 'react-redux';
+import { toggleMobileMenu } from './../store/actions/toggleMobileMenu';
 
-const wrapperStyles = {
-  width: "100%",
-  maxWidth: 980,
-  margin: "0 auto",
-}
+class BasicMap extends Component {  
+  constructor(props) {
+    super(props);
+    this.handleEventClick = this.handleEventClick.bind(this);
+    this.state = {
+      selectedEvent: null
+    }
 
-class BasicMap extends Component {
-  render() {
+  }
+
+  handleEventClick(event) {
+    this.setState({
+      selectedEvent: event
+    })
+  }
+
+  componentDidMount() {
+    this.props.onToggleMobileMenu(false);
+  }
+
+  render() {  
+    let businessRules = [];  
     return (
-      <div style={wrapperStyles}>
-        <ComposableMap
-          projectionConfig={{
-            scale: 501,
-            rotation: [-11,0,0],
-          }}
-          width={980}
-          height={551}
-          style={{
-            width: "100%",
-            height: "auto",
-          }}
-          >
-          <ZoomableGroup center={[20,100]} disablePanning>
-            <Geographies geography={Topo}>
-              {(geographies, projection) => geographies.map((geography, i) => geography.id !== "ATA" && (
-                <Geography
-                  key={i}
-                  geography={geography}
-                  projection={projection}
-                  style={{
-                    default: {
-                      fill: "#ECEFF1",
-                      stroke: "#607D8B",
-                      strokeWidth: 0.75,
-                      outline: "none",
-                    },
-                    hover: {
-                      fill: "#607D8B",
-                      stroke: "#607D8B",
-                      strokeWidth: 0.75,
-                      outline: "none",
-                    },
-                    pressed: {
-                      fill: "#FF5722",
-                      stroke: "#607D8B",
-                      strokeWidth: 0.75,
-                      outline: "none",
-                    },
-                  }}
-                />
-              ))}
-            </Geographies>
-          </ZoomableGroup>
-        </ComposableMap>
-      </div>
+      <StaticQuery
+        query={graphql`
+          query upcomingEvents {
+            allWordpressPage(filter: { wordpress_parent: {eq: 617} }) {
+                  edges {
+                  node {
+                      id
+                      title
+                      content
+                      excerpt
+                      date
+                      modified
+                      slug
+                      status          
+                      featured_media {
+                          id
+                          source_url
+                          }                      
+                      }
+                  }
+              }
+          }
+        `}
+          render={data => (
+            forEach(data.allWordpressPage.edges, (key, value) => {
+                        let convertedObject = JSON.parse(striptags(key.node.excerpt).replace(/&#8220;/g, '"').replace(/&#8221;/g, '"').replace(/&#038;#8221;/g, '"'));                        
+                        businessRules.push({
+                          title: key.node.title.replace(/&nbsp;/g, ' '), 
+                          date: new Date(convertedObject.date),
+                          featuredImage: key.node.featured_media.source_url, 
+                          responsible: convertedObject.responsible, 
+                          location: convertedObject.location
+                        })
+            }),
+            <div>
+                <TopMenuBar subPage={true} />
+                <MobileMenuToggle subPage={false} />
+                <Container>
+                  <Row center={true}>
+                    <Col lg={10} xs={12}>
+                      {
+                        data.allWordpressPage.edges.map(({node}, index) => (
+                            <SelectedEvent key={index} selectedEvent={businessRules[index]} />
+                        ))
+                      }
+                    </Col>                    
+                  </Row>
+                </Container>                
+              </div>
+          )}
+      />
     )
   }
 }
 
-export default BasicMap
+const mapStateToProps = state => ({
+  isMobileMenuOpen: state.isMobileMenuOpen.isMobileMenuOpen
+})
+
+const mapDispatchToProps = dispatch => ({
+  onToggleMobileMenu: (isMobileMenuOpen) => dispatch(toggleMobileMenu(isMobileMenuOpen))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(BasicMap)

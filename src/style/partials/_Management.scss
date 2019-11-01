@@ -4,7 +4,7 @@
     margin: 0 auto;
     grid-template-columns: repeat(4, 220px);
     @media screen and (max-width: $screen-sm-min - 1) {
-        grid-template-columns: repeat(4, 190px);
+        grid-template-columns: repeat(2, 190px);
     }
     row-gap: 40px;
     .face {
@@ -45,15 +45,19 @@
         }
         h3 {
             font-size: 14px;
+            text-align: center;
+            @media screen and (max-width: $screen-sm-min - 1) {
+                max-width: calc(100% - 30px);
+            }
         }
     }
 }
 
 @keyframes dash {
     from {
-      stroke-dashoffset: 1948.6529541015625;
+        stroke-dashoffset: 1948.6529541015625;
     }
     to {
-      stroke-dashoffset: 0;
+        stroke-dashoffset: 0;
     }
-  }
+}

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Img from 'gatsby-image';
 import { StaticQuery, graphql, Link } from 'gatsby';
 
@@ -13,8 +13,9 @@ const Blog = () => (
             title
             excerpt            
             slug
-            author{
-                name
+            author {
+                id
+                name                
             }
           }
         }

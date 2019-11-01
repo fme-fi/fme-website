@@ -5,16 +5,24 @@ import striptags from 'striptags';
 import UsefulSidebar from './../components/UsefulSidebar';
 import TopMenuBar from './../components/common/TopMenuBar';
 import Footer from './../components/common/Footer';
-import { usefulLinks } from './../helpers/usefulLinks';
+import { usefulLinks, linkCollection } from './../helpers/usefulLinks';
+import MobileMenuToggle from './../components/common/MobileMenuToggle';
+import { connect } from 'react-redux';
+import { toggleMobileMenu } from './../store/actions/toggleMobileMenu';
 
 class LinkCollection extends Component {
-    constructor(props) {
-        super(props);
+    componentDidMount() {
+        this.props.onToggleMobileMenu(false);
     }
     render() {
         let sectionTitle = [];
-        let linksObject = JSON.parse(striptags(this.props.links).replace(/&#8220;/g, '"').replace(/&#8221;/g, '"').replace(/&#038;#8221;/g, '"'));
-        let linkObjectKeys = Object.keys(linksObject);                    
+        let linksObject = null;        
+        if (process.env.NODE_ENV === 'production')  {
+            linksObject = linkCollection
+        } else {
+            linksObject = JSON.parse(striptags(this.props.links).replace(/&#8220;/g, '"').replace(/&#8221;/g, '"').replace(/&#038;#8221;/g, '"'));            
+        }              
+        let linkObjectKeys = Object.keys(linksObject);    
         for (let i = 0; i<linkObjectKeys.length; i++) {
             let thisLinkSectionTitle =  usefulLinks.find(function(element) {
                 return element.slug === linkObjectKeys[i];
@@ -24,9 +32,10 @@ class LinkCollection extends Component {
         return (
             <div>
                 <TopMenuBar subPage={true} />
+                <MobileMenuToggle subPage={true} />    
                 <Container className="linkCollection">                
                 <Row>                    
-                    <Col style={{margin: `20px`}} xs={12} lg={8}>
+                    <Col className="col" style={{margin: `20px`}} xs={12} lg={8}>
                         <ul>
                             <li>
                             {
@@ -35,7 +44,9 @@ class LinkCollection extends Component {
                             </li>
                             {
                                 linksObject.social.map((currentLink, index) => (
+                                    currentLink.desc ? 
                                     <ListElement description={currentLink.desc} key={index} url={currentLink.url} title={currentLink.title} />
+                                    : <ListElement description="" key={index} url={currentLink.url} title={currentLink.title} />
                                 ))  
                             }
                         </ul>
@@ -87,4 +98,12 @@ class LinkCollection extends Component {
     }
 }
 
-export default LinkCollection;
+const mapStateToProps = state => ({
+    isMobileMenuOpen: state.isMobileMenuOpen.isMobileMenuOpen
+})
+
+const mapDispatchToProps = dispatch => ({
+    onToggleMobileMenu: (isMobileMenuOpen) => dispatch(toggleMobileMenu(isMobileMenuOpen))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(LinkCollection);

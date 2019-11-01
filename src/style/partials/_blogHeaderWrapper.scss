@@ -29,6 +29,9 @@ header {
             max-width: 900px;
             text-align: center;
             top: -20px;
+            @media screen and (max-width: $screen-sm-min - 1) {
+                top: -60px;
+            }
             h1 {
                 color: #fff;
                 font-size: 4vw;

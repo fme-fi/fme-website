@@ -9,6 +9,7 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-sass`,    
     `gatsby-plugin-react-helmet`,
     {
@@ -33,7 +34,13 @@ module.exports = {
       },
     },
     {
-      resolve: "@madetech/gatsby-source-wordpress",
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-135005335-1`,
+      },
+    },
+    {
+      resolve: "@zilahir/gatsby-source-wordpress",
       options: {
         /*
         * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
@@ -106,7 +113,8 @@ module.exports = {
           "**/posts",     
           "**/users",
           "**/pages",
-          "**/media"          
+          "**/media",
+          "**/tags",          
         ],
         // Blacklisted routes using glob patterns
         excludedRoutes: ["**/*/*/posts/1456"],

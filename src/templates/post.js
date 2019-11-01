@@ -1,29 +1,41 @@
 import React from 'react';
 import PropType from 'prop-types';
 import Helmet from 'react-helmet';
-import Img from 'gatsby-image';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import striptags from 'striptags';
-import BlogContainer from './../components/common/BlogContainer'
 import BlogHeader from './../components/common/BlogHeader';
-import { Container, Row, Col } from 'react-flexybox';
+import { Container } from 'react-flexybox';
+import defaultFeaturedImage from './../components/assets/others/default_featured_image.jpg';
+import './../style/Site.scss';
+import Share from './../components/common/Share';
+import Pagination from './../components/common/Pagination';
+import TopMenuBar from './../components/common/TopMenuBar';
 
 const PostTemplate = (props) => {
   const { data: { wordpressPost: post } } = props;      
   return (
     <Container fluid>
+      <TopMenuBar subPage={true} />
       <div>
         <Helmet
           title={post.title}
           meta={[
-            { name: 'description', content: post.excerpt },
+            { name: 'description', content: post.title },
           ]}
         />      
        <article>
         <header>
-          <BlogHeader postDate={post.date} author={post.author.name} blogTitle={striptags(post.title).replace('&nbsp;', ' ')} featuredImage={post.featured_media.source_url} />
+          {
+            !post.featured_media ? 
+              <BlogHeader postDate={post.date} author={post.author.name} blogTitle={striptags(post.title).replace('&nbsp;', ' ')} featuredImage={defaultFeaturedImage} />
+            : <BlogHeader postDate={post.date} author={post.author.name} blogTitle={striptags(post.title).replace('&nbsp;', ' ')} featuredImage={post.featured_media.source_url} />
+          }
         </header>
-          <BlogContainer pagination={props.pageContext.pagination} thisPostId={post.wordpress_id} content={post.content} />                    
+        <div className="blogContentContainer">
+                <Share postTitle={post.title} thisLink={`/blog/${post.slug}`} />
+                <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                <Pagination pagination={props.pageContext.pagination} />
+          </div>             
         </article>
       </div> 
     </Container>         
