@@ -8,6 +8,23 @@
 }
 
 .nextEventsContainer {
+    .noUpcoming {
+        background-color: rgba($color: #ff6961, $alpha: 1);
+        padding: 20px;
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        p {
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            svg {
+                margin-right: 20px;
+            }
+        }
+    }
     a {
         width: inherit;
     }
