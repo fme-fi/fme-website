@@ -5,8 +5,8 @@ import Image from '../components/image'
 import SEO from '../components/seo'
 
 const IndexPage = () => (
-    <Layout>    
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`, 'finnorszag', 'finnorszagi magyarok egyesülete']} />            
+    <Layout>
+        <SEO title="Home" keywords={[`gatsby`, `application`, `react`, 'finnorszag', 'finnorszagi magyarok egyesülete']} />
     </Layout>
 
 )

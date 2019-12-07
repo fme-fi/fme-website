@@ -19,7 +19,7 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>    
-        <MobileMenuToggle />    
+        <MobileMenuToggle />
         <FrontPage siteTitle={data.site.siteMetadata.title} />
         <Footer />
       </>

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import WelcomeText from './WelcomeText';
 import TopMenuBar from './common/TopMenuBar';
 import styled from 'styled-components';
@@ -8,6 +9,7 @@ import finlandVideo from './assets/others/suomi2.mp4';
 import { Container, Row, Col } from 'react-flexybox';
 import NextEvents from './common/NextEvents';
 import PastEvents from './common/PastEvents';
+import { getBgImages } from '../store/actions/getbackGroundImages'
 
 const SectionTitle = styled.h1`
     position: relative;
@@ -16,12 +18,20 @@ const SectionTitle = styled.h1`
 `;
 
 class Header extends Component {
-  render() {    
+  componentDidMount() {
+    Promise.all([
+      this.props.onFetchBackgroundImages()
+    ]).then(() => {
+      console.debug('props', this.props.bgImages.bgImages)
+    })
+  }
+  render() {
+    
     return(
-      <div>        
+      <div>
         <Container fluid>
-          <TopMenuBar />        
-          <WelcomeText />               
+          <TopMenuBar />
+          <WelcomeText />
           <div className="videoBackground">
             <video autoPlay muted>
               <source src={finlandVideo} type="video/mp4" />
@@ -32,7 +42,7 @@ class Header extends Component {
               { /* <Box /> */ }
             </Col>
           </Row>
-          <Row center>                                        
+          <Row center>
             <Col className="upcomingEventsWrapper" lg={10}>
               <SectionTitle>
                 Következő eseményeink
@@ -58,4 +68,12 @@ Header.defaultProps = {
   siteTitle: ``,
 }
 
-export default Header
+const mapStateToProps = state => ({
+  bgImages: state.bgImages,
+})
+
+const mapDispatchToProps = dispatch => ({
+  onFetchBackgroundImages: () => dispatch(getBgImages())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
