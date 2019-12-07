@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { GET_BACKGROUND_IMAGES } from './actionTypes'
 import { apiEndpoints } from '../../utils/apiEndpoints'
+import { shuffle } from 'lodash'
 
 export const setBgImages = bgImages => dispatch => new Promise(resolve => {
 	dispatch({
@@ -16,7 +17,7 @@ export const getBgImages = () => dispatch => new Promise(resolve => {
 	axios.get(apiEndpoints.getImages)
 		.then(resp => {
 			console.debug('resp', resp.data)
-			dispatch(setBgImages(resp.data.photos.photo))
+			dispatch(setBgImages(shuffle(resp.data.photos.photo)))
 			resolve(resp.data)
 		})
 })

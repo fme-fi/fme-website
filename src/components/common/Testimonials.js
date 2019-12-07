@@ -34,7 +34,7 @@ class Testimonials extends Component {
                                 date
                                 modified
                                 slug
-                                status        
+                                status
                             }
                             }
                         }
@@ -48,13 +48,13 @@ class Testimonials extends Component {
                         <Slider className="testimonialSlider" {...sliderConfig}>
                         {
                             data.allWordpressPage.edges.map(({node}) => (
-                            <Testimonial key={node.id} name={node.title} />        
-                            ))                                                               
-                        }                            
+                                <Testimonial key={node.id} name={node.title} />
+                            ))
+                        }
                         </Slider>
                     </TestionialWrapper>
                 )}
-                />            
+                />
         )
     }
 }
