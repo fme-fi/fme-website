@@ -18,6 +18,9 @@
             align-items: center;
             li {
                 list-style-type: none;
+                &:hover {
+                    cursor: pointer;
+                }
                 img {
                     max-width: 300px;
                 }
@@ -28,7 +31,7 @@
 
 .galleryItem {
     img {
-        max-width: 500px;
+        max-width: 100%;
     }
 }
 
