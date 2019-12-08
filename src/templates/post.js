@@ -37,34 +37,37 @@ const PostTemplate = (props) => {
   useEffect(() => {
     Modal.setAppElement(document.getElementById("___gatsby"))
     const gallery = document.getElementsByClassName('blocks-gallery-grid')[0]
-    const galleryImages = gallery.querySelectorAll('li')
-    let keyC = 0
-    galleryImages.forEach(currImage => {
-      currImage.addEventListener('click', e => {
-        toggleModal(true)
-        dispatch(toggleBlur(true))
-        setSelectedImage(e.target.src)
+    console.debug('gallery', gallery)
+    if (gallery) {
+      const galleryImages = gallery.querySelectorAll('li')
+      let keyC = 0
+      galleryImages.forEach(currImage => {
+        currImage.addEventListener('click', e => {
+          toggleModal(true)
+          dispatch(toggleBlur(true))
+          setSelectedImage(e.target.src)
+        })
       })
-    })
-    document.addEventListener('keydown', function(event) {
-        if (event.key === ARROW_LEFT) {
-          keyC = keyC - 1
-          galleryImages.forEach((currImage, index) => {
-            if (index === keyC) {
-              const currentSrc = currImage.querySelectorAll('img')[0].attributes.src.value;
-              setSelectedImage(currentSrc)
-            }
-          })
-        } else if (event.key === ARROW_RIGHT) {
-          keyC = keyC + 1
-          galleryImages.forEach((currImage, index) => {
-            if (index === keyC) {
-              const currentSrc = currImage.querySelectorAll('img')[0].attributes.src.value;
-              setSelectedImage(currentSrc)
-            }
-          })
-        }
-    })
+      document.addEventListener('keydown', function(event) {
+          if (event.key === ARROW_LEFT) {
+            keyC = keyC - 1
+            galleryImages.forEach((currImage, index) => {
+              if (index === keyC) {
+                const currentSrc = currImage.querySelectorAll('img')[0].attributes.src.value;
+                setSelectedImage(currentSrc)
+              }
+            })
+          } else if (event.key === ARROW_RIGHT) {
+            keyC = keyC + 1
+            galleryImages.forEach((currImage, index) => {
+              if (index === keyC) {
+                const currentSrc = currImage.querySelectorAll('img')[0].attributes.src.value;
+                setSelectedImage(currentSrc)
+              }
+            })
+          }
+      })
+    }
   }, [])
 
   function handleGalleryClose () {
@@ -72,7 +75,7 @@ const PostTemplate = (props) => {
     toggleModal(false)
     setSelectedImage(null)
   }
-  console.debug('images', images)
+
   return (
     <Container fluid>
       <TopMenuBar subPage={true} />
