@@ -37,7 +37,6 @@ const PostTemplate = (props) => {
   useEffect(() => {
     Modal.setAppElement(document.getElementById("___gatsby"))
     const gallery = document.getElementsByClassName('blocks-gallery-grid')[0]
-    console.debug('gallery', gallery)
     if (gallery) {
       const galleryImages = gallery.querySelectorAll('li')
       let keyC = 0
@@ -105,7 +104,7 @@ const PostTemplate = (props) => {
       </div>
       <Modal
           isOpen={isModalOpen}
-          onAfterOpen={() => console.debug('open')}
+          onAfterOpen={() => null}
           onRequestClose={() => handleGalleryClose()}
           style={customStyles}
           contentLabel="Example Modal"
