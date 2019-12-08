@@ -50,7 +50,7 @@ const PostTemplate = (props) => {
     toggleModal(false)
   }
   return (
-    <Container className="lofasz" fluid>
+    <Container fluid>
       <TopMenuBar subPage={true} />
       <div
         style={ store.getState().blur.blur ? { filter: 'blur(10px)'} : {} }
