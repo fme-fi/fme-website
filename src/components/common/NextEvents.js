@@ -51,7 +51,7 @@ export default () => {
             })
             :   <div className="noUpcoming">
                     <p>
-                       <FaExclamationTriangle size="2em" /> Jelenleg nincs eseményünk, de már dolgozunk a következőkön! Nézz vissza később!
+                       <FaExclamationTriangle size="2em" /> Jelenleg nincs eseményünk, de már dolgozunk a következőkön! Nézzen vissza később!
                     </p>
                 </div>
         }
