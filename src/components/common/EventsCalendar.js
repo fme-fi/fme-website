@@ -4,7 +4,7 @@ class EventsCalendar extends Component {
     render() { 
         return ( 
             <div>
-                lofasz
+                hello
             </div>
         );
     }

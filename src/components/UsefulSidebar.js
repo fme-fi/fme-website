@@ -8,8 +8,8 @@ class UsefulSidebar extends Component {
                 <h2>
                     Hasznos tudnivalók
                 </h2>
-                <WarningBox warningText="lofasz" />                
-            </div>            
+                <WarningBox warningText="" />
+            </div>
          );
     }
 }

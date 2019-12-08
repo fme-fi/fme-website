@@ -4,7 +4,6 @@ import { FacebookShareButton } from 'react-share';
 
 class Share extends Component {
     render() {
-        console.log("props", this.props)
         return(
             <div className="shareContainer">
             <ul>

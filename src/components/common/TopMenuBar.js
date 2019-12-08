@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
+import { useStore } from 'react-redux'
 import striptags from 'striptags';
 import styled from 'styled-components';
 import FmeLogo from './../assets/others/logo.svg';
@@ -12,7 +13,7 @@ const FmeLogoImage = styled.img`
     align-self: center;
     &:hover {
         pointer: none;
-        border: none;        
+        border: none;
     }
 `;
 
@@ -20,13 +21,12 @@ let lastScrollY = 0;
 let ticking = false;
 
 
-export default (props) => {    
-
+export default (props) => {
     const [currentPage, setCurrentPage] = useState("");
     const [fixMenuBar, setFixMenuBar] = useState("")
-
+    const store = useStore()
     useEffect( () => {
-        let urlArray = window.location.href.split("/");            
+        let urlArray = window.location.href.split("/");
         setCurrentPage(urlArray[urlArray.length - 1])
         
         window.addEventListener('scroll', handleScroll);
@@ -75,8 +75,11 @@ export default (props) => {
     })
     
     let isSubPage = props.subPage ? 'subPage' : '';
-    return (                        
-            <div className={`topMenuContainer ${isSubPage}`}>                    
+    return (
+            <div
+                className={`topMenuContainer ${isSubPage}`}
+                style={ store.getState().blur.blur ? { filter: 'blur(10px)'} : {} }
+            >
                 <div className={`topMenuBar ${fixMenuBar}`}>
                     {
                         fixMenuBar === 'fixed' ? 
@@ -111,7 +114,7 @@ export default (props) => {
                                             }
                                         </p>
                                     </Link>
-                                </li>                                
+                                </li>
                         ))
                     }
                     </ul>
