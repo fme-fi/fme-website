@@ -3,6 +3,12 @@
     display: flex;
     align-items: center;
     padding: 10px;
+    justify-content: space-between;
+    .hideNotification {
+        &:hover {
+            cursor: pointer;
+        }
+    }
     svg {
         fill: #fff;
         margin-right: 10px;

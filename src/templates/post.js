@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropType from 'prop-types';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
+import { useStore, useDispatch } from 'react-redux'
 import striptags from 'striptags';
 import BlogHeader from './../components/common/BlogHeader';
 import { Container } from 'react-flexybox';
@@ -10,13 +11,50 @@ import './../style/Site.scss';
 import Share from './../components/common/Share';
 import Pagination from './../components/common/Pagination';
 import TopMenuBar from './../components/common/TopMenuBar';
+import GalleryItem from '../components/common/GalleryItem';
+import Modal from 'react-modal';
+import { toggleBlur } from '../store/actions/toggleBlur'
+
+const customStyles = {
+  content : {
+    top                   : '55%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+};
 
 const PostTemplate = (props) => {
-  const { data: { wordpressPost: post } } = props;      
+  const { data: { wordpressPost: post } } = props;
+  const [selectedImage, setSelectedImage] = useState(null)
+  const [isModalOpen, toggleModal] = useState(false)
+  const store = useStore()
+  const dispatch = useDispatch()
+  useEffect(() => {
+    const gallery = document.getElementsByClassName('blocks-gallery-grid')[0]
+    const galleryImages = gallery.querySelectorAll('li')
+    galleryImages.forEach(currImage => {
+      currImage.addEventListener('click', e => {
+        toggleModal(true)
+        dispatch(toggleBlur(true))
+        setSelectedImage(e.target.src)
+      })
+    })
+    
+  }, [])
+
+  function handleGalleryClose () {
+    dispatch(toggleBlur(false))
+    toggleModal(false)
+  }
   return (
-    <Container fluid>
+    <Container className="lofasz" fluid>
       <TopMenuBar subPage={true} />
-      <div>
+      <div
+        style={ store.getState().blur.blur ? { filter: 'blur(10px)'} : {} }
+      >
         <Helmet
           title={post.title}
           meta={[
@@ -35,10 +73,20 @@ const PostTemplate = (props) => {
                 <Share postTitle={post.title} thisLink={`/blog/${post.slug}`} />
                 <div dangerouslySetInnerHTML={{ __html: post.content }} />
                 <Pagination pagination={props.pageContext.pagination} />
-          </div>             
+          </div>
         </article>
-      </div> 
-    </Container>         
+      </div>
+      <Modal
+          isOpen={isModalOpen}
+          onAfterOpen={() => console.debug('open')}
+          onRequestClose={() => handleGalleryClose()}
+          style={customStyles}
+          contentLabel="Example Modal"
+          overlayClassName="imageGalleryOverlay"
+        >
+            <GalleryItem src={selectedImage} />
+      </Modal>
+    </Container>
   );
 };
 PostTemplate.propTypes = {
