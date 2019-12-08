@@ -14,6 +14,7 @@ import TopMenuBar from './../components/common/TopMenuBar';
 import GalleryItem from '../components/common/GalleryItem';
 import Modal from 'react-modal';
 import { toggleBlur } from '../store/actions/toggleBlur'
+import { ARROW_LEFT, ARROW_RIGHT } from '../utils/consts'
 
 const customStyles = {
   content : {
@@ -30,11 +31,14 @@ const PostTemplate = (props) => {
   const { data: { wordpressPost: post } } = props;
   const [selectedImage, setSelectedImage] = useState(null)
   const [isModalOpen, toggleModal] = useState(false)
+  const [keyCounter, setKeyCounter] = useState(0)
   const store = useStore()
   const dispatch = useDispatch()
   useEffect(() => {
+    Modal.setAppElement(document.getElementById("___gatsby"))
     const gallery = document.getElementsByClassName('blocks-gallery-grid')[0]
     const galleryImages = gallery.querySelectorAll('li')
+    let keyC = 0
     galleryImages.forEach(currImage => {
       currImage.addEventListener('click', e => {
         toggleModal(true)
@@ -42,13 +46,33 @@ const PostTemplate = (props) => {
         setSelectedImage(e.target.src)
       })
     })
-    
+    document.addEventListener('keydown', function(event) {
+        if (event.key === ARROW_LEFT) {
+          keyC = keyC - 1
+          galleryImages.forEach((currImage, index) => {
+            if (index === keyC) {
+              const currentSrc = currImage.querySelectorAll('img')[0].attributes.src.value;
+              setSelectedImage(currentSrc)
+            }
+          })
+        } else if (event.key === ARROW_RIGHT) {
+          keyC = keyC + 1
+          galleryImages.forEach((currImage, index) => {
+            if (index === keyC) {
+              const currentSrc = currImage.querySelectorAll('img')[0].attributes.src.value;
+              setSelectedImage(currentSrc)
+            }
+          })
+        }
+    })
   }, [])
 
   function handleGalleryClose () {
     dispatch(toggleBlur(false))
     toggleModal(false)
+    setSelectedImage(null)
   }
+  console.debug('images', images)
   return (
     <Container fluid>
       <TopMenuBar subPage={true} />
@@ -84,7 +108,7 @@ const PostTemplate = (props) => {
           contentLabel="Example Modal"
           overlayClassName="imageGalleryOverlay"
           className="galleryModal"
-        >
+          >
             <GalleryItem src={selectedImage} />
       </Modal>
     </Container>
