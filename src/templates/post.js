@@ -83,6 +83,7 @@ const PostTemplate = (props) => {
           style={customStyles}
           contentLabel="Example Modal"
           overlayClassName="imageGalleryOverlay"
+          className="galleryModal"
         >
             <GalleryItem src={selectedImage} />
       </Modal>
