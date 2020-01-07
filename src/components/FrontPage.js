@@ -42,14 +42,14 @@ class Header extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      showChristmas: true,
+      showChristmas: false,
     }
   }
   componentDidMount() {
     Promise.all([
       this.props.onFetchBackgroundImages()
     ]).then(() => {
-      this.isChristMasTime()
+      // this.isChristMasTime()
     })
   }
 
