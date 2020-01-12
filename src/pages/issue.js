@@ -47,7 +47,9 @@ class LinkCollection extends Component {
         Promise.all([
             createGithubIssue(issueObject)
         ]).then(res => {
-            console.debug('gh', res)
+            this.setState({
+                isSuccess: true,
+            })
         })
     }
 
@@ -128,6 +130,7 @@ class LinkCollection extends Component {
                                     <button
                                         type="button"
                                         onClick={() => this.handleSubmitCreation()}
+                                        className={styles.btn}
                                     >
                                         Hibajegy beküldése
                                     </button>
