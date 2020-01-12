@@ -31,7 +31,6 @@ export default () => {
         const result = data.allWordpressPage.edges.sort( (a,b) => {  
             return new Date(JSON.parse(striptags(a.node.excerpt).replace(/&#8220;/g, '"').replace(/&#8221;/g, '"').replace(/&#038;#8221;/g, '"')).date) - new Date(JSON.parse(striptags(b.node.excerpt).replace(/&#8220;/g, '"').replace(/&#8221;/g, '"').replace(/&#038;#8221;/g, '"')).date);
         });
-        console.debug('result', result)
     return (
         <div className="nextEventsContainer">
         {
