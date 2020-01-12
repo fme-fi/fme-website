@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import toggleMobileMenu from './reducers/toggleMobileMenu';
 import bgImages from './reducers/getbackGroundImages'
 import blur from './reducers/toggleBlur'
+import issues from './reducers/issues'
 
 const rootReducer = combineReducers({
     isMobileMenuOpen: toggleMobileMenu,
     bgImages,
     blur,
+    issues,
 });
 
 let composeEnhancers = compose;
