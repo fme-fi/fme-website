@@ -27,9 +27,14 @@ const EventsCalendar = () => {
 		<div className={styles.eventsCalendarContainer}>
             {
                 days.map(currDate => (
-                    <p>
-                        {currDate.getDate()}
-                    </p>
+                    <>
+                        <p>
+                            {`${currDate.getDate()} `}
+                            <span>
+                                no event
+                            </span>
+                        </p>
+                    </>
                 ))
             }
         </div>
