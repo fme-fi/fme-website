@@ -26,11 +26,6 @@ export const links = [
       "desc": "Judit Mäkinen blogja"
     },
     {
-      "url": "http://whatsupfinland.org/hungarian/",
-      "title": "What's up Finland",
-      "desc": "Finnországi hírek, érdekességek"
-    },
-    {
       "url": "http://www.magyar-kozosseg.com/",
       "title": "Magyar keresztény közösség"
     },
