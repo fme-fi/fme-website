@@ -49,6 +49,9 @@ class LinkCollection extends Component {
         ]).then(res => {
             this.setState({
                 isSuccess: true,
+                issueTitle: '',
+                issueBody: '',
+                issueBy: '',
             })
         })
     }
