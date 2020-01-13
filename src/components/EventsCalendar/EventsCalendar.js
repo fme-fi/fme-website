@@ -13,6 +13,9 @@ const EventsCalendar = () => {
         console.debug('rendering', true)
     }, [])
 
+    function hasEventThisDay(date) {
+        return false
+    }
 	return(
 		<div className={styles.eventsCalendarContainer}>
             EventsCalendar
