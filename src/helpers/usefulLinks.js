@@ -23,7 +23,7 @@ export const links = [
     {
       "url": "http://unkarilainenkansantanssi.fi/",
       "title": "Magyar néptánc egyesület"
-    }
+    },
     {
       "url": "https://finnorszagilevelek.com",
       "title": "Finnországi Levelek", 
