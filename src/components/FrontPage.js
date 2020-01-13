@@ -11,9 +11,11 @@ import NextEvents from './common/NextEvents';
 import PastEvents from './common/PastEvents';
 import { getBgImages } from '../store/actions/getbackGroundImages'
 import Slider from "react-slick";
+import Christmas from '../components/christmas'
 import { MoonLoader } from 'react-spinners';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import christmasImage from './christmas/fmexmas.png'
 
 const SectionTitle = styled.h1`
     position: relative;
@@ -37,12 +39,40 @@ const BgImage = styled.div`
 `
 
 class Header extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      showChristmas: false,
+    }
+  }
   componentDidMount() {
     Promise.all([
       this.props.onFetchBackgroundImages()
     ]).then(() => {
-      console.debug('props', this.props.bgImages.bgImages)
+      // this.isChristMasTime()
     })
+  }
+
+  isChristMasTime() {
+    const christmasDate = new Date()
+    const currentYear = christmasDate.getFullYear()
+    const currentMonth = christmasDate.getMonth() + 1
+    const currentDate = christmasDate.getDate()
+    const christMasPeriod = {
+      startDate: 17,
+      endDate: 27,
+      month: 12
+    }
+    console.debug('currentYear', currentYear)
+    if (currentDate <= christMasPeriod.endDate ) {
+      this.setState({
+        showChristmas: true
+      })
+    } else {
+      this.setState({
+        showChristmas: false,
+      })
+    }
   }
   render() {
     
@@ -50,7 +80,7 @@ class Header extends Component {
       <div>
         <Container fluid>
           <TopMenuBar />
-          <WelcomeText />
+          <WelcomeText isChristmas={this.state.showChristmas} />
           <Slider
             {...settings}
           >
@@ -60,11 +90,17 @@ class Header extends Component {
 								<BgImage
 									key={currBgImage.id}
 									className="videoBackground"
-									src={`https://farm${currBgImage.farm}.staticflickr.com/${currBgImage.server}/${currBgImage.id}_${currBgImage.secret}_b.jpg`}
+                  src={!this.state.showChristmas ? `https://farm${currBgImage.farm}.staticflickr.com/${currBgImage.server}/${currBgImage.id}_${currBgImage.secret}_b.jpg` : christmasImage}
 								>
-                  <p className="imp">
-                    photo: flickr
-                  </p>
+                  {
+                    !this.state.showChristmas
+                      ? (
+                        <p className="imp">
+                          photo: flickr
+                        </p>
+                      )
+                      : null
+                  }
                 </BgImage>
 							))
 							: <div className="loadingOverlay">
@@ -77,11 +113,6 @@ class Header extends Component {
               </div>
             }
           </Slider>
-          <Row center>
-            <Col lg={12}>
-              { /* <Box /> */ }
-            </Col>
-          </Row>
           <Row center>
             <Col className="upcomingEventsWrapper" lg={10}>
               <SectionTitle>

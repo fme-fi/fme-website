@@ -16,7 +16,6 @@ export const setBgImages = bgImages => dispatch => new Promise(resolve => {
 export const getBgImages = () => dispatch => new Promise(resolve => {
 	axios.get(apiEndpoints.getImages)
 		.then(resp => {
-			console.debug('resp', resp.data)
 			dispatch(setBgImages(shuffle(resp.data.photos.photo)))
 			resolve(resp.data)
 		})

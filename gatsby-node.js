@@ -57,6 +57,15 @@ exports.createPages = ({
         reject(result.errors);
       }
       const postTemplate = path.resolve('./src/templates/post.js');
+      const issuePage = path.resolve('./src/pages/issue.js');
+
+      // creating page for issue 
+
+      createPage({
+        path: '/issues',
+        component: issuePage,
+      })
+
       // We want to create a detailed page for each
       // post node. We'll just use the Wordpress Slug for the slug.
       // The Post ID is prefixed with 'POST_'
@@ -81,7 +90,7 @@ exports.createPages = ({
           component: slash(postTemplate),
           context: {
             id: edge.node.id,   
-            pagination: nextObject                  
+            pagination: nextObject
           },
         });
       });
@@ -103,7 +112,7 @@ exports.createPages = ({
               date
               modified
               slug
-              status                      
+              status
             }
           }
         }

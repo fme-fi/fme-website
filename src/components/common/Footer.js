@@ -37,13 +37,16 @@ class Footer extends Component {
                             backgroundImage: `url(${backgroundImage})`,
                             
                         }} className="footerContainer">
-                            <BackgroundImageContainer />                
+                            <BackgroundImageContainer />
                             <img alt="deer" className="deer" src={Deer} />
                             <img alt="hungarian flag" className="huFlag" src={HuFlag} />
                             <div className="footerMenuContainer">
                                 <ul>
                                     <li>
-                                        <a href="https://richardzilahi.hu">code: richardzilahi</a>
+                                        <a target="_blank" href="https://richardzilahi.hu">code: richardzilahi</a>
+                                    </li>
+                                    <li>
+                                        <a href="/issues">hibabejelentés</a>
                                     </li>
                                     {
                                         data.allWordpressPage.edges.map(({node}) => (

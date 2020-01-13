@@ -19,7 +19,7 @@ const PageTemplate = (props) => {
     page.wordpress_id === wordpressIds.usefulStuff ? 
     <div>
         <LinkCollection links={page.content}>
-            {page.title}                        
+            {page.title}
         </LinkCollection>
     </div>
     : page.wordpress_id === wordpressIds.events ?
@@ -46,7 +46,7 @@ export const pageQuery = graphql`
         title
         content
         excerpt
-        date(formatString: "DD, MMM YYYY")                        
+        date(formatString: "DD, MMM YYYY")
         slug
         id
         wordpress_id
