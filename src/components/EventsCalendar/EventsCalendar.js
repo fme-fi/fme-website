@@ -16,15 +16,22 @@ const EventsCalendar = () => {
         const d = currentDate
         const currentYear = d.getFullYear()
         const getDaysInMonth = (month, year) => (new Array(31)).fill('').map((v,i ) => new Date(year,month - 1, i +1 )).filter(v => v.getMonth ()=== month - 1)
+        setDays(getDaysInMonth(currentMonth, currentYear))
         console.debug(getDaysInMonth(currentMonth, currentYear))
-    }, [currentDate])
+    }, [])
 
     function hasEventThisDay(date) {
         return false
     }
 	return(
 		<div className={styles.eventsCalendarContainer}>
-            EventsCalendar
+            {
+                days.map(currDate => (
+                    <p>
+                        {currDate.getDate()}
+                    </p>
+                ))
+            }
         </div>
 	)
 }
