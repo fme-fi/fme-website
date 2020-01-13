@@ -8,6 +8,7 @@ import SelectedEvent from "../components/common/SelectedEvent";
 import MobileMenuToggle from './../components/common/MobileMenuToggle';
 import { connect } from 'react-redux';
 import { toggleMobileMenu } from './../store/actions/toggleMobileMenu';
+import EventsCalendar from '../components/EventsCalendar/EventsCalendar'
 
 class BasicMap extends Component {  
   constructor(props) {
@@ -45,11 +46,11 @@ class BasicMap extends Component {
                       date
                       modified
                       slug
-                      status          
+                      status
                       featured_media {
                           id
                           source_url
-                          }                      
+                          }
                       }
                   }
               }
@@ -72,14 +73,12 @@ class BasicMap extends Component {
                 <Container>
                   <Row center={true}>
                     <Col lg={10} xs={12}>
-                      {
-                        data.allWordpressPage.edges.map(({node}, index) => (
-                            <SelectedEvent key={index} selectedEvent={businessRules[index]} />
-                        ))
-                      }
-                    </Col>                    
+                      <p>
+                        fejlesztés alatt
+                      </p>
+                    </Col>
                   </Row>
-                </Container>                
+                </Container>
               </div>
           )}
       />
