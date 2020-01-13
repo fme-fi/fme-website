@@ -145,18 +145,6 @@ class LinkCollection extends Component {
                                     <span>🐶</span> Jelenleg nincs nyitott hibajegy!
                                 </p>
                             </div>
-                            {
-                                this.props.issues.map(currIssue => (
-                                    <IssueTicket
-                                        title={currIssue.title}
-                                        key={currIssue.id}
-                                        labels={currIssue.labels}
-                                        number={currIssue.number}
-                                        dateOpened={currIssue.updated_at}
-                                        bodyText={currIssue.body}
-                                    />
-                                ))
-                            }
                         </div>
                         <div className={classnames(
                             this.state.isSuccess === true ? styles.successContainer : styles.hide
