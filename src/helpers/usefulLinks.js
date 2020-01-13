@@ -94,10 +94,6 @@ export const links = [
       "title": "Magyarok szövetsége"
     },
     {
-      "url": "http://kurultaj.hu/",
-      "title": "Kultúrtáj"
-    },
-    {
       "url": "http://ungerska.se/",
       "title": "Északi Magyar Archívum"
     },
