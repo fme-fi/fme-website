@@ -21,6 +21,10 @@ export const links = [
       "title": "Magyar Kulturális és Tudományos Központ"
     },
     {
+      "url": "http://unkarilainenkansantanssi.fi/",
+      "title": "Magyar néptánc egyesület"
+    },
+    {
       "url": "https://finnorszagilevelek.com",
       "title": "Finnországi Levelek", 
       "desc": "Judit Mäkinen blogja"

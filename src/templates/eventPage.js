@@ -36,14 +36,14 @@ const excerpt = JSON.parse(striptags(post.excerpt).replace(/&#8220;/g, '"').repl
               <BlogHeader excerpt={excerpt} postDate={post.date} author={post.author.name} blogTitle={striptags(post.title).replace('&nbsp;', ' ')} featuredImage={defaultFeaturedImage} />
             : <BlogHeader excerpt={excerpt} postDate={post.date} author={post.author.name} blogTitle={striptags(post.title).replace('&nbsp;', ' ')} featuredImage={post.featured_media.source_url} />
           }
-        </header>                   
+        </header>
         <div className="blogContentContainer">
             <Share postTitle={post.title} thisLink={`/blog/${post.slug}`} excerpt={excerpt} />
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
           </div>
         </article>
       </div> 
-    </Container>         
+    </Container>
   );
 };
 
