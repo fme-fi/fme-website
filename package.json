@@ -58,7 +58,7 @@
     "velocity-react": "^1.4.1"
   },
   "engines": {
-    "node": "^10"
+    "node" : "10.16.0"
   },
   "keywords": [
     "fme",
