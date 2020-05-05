@@ -58,8 +58,17 @@
     "uninstall": "0.0.0",
     "velocity-react": "^1.4.1"
   },
+  "engines": {
+    "node": "^12"
+  },
   "keywords": [
-    "gatsby"
+    "fme",
+    "finnország",
+    "suomi",
+    "magyarok",
+    "magyarország",
+    "unkari",
+    "finland"
   ],
   "license": "MIT",
   "scripts": {

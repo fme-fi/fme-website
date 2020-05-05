@@ -64,13 +64,13 @@ class BlogHeader extends Component {
                                     <>
                                         <Clock /> <span dangerouslySetInnerHTML={{__html: this.props.excerpt.date}}></span>
                                     </>
-                                }                             
+                                }
                                 </span>
-                            </p>                            
+                            </p>
                         </div>
                     </div>
                 </BlogHeaderWrapper>
-            </Parallax>      
+            </Parallax>
         )
     }
 }

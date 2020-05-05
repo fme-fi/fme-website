@@ -73,9 +73,7 @@ class BasicMap extends Component {
                 <Container>
                   <Row center={true}>
                     <Col lg={10} xs={12}>
-                      <p>
-                        fejlesztés alatt
-                      </p>
+                      <EventsCalendar />
                     </Col>
                   </Row>
                 </Container>
