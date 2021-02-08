@@ -12,8 +12,8 @@ import Connections from './../pages/Connections';
 import EventPageTemplate from './eventPage';
 
 const PageTemplate = (props) => {
-  const { data: { wordpressPage: page } } = props;  
-  const Layout = LinkCollection;  
+  const { data: { wordpressPage: page } } = props;
+  const Layout = LinkCollection;
 
   return (
     page.wordpress_id === wordpressIds.usefulStuff ? 

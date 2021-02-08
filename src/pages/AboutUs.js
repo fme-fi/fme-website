@@ -6,7 +6,7 @@ import MobileMenuToggle from './../components/common/MobileMenuToggle';
 import { connect } from 'react-redux';
 import { toggleMobileMenu } from './../store/actions/toggleMobileMenu';
 
-class AboutUs extends Component {    
+class AboutUs extends Component {
     componentDidMount() {
         this.props.onToggleMobileMenu(false);
     }
@@ -14,14 +14,14 @@ class AboutUs extends Component {
         return ( 
             <div>
                 <TopMenuBar subPage={true} />
-                <MobileMenuToggle subPage={true} />    
+                <MobileMenuToggle subPage={true} />
                 <Container fluid className="aboutUs">
                     <Row center>
                         <Col xs={10} lg={8}>
                             <h1>
                                 Rólunk
                             </h1>
-                            <p dangerouslySetInnerHTML={{__html: this.props.content}}>                                
+                            <p dangerouslySetInnerHTML={{__html: this.props.content}}>
                             </p>
                         </Col>
                     </Row>

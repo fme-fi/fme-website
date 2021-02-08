@@ -11,7 +11,7 @@ class Archive extends Component {
     componentDidMount() {
         this.props.onToggleMobileMenu(false);
     }
-    render() {        
+    render() {
         return ( 
             <StaticQuery
                 query={graphql`
@@ -21,7 +21,7 @@ class Archive extends Component {
                             node {
                                 wordpress_id
                                 id
-                                title        
+                                title
                                 date
                                 slug
                                 tags {

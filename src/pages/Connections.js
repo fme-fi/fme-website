@@ -9,25 +9,25 @@ import MobileMenuToggle from './../components/common/MobileMenuToggle';
 import { connect } from 'react-redux';
 import { toggleMobileMenu } from './../store/actions/toggleMobileMenu';
 
-class Connections extends Component {    
+class Connections extends Component {
     componentDidMount() {
         this.props.onToggleMobileMenu(false);
     }
-    render() {        
+    render() {
         let linksObject = null;
         if (process.env.NODE_ENV === 'production') {
             linksObject = links
         } else {
             linksObject = JSON.parse(striptags(this.props.links).replace(/&#8220;/g, '"').replace(/&#8221;/g, '"').replace(/&#038;#8221;/g, '"'))
-        }        
+        }
         return (
-            <div>                
+            <div>
                 <TopMenuBar subPage={true} />
-                <MobileMenuToggle subPage={true} />    
-                <Container className="linkCollection">                
-                <Row>                    
+                <MobileMenuToggle subPage={true} />
+                <Container className="linkCollection">
+                <Row>
                     <Col className="col" xs={12} lg={8}>
-                        <ul>                                                        
+                        <ul>
                             {
                                 linksObject ? 
                                 linksObject.map((currentLink, index) => (
@@ -35,11 +35,11 @@ class Connections extends Component {
                                     <ListElement key={index} url={currentLink.url} description={currentLink.desc} title={currentLink.title} />
                                     : <ListElement key={index} url={currentLink.url} description="" title={currentLink.title} />
                                 ))
-                                : null   
+                                : null
                             }
-                        </ul>                        
-                    </Col>                                 
-                </Row>                
+                        </ul>
+                    </Col>
+                </Row>
             </Container>
             <Footer />
             </div>

@@ -129,8 +129,8 @@ export default (props) => {
                             <FaFacebookF size="1.1em" />
                         </li>
                     </ul>
-                </div>          
-            </div>             
+                </div>
+            </div>
     )
     
 }

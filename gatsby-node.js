@@ -33,7 +33,7 @@ exports.createPages = ({
                     slug
                     status
                     template
-                    format                  
+                    format
                   }
                   next {
                     wordpress_id
