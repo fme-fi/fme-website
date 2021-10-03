@@ -75,7 +75,7 @@
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "engines": {
-    "node": ">12.7.0"
+    "node": ">=12.7.0"
   },
   "devDependencies": {
     "prettier": "^1.15.2"
