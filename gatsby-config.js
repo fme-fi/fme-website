@@ -66,11 +66,6 @@ module.exports = {
         // Dashes in IDs will be converted to underscores for use in GraphQL
         acfOptionPageIds: [],
         auth: {
-          // If auth.user and auth.pass are filled, then the source plugin will be allowed
-          // to access endpoints that are protected with .htaccess.
-          htaccess_user: "your-htaccess-username",
-          htaccess_pass: "your-htaccess-password",
-          htaccess_sendImmediately: false,
 
           // If hostingWPCOM is true then you will need to communicate with wordpress.com API
           // in order to do that you need to create an app (of type Web) at https://developer.wordpress.com/apps/
@@ -83,10 +78,6 @@ module.exports = {
           wpcom_user: process.env.GATSBY_WORDPRESS_USERNAME,
           wpcom_pass: process.env.GATSBY_WORDPRESS_PASSWORD,
 
-          // If you use "JWT Authentication for WP REST API" (https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/)
-          // plugin, you can specify user and password to obtain access token and use authenticated requests against wordpress REST API.
-          jwt_user: process.env.JWT_USER,
-          jwt_pass: process.env.JWT_PASSWORD,
         },
         // Set verboseOutput to true to display a verbose output on `npm run develop` or `npm run build`
         // It can help you debug specific API Endpoints problems.
