@@ -36,19 +36,19 @@ class Archive extends Component {
                 render={data => (
                     <div>
                         <TopMenuBar subPage={true} />
-                        <MobileMenuToggle subPage={true} />    
+                        <MobileMenuToggle subPage={true} />
                         <Container fluid className="archiveList">
                             <Row center>
                                 <Col xs={10} lg={8}>
                                     <h1>
                                         {`Archiv (${data.allWordpressPost.edges.length})`}
                                     </h1>
-                                    <div>                                        
+                                    <div>
                                         <ul>
                                             {
-                                                data.allWordpressPost.edges.map(({node}, index) => (                                                    
-                                                    <Link key={index} to={`blog/${node.slug}`}>
-                                                        <li dangerouslySetInnerHTML={{__html: node.title}} />                                                                                                            
+                                                data.allWordpressPost.edges.map(({node}, index) => (
+                                                    <Link key={index} to={`/blog/${node.slug}`}>
+                                                        <li dangerouslySetInnerHTML={{__html: node.title}} />
                                                     </Link>
                                                 ))
                                             }
