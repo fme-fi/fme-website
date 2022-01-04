@@ -121,7 +121,6 @@ class Header extends Component {
               <NextEvents />
             </Col>
           </Row>
-          <Management />
           <div className="pastEventsContainer">
               <PastEvents />
           </div>

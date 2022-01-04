@@ -5,6 +5,7 @@ import { Container, Row, Col } from 'react-flexybox';
 import MobileMenuToggle from './../components/common/MobileMenuToggle';
 import { connect } from 'react-redux';
 import { toggleMobileMenu } from './../store/actions/toggleMobileMenu';
+import Management from '../components/common/Management';
 
 class AboutUs extends Component {    
     componentDidMount() {
@@ -14,7 +15,7 @@ class AboutUs extends Component {
         return ( 
             <div>
                 <TopMenuBar subPage={true} />
-                <MobileMenuToggle subPage={true} />    
+                <MobileMenuToggle subPage={true} />
                 <Container fluid className="aboutUs">
                     <Row center>
                         <Col xs={10} lg={8}>
@@ -26,6 +27,7 @@ class AboutUs extends Component {
                         </Col>
                     </Row>
                 </Container>
+                <Management />
                 <Footer />
             </div>
          );

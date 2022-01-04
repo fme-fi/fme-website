@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { orderBy } from 'lodash'
 import TopMenuBar from './../components/common/TopMenuBar';
 import Footer from './../components/common/Footer';
 import { Container, Row, Col } from 'react-flexybox';
@@ -6,6 +7,24 @@ import { StaticQuery, graphql, Link } from 'gatsby';
         import MobileMenuToggle from './../components/common/MobileMenuToggle';
 import { connect } from 'react-redux';
 import { toggleMobileMenu } from './../store/actions/toggleMobileMenu';
+
+function reOrderItems(items) {
+    const posts = items.allWordpressPost.edges
+    const reordered = orderBy(posts, [({node}) => new Date(node.date)], ['desc']);
+    console.log(reordered)
+    return reordered
+
+}
+
+function formatPostDate(thisPostDate) {
+    const date = new Date(thisPostDate)
+    return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+}
+
+function formatTitle(data) {
+    const formattedDate = formatPostDate(data.date)
+    return `${data.title} – (${formattedDate})`
+}
 
 class Archive extends Component {
     componentDidMount() {
@@ -21,7 +40,7 @@ class Archive extends Component {
                             node {
                                 wordpress_id
                                 id
-                                title        
+                                title
                                 date
                                 slug
                                 tags {
@@ -36,7 +55,7 @@ class Archive extends Component {
                 render={data => (
                     <div>
                         <TopMenuBar subPage={true} />
-                        <MobileMenuToggle subPage={true} />
+                        <MobileMenuToggle subPage={true} />    
                         <Container fluid className="archiveList">
                             <Row center>
                                 <Col xs={10} lg={8}>
@@ -46,9 +65,9 @@ class Archive extends Component {
                                     <div>
                                         <ul>
                                             {
-                                                data.allWordpressPost.edges.map(({node}, index) => (
-                                                    <Link key={index} to={`/blog/${node.slug}`}>
-                                                        <li dangerouslySetInnerHTML={{__html: node.title}} />
+                                                reOrderItems(data).map(({node}, index) => (
+                                                    <Link key={index} to={`blog/${node.slug}`}>
+                                                        <li dangerouslySetInnerHTML={{__html: formatTitle(node)}} />
                                                     </Link>
                                                 ))
                                             }
