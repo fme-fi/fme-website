@@ -6,7 +6,7 @@ import striptags from 'striptags';
 class PastEvents extends Component {
     constructor(props) {
         super(props);
-        this.handleClick = this.handleClick.bind(this);            
+        this.handleClick = this.handleClick.bind(this);
     }
 
     handleClick(postSlug) {
@@ -18,7 +18,7 @@ class PastEvents extends Component {
             <StaticQuery
                 query={graphql`
                     query LatestEventsQuery {
-                        allWordpressPost(sort: { fields: [date], order: DESC }, filter: {categories: {eq: 669435248}}, limit: 3) {
+                        allWordpressPost(sort: { fields: [date], order: DESC }, filter: {categories: {eq: 669435248}}, limit: 9) {
                             edges {
                                 node {
                                     id
@@ -29,7 +29,7 @@ class PastEvents extends Component {
                                     featured_media {
                                         id
                                         source_url
-                                    }                                                                        
+                                    }
                                 }
                             }
                         }
@@ -44,6 +44,13 @@ class PastEvents extends Component {
                                     return (
                                         <a key={node.id} href={`/blog/${node.slug}`}>
                                             <Col className="onePastEvent" xs={12} lg={3}>
+                                            <div className="content">
+                                                <h1>
+                                                {
+                                                    striptags(node.title).replace('&nbsp;', ' ')
+                                                }
+                                                </h1>
+                                            </div>
                                             <div style={{backgroundImage: `url(${node.featured_media.source_url})`}} className="featuredImage">
                                                 <span>
                                                     {
@@ -51,18 +58,12 @@ class PastEvents extends Component {
                                                     }
                                                 </span>
                                             </div>
-                                                <div className="content">
-                                                    <h1>
-                                                    {
-                                                        striptags(node.title).replace('&nbsp;', ' ')
-                                                    }                                            
-                                                    </h1>
-                                                </div>
+                                            
                                             </Col>
                                         </a>
-                                    )                                    
+                                    )
                                 })
-                            }                                  
+                            }
                         </Row>
                     </Container>
                 )}
