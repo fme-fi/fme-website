@@ -89,7 +89,7 @@ exports.createPages = ({
           path: `/blog/${edge.node.slug}`,
           component: slash(postTemplate),
           context: {
-            id: edge.node.id,   
+            id: edge.node.id,
             pagination: nextObject
           },
         });

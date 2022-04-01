@@ -66,7 +66,7 @@ class Archive extends Component {
                                         <ul>
                                             {
                                                 reOrderItems(data).map(({node}, index) => (
-                                                    <Link key={index} to={`blog/${node.slug}`}>
+                                                    <Link key={index} to={`/blog/${node.slug}`}>
                                                         <li dangerouslySetInnerHTML={{__html: formatTitle(node)}} />
                                                     </Link>
                                                 ))

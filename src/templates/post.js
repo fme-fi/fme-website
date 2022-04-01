@@ -44,7 +44,7 @@ const PostTemplate = (props) => {
           meta={[
             { name: 'description', content: post.title },
           ]}
-        />      
+        />
        <article>
         <header>
           {
@@ -82,7 +82,7 @@ export const pageQuery = graphql`
         title
         content
         excerpt
-        date(formatString: "DD, MMM YYYY")                        
+        date(formatString: "DD, MMM YYYY")
         slug
         featured_media {
           id

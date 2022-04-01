@@ -4,10 +4,10 @@ import Footer from './../components/common/Footer';
 import { Container, Row, Col } from 'react-flexybox';
 import MobileMenuToggle from './../components/common/MobileMenuToggle';
 import { connect } from 'react-redux';
-import { toggleMobileMenu } from './../store/actions/toggleMobileMenu';
+import { toggleMobileMenu } from './../store/actions/toggleMobileMenu';
 import Management from '../components/common/Management';
 
-class AboutUs extends Component {    
+class AboutUs extends Component {
     componentDidMount() {
         this.props.onToggleMobileMenu(false);
     }
